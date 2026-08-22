@@ -4,67 +4,133 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Para el pueblo de Dios</title>
+  <!-- Fuente moderna Inter desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fcfcfc;
-      --card: #ffffff;
-      --text: #222222;
-      --muted: #666666;
-      --border: #e0e0e0;
-      --red: #c0392b;
+      --bg-body: #f8f9fa;
+      --surface: #ffffff;
+      --text-main: #1a1a1a;
+      --text-muted: #555555;
+      --red-primary: #b71c1c;
+      --red-dark: #801313;
+      --border: #e2e8f0;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      --shadow-hover: 0 20px 25px -5px rgba(183, 28, 28, 0.1), 0 8px 10px -6px rgba(183, 28, 28, 0.04);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    header { background: #fff; border-bottom: 2px solid var(--red); padding: 1rem 2rem; position: sticky; top: 0; }
-    .logo { font-size: 1.3rem; font-weight: 700; border-left: 4px solid var(--red); padding-left: 0.5rem; }
-    .hero { max-width: 900px; margin: 2rem auto; text-align: center; padding: 0 1rem; }
-    .hero h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-    .hero p { color: var(--muted); }
-    .divider { width: 50px; height: 3px; background: var(--red); margin: 1rem auto; }
-    .container { max-width: 900px; margin: 0 auto 3rem auto; padding: 0 1rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-    .card { background: var(--card); border: 1px solid var(--border); border-top: 3px solid var(--red); padding: 1.2rem; border-radius: 4px; }
-    .card h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-    .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
-    .btn { display: inline-block; padding: 0.4rem 0.8rem; border: 1px solid var(--red); color: var(--red); font-size: 0.8rem; font-weight: 600; text-decoration: none; border-radius: 3px; }
-    footer { border-top: 1px solid var(--border); text-align: center; padding: 1.5rem; font-size: 0.8rem; color: var(--muted); }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-body); color: var(--text-main); line-height: 1.6; }
+
+    /* NAVEGACIÓN SUPERIOR */
+    header { background: #111111; color: #ffffff; border-bottom: 3px solid var(--red-primary); padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; }
+    .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.5px; text-transform: uppercase; }
+    .logo span { color: var(--red-primary); }
+
+    /* SECCIÓN PRINCIPAL / HERO IMPACTANTE */
+    .hero { background: linear-gradient(180deg, #111111 0%, #1a1a1a 100%); color: #ffffff; text-align: center; padding: 4rem 1.5rem 5rem 1.5rem; border-bottom: 1px solid #222; }
+    .hero-badge { display: inline-block; background: rgba(183, 28, 28, 0.2); color: #ff6b6b; border: 1px solid rgba(183, 28, 28, 0.4); font-size: 0.8rem; font-weight: 600; padding: 0.3rem 1rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.2rem; }
+    .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 1rem; line-height: 1.2; }
+    .hero p { font-size: 1.15rem; color: #aaaaaa; max-width: 650px; margin: 0 auto; font-weight: 300; }
+
+    /* CONTENEDOR DE TARJETAS */
+    .container { max-width: 1100px; margin: -2.5rem auto 4rem auto; padding: 0 1.5rem; position: relative; z-index: 10; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+
+    /* TARJETAS CON PERSONALIDAD */
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.5rem; box-shadow: var(--shadow); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+    .card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--border); transition: background 0.3s ease; }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(183, 28, 28, 0.3); }
+    .card:hover::before { background: var(--red-primary); }
+
+    .card-icon { font-size: 2rem; margin-bottom: 1rem; display: inline-block; }
+    .card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text-main); }
+    .card p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.8rem; font-weight: 400; }
+
+    /* BOTONES MODERNOS */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--bg-body); color: var(--text-main); border: 1px solid var(--border); padding: 0.6rem 1.2rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; border-radius: 6px; transition: all 0.2s ease; width: fit-content; }
+    .card:hover .btn { background: var(--red-primary); color: #ffffff; border-color: var(--red-primary); }
+
+    /* BLOQUE DE COMUNIDAD / CONTACTO */
+    .community { background: #ffffff; border-left: 5px solid var(--red-primary); border-radius: 8px; padding: 2rem; margin-top: 3rem; box-shadow: var(--shadow); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; }
+    .community-text h3 { font-size: 1.3rem; margin-bottom: 0.3rem; }
+    .community-text p { color: var(--text-muted); font-size: 0.95rem; }
+    .btn-red { background: var(--red-primary); color: #ffffff; border: none; padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 6px; text-decoration: none; transition: background 0.2s ease; }
+    .btn-red:hover { background: var(--red-dark); }
+
+    footer { text-align: center; padding: 3rem 1.5rem; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 2rem; }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="logo">Para el pueblo de Dios</div>
+    <div class="nav-container">
+      <div class="logo">Para el pueblo <span>de Dios</span></div>
+    </div>
   </header>
+
   <section class="hero">
-    <h1>Biblioteca de Recursos Pastoral</h1>
-    <p>Talleres, guiones litúrgicos y material visual para la comunidad.</p>
-    <div class="divider"></div>
+    <span class="hero-badge">Recursos Pastoral & Catequesis</span>
+    <h1>Biblioteca abierta para la comunidad</h1>
+    <p>Talleres en PowerPoint, guiones para celebraciones, material visual y contenidos de formación listos para usar.</p>
   </section>
+
   <main class="container">
     <div class="grid">
+
       <div class="card">
-        <h3>Talleres & Presentaciones</h3>
-        <p>PowerPoints y guías para formación bíblica.</p>
-        <a href="#" class="btn">Explorar</a>
+        <div>
+          <span class="card-icon">📊</span>
+          <h3>Talleres & Presentaciones</h3>
+          <p>Presentaciones en PowerPoint y dinámicas estructuradas para formación bíblica y teológica.</p>
+        </div>
+        <a href="#" class="btn">Explorar talleres &rarr;</a>
       </div>
+
       <div class="card">
-        <h3>Guiones Litúrgicos</h3>
-        <p>Textos para Vía Crucis, Navidad y celebraciones.</p>
-        <a href="#" class="btn">Ver Guiones</a>
+        <div>
+          <span class="card-icon">📜</span>
+          <h3>Guiones Litúrgicos</h3>
+          <p>Textos y estructuras listas para imprimir: Vía Crucis, Navidad, Pentecostés y encuentros.</p>
+        </div>
+        <a href="#" class="btn">Ver guiones &rarr;</a>
       </div>
+
       <div class="card">
-        <h3>Videoteca</h3>
-        <p>Enlaces y explicaciones de "Fe para Dummies".</p>
-        <a href="#" class="btn">Ver Videos</a>
+        <div>
+          <span class="card-icon">🎬</span>
+          <h3>Videoteca Pastoral</h3>
+          <p>Catálogo organizado con temas explicativos de "Fe para Dummies" y doctrina sencilla.</p>
+        </div>
+        <a href="#" class="btn">Ver videos &rarr;</a>
       </div>
+
       <div class="card">
-        <h3>Recursos Visuales</h3>
-        <p>Infografías e imágenes en alta resolución.</p>
-        <a href="#" class="btn">Ver Galería</a>
+        <div>
+          <span class="card-icon">🖼️</span>
+          <h3>Recursos Visuales</h3>
+          <p>Infografías conceptuales y banco de imágenes en alta calidad para uso comunitario.</p>
+        </div>
+        <a href="#" class="btn">Ver galería &rarr;</a>
       </div>
+
+    </div>
+
+    <div class="community">
+      <div class="community-text">
+        <h3>¿Buscas algún material específico o quieres aportar?</h3>
+        <p>Si necesitas adaptar un guion o tienes dudas sobre una dinámica, conversemos.</p>
+      </div>
+      <a href="#" class="btn-red">Enviar mensaje</a>
     </div>
   </main>
+
   <footer>
-    <p>Material de libre acceso para la evangelización.</p>
+    <p>Desarrollado como archivo abierto para la evangelización. Sin fines de lucro.</p>
   </footer>
+
 </body>
 </html>
