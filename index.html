@@ -102,47 +102,12 @@
       transition: background 0.2s ease;
     }
 
-    .nav-btn:hover { background: var(--red-hover); }
-
-    /* BARRA DE CONCEPTOS */
-    .features-bar {
-      background: #ffffff;
-      border-bottom: 1px solid var(--border);
-      padding: 0.75rem 1rem;
-    }
-
-    .features-bar-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .feature-item {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--purple-main);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .feature-item::before {
-      content: "•";
-      color: var(--red-accent);
-      font-size: 1.2rem;
-    }
-
     /* HERO PRINCIPAL */
     .hero { 
       background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%); 
       color: #ffffff; 
       text-align: center; 
-      padding: 4.5rem 1.5rem 5rem 1.5rem; 
+      padding: 4rem 1.5rem 5rem 1.5rem; 
     }
 
     .hero h1 { 
@@ -150,10 +115,6 @@
       font-weight: 800; 
       letter-spacing: -1px; 
       margin-bottom: 1rem; 
-      line-height: 1.25;
-      max-width: 850px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .hero p { 
@@ -172,75 +133,16 @@
       z-index: 10;
     }
 
-    /* SECCIÓN DESTACADA */
-    .featured-section {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-top: 4px solid var(--red-accent);
-      border-radius: 12px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow-md);
-      margin-bottom: 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .featured-badge {
-      display: inline-block;
-      background: rgba(211, 47, 47, 0.1);
-      color: var(--red-accent);
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-    }
-
-    .featured-content h2 {
-      font-size: 1.8rem;
-      color: var(--purple-main);
-      margin-bottom: 0.8rem;
-      line-height: 1.3;
-    }
-
-    .featured-content p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .featured-video-box {
-      background: #0f172a;
-      border-radius: 8px;
-      aspect-ratio: 16 / 9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #94a3b8;
-      border: 1px solid var(--border);
-    }
-
-    .play-icon {
-      font-size: 2.5rem;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-    }
-
     /* TITULARES DE SECCIÓN */
     .section-header {
-      margin-bottom: 1.5rem;
+      margin: 2.5rem 0 1.5rem 0;
       display: flex;
       align-items: center;
       gap: 0.8rem;
     }
 
     .section-header h2 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: var(--purple-main);
       font-weight: 800;
     }
@@ -249,125 +151,100 @@
       content: "";
       display: inline-block;
       width: 4px;
-      height: 22px;
+      height: 24px;
       background: var(--red-accent);
       border-radius: 2px;
     }
 
-    /* GRILLAS */
-    .grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
-      gap: 1.5rem; 
-      margin-bottom: 3.5rem;
+    /* BIBLIOTECA VISUAL DE TALLERES (CATÁLOGO) */
+    .workshop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
     }
 
-    .card { 
-      background: var(--surface); 
-      border: 1px solid var(--border); 
-      border-radius: 12px; 
-      padding: 2rem 1.5rem; 
-      box-shadow: var(--shadow-md); 
-      transition: all 0.3s ease; 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: space-between; 
+    .workshop-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
-    .card:hover { 
-      transform: translateY(-5px); 
+    .workshop-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(59, 18, 94, 0.15);
       border-color: var(--purple-main);
     }
 
-    .card-tag {
-      font-size: 0.75rem;
+    /* Espacio para la imagen de portada de la diapositiva */
+    .workshop-cover {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      border-bottom: 3px solid var(--red-accent);
+      position: relative;
+    }
+
+    .workshop-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--purple-dark);
+      color: #ffffff;
+      font-size: 0.7rem;
       font-weight: 800;
-      color: var(--red-accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
     }
 
-    .card h3 { 
-      font-size: 1.25rem; 
-      font-weight: 700; 
-      margin-bottom: 0.6rem; 
-      color: var(--purple-main); 
-    }
-
-    .card p { 
-      color: var(--text-muted); 
-      font-size: 0.9rem; 
-      margin-bottom: 1.5rem; 
-    }
-
-    .card-actions {
+    .workshop-body {
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      flex-grow: 1;
+      justify-content: space-between;
     }
 
-    .card-link {
+    .workshop-body h3 {
+      font-size: 1.2rem;
       color: var(--purple-main);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .workshop-body p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-download {
+      display: inline-block;
+      text-align: center;
+      background: var(--red-accent);
+      color: #ffffff;
       font-weight: 700;
       font-size: 0.85rem;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
+      transition: background 0.2s ease;
     }
 
-    .card-link:hover {
-      color: var(--red-accent);
-    }
-
-    /* SECCIÓN DE ENLACES EXTERNOS / COMUNIDAD */
-    .links-section {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: var(--shadow-md);
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.2rem;
-    }
-
-    .link-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem;
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--text-main);
-      transition: all 0.2s ease;
-    }
-
-    .link-item:hover {
-      background: #ffffff;
-      border-color: var(--red-accent);
-      transform: translateX(4px);
-    }
-
-    .link-icon {
-      font-size: 1.5rem;
-    }
-
-    .link-info h4 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--purple-main);
-    }
-
-    .link-info p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
+    .btn-download:hover {
+      background: var(--red-hover);
     }
 
     footer { 
@@ -380,10 +257,6 @@
     }
 
     footer strong { color: #ffffff; }
-
-    @media (max-width: 768px) {
-      .featured-section { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body>
@@ -397,141 +270,80 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#talleres">Talleres</a></li>
+          <li><a href="#talleres">Biblioteca Talleres</a></li>
           <li><a href="#guiones">Guiones</a></li>
           <li><a href="#videoteca">Videoteca</a></li>
           <li><a href="#recursos">Recursos</a></li>
-          <li><a href="#enlaces">Enlaces</a></li>
-          <li><a href="#contacto" class="nav-btn">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- BARRA DE CONCEPTOS -->
-  <div class="features-bar">
-    <div class="features-bar-container">
-      <span class="feature-item">Formación Bíblica</span>
-      <span class="feature-item">Liturgia Abierta</span>
-      <span class="feature-item">Fe Para Dummies</span>
-      <span class="feature-item">Sin Fines de Lucro</span>
-    </div>
-  </div>
-
   <!-- HERO PRINCIPAL -->
   <section class="hero">
-    <h1>Recursos y herramientas abiertas para la evangelización</h1>
-    <p>Un archivo pastoral organizado con talleres, guiones y material visual listo para usar.</p>
+    <h1>Catálogo Abierto de Formación Pastoral</h1>
+    <p>Presentaciones en PowerPoint estructuradas, listas para proyectar y trabajar en comunidad.</p>
   </section>
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-wrapper">
 
-    <!-- SECCIÓN DESTACADA -->
-    <section class="featured-section">
-      <div class="featured-content">
-        <span class="featured-badge">Tema Destacado</span>
-        <h2>Taller Dinámico: El Profeta Jeremías</h2>
-        <p>Una propuesta interactiva y directa sobre la vocación profética, lista para descargar con guía de trabajo y presentación en PowerPoint.</p>
-        <a href="#" class="nav-btn" style="display: inline-block; text-decoration: none;">Ver material completo &rarr;</a>
-      </div>
-      <div class="featured-video-box">
-        <div class="play-icon">▶</div>
-        <p style="font-size: 0.85rem;">[ Espacio para video promocional / 15 seg ]</p>
-      </div>
-    </section>
-
-    <!-- ARCHIVO COMPLETO EN GRILLA -->
-    <div class="section-header">
-      <h2>Explorar el Repositorio</h2>
+    <div class="section-header" id="talleres">
+      <h2>Talleres & Presentaciones Destacadas</h2>
     </div>
 
-    <div class="grid">
-      <!-- TARJETA TALLERES CON LOS DOS ENLACES DE DRIVE -->
-      <div class="card" id="talleres">
-        <div>
-          <div class="card-tag">Formación</div>
-          <h3>Talleres & PPT</h3>
-          <p>Presentaciones completas en PowerPoint y dinámicas estructuradas organizadas por año.</p>
+    <!-- GRILLA VISUAL TIPO BIBLIOTECA -->
+    <div class="workshop-grid">
+
+      <!-- FICHA TALLER 1 -->
+      <div class="workshop-card">
+        <div class="workshop-cover">
+          <span class="workshop-badge">2025</span>
+          <span>[ Foto / Portada PPT ]</span>
         </div>
-        <div class="card-actions">
-          <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="card-link">📁 Ver Talleres 2025 &rarr;</a>
-          <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="card-link">📁 Ver Talleres 2026 &rarr;</a>
+        <div class="workshop-body">
+          <div>
+            <h3>01. La Infancia de Jesús</h3>
+            <p>Un recorrido por los misterios del nacimiento y la vida oculta de Cristo, preparado para encuentros de catequesis.</p>
+          </div>
+          <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Descargar PowerPoint &rarr;</a>
         </div>
       </div>
 
-      <div class="card" id="guiones">
-        <div>
-          <div class="card-tag">Celebración</div>
-          <h3>Guiones Litúrgicos</h3>
-          <p>Textos para Vía Crucis, Navidad, Pentecostés y ceremonias.</p>
+      <!-- FICHA TALLER 2 -->
+      <div class="workshop-card">
+        <div class="workshop-cover">
+          <span class="workshop-badge">2025</span>
+          <span>[ Foto / Portada PPT ]</span>
         </div>
-        <a href="#" class="card-link">Explorar guiones &rarr;</a>
+        <div class="workshop-body">
+          <div>
+            <h3>02. El Vocación del Profeta Jeremías</h3>
+            <p>Dinámica interactiva sobre la respuesta al llamado de Dios y los desafíos del compromiso comunitario.</p>
+          </div>
+          <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Descargar PowerPoint &rarr;</a>
+        </div>
       </div>
 
-      <div class="card" id="videoteca">
-        <div>
-          <div class="card-tag">Contenido Visual</div>
-          <h3>Videoteca Pastoral</h3>
-          <p>Explicaciones de la serie "Fe para Dummies" y doctrina sencilla.</p>
+      <!-- FICHA TALLER 3 -->
+      <div class="workshop-card">
+        <div class="workshop-cover">
+          <span class="workshop-badge">2026</span>
+          <span>[ Foto / Portada PPT ]</span>
         </div>
-        <a href="#" class="card-link">Ver videos &rarr;</a>
+        <div class="workshop-body">
+          <div>
+            <h3>03. Los Milagros en los Evangelios</h3>
+            <p>Análisis conceptual sobre los signos de Jesús, su contexto histórico y su significado pastoral hoy.</p>
+          </div>
+          <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Descargar PowerPoint &rarr;</a>
+        </div>
       </div>
 
-      <div class="card" id="recursos">
-        <div>
-          <div class="card-tag">Diseño</div>
-          <h3>Recursos Visuales</h3>
-          <p>Infografías conceptuales e imágenes preparadas para descargar.</p>
-        </div>
-        <a href="#" class="card-link">Ver galería &rarr;</a>
-      </div>
     </div>
-
-    <!-- SECCIÓN: ENLACES & COMUNIDAD -->
-    <section class="links-section" id="enlaces">
-      <div class="section-header">
-        <h2>Enlaces de Interés & Comunidad</h2>
-      </div>
-
-      <div class="links-grid">
-        <a href="#" class="link-item">
-          <span class="link-icon">💬</span>
-          <div class="link-info">
-            <h4>Grupo de WhatsApp</h4>
-            <p>Unirse a la comunidad</p>
-          </div>
-        </a>
-
-        <a href="#" class="link-item">
-          <span class="link-icon">⛪</span>
-          <div class="link-info">
-            <h4>Nuestra Capilla</h4>
-            <p>Horarios e información local</p>
-          </div>
-        </a>
-
-        <a href="https://www.vatican.va" target="_blank" class="link-item">
-          <span class="link-icon">📖</span>
-          <div class="link-info">
-            <h4>Documentos Papales</h4>
-            <p>Vaticano & Magisterio</p>
-          </div>
-        </a>
-
-        <a href="#" class="link-item">
-          <span class="link-icon">🔗</span>
-          <div class="link-info">
-            <h4>Recursos Externos</h4>
-            <p>Sitios recomendados</p>
-          </div>
-        </a>
-      </div>
-    </section>
 
   </main>
 
-  <!-- PIE DE PÁGINA -->
   <footer>
     <p><strong>Para el pueblo de Dios</strong> — Proyecto desarrollado para facilitar la labor de catequistas y formadores.</p>
   </footer>
