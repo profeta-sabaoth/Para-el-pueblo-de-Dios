@@ -1,1 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videoteca Pastoral | Para el pueblo de Dios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-main: #3b125e;
+      --purple-dark: #270b40;
+      --red-accent: #d32f2f;
+      --red-hover: #b71c1c;
+      --bg-light: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-md: 0 10px 25px -5px rgba(59, 18, 94, 0.08);
+    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif; 
+      background-color: var(--bg-light); 
+      color: var(--text-main); 
+      line-height: 1.6;
+    }
+
+    header { 
+      background: var(--purple-dark); 
+      color: #ffffff; 
+      padding: 1rem 2rem; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+
+    .logo-text { 
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; 
+      font-weight: 700; 
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .logo-text span { color: var(--red-accent); font-style: italic; }
+
+    .btn-back {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .btn-back:hover { background: var(--red-accent); }
+
+    .hero-page { 
+      background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%); 
+      color: #ffffff; 
+      text-align: center; 
+      padding: 3rem 1.5rem 4rem 1.5rem; 
+    }
+
+    .hero-page h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .hero-page p { color: #cbd5e1; font-size: 1.1rem; }
+
+    .main-wrapper {
+      max-width: 1200px;
+      margin: -2rem auto 4rem auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .category-header {
+      margin: 2.5rem 0 1.2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .category-header h2 { font-size: 1.6rem; color: var(--purple-main); font-weight: 800; }
+
+    .category-header::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--red-accent);
+      border-radius: 2px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .video-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-embed {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border: none;
+    }
+
+    .video-info {
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .video-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--red-accent);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .video-info h3 {
+      font-size: 1.1rem;
+      color: var(--purple-main);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .video-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    footer { 
+      background: var(--purple-dark);
+      color: #94a3b8;
+      text-align: center; 
+      padding: 2.5rem 1.5rem; 
+      font-size: 0.9rem; 
+      border-top: 3px solid var(--red-accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo-text">Para el pueblo <span>de Dios</span></a>
+      <a href="index.html" class="btn-back">&larr; Volver a la Portada</a>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <h1>Videoteca Pastoral & Formación</h1>
+    <p>Explicaciones directas, micro-talleres y formato noticiero para comprender la liturgia y las escrituras.</p>
+  </section>
+
+  <main class="main-wrapper">
+
+    <!-- SERIE FE PARA DUMMIES: LA MISA -->
+    <div class="category-header">
+      <h2>Serie: Fe para Dummies — La Misa</h2>
+    </div>
+
+    <div class="video-grid">
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/1qnUQFzb9F4" title="01 La Misa" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Capítulo 01</span>
+          <h3>La Misa no es un espectáculo</h3>
+          <p>¿Por qué a muchos les resulta aburrida la Misa? Análisis sobre la diferencia entre entretenimiento y liturgia sagrada.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/CTTxDw00U90" title="C 2 Ritos iniciales" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Capítulo 02</span>
+          <h3>Ritos Iniciales y la Música</h3>
+          <p>El rol del animador, el sentido del acto penitencial, el Gloria y el verdadero propósito del coro parroquial.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/ncyiUSSYjt8" title="C 3 Los lectores" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Capítulo 03</span>
+          <h3>Los Lectores y el Protocolo del Altas</h3>
+          <p>Errores comunes en la proclamación, el respeto al ambón y las normas de la Iglesia para la Liturgia de la Palabra.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/o7ytbSdv36o" title="C 4 La homilía" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Capítulo 04</span>
+          <h3>El Salmo, la Homilía y las Peticiones</h3>
+          <p>Criterios oficiales sobre la preparación de la predicación, el tono del salmo y la oración comunitaria.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/N-avBwglY9A" title="C 5 Las ofrendas" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Capítulo 05</span>
+          <h3>Las Ofrendas y el Altar</h3>
+          <p>Lo que debe y no debe ponerse sobre el altar, el sentido real de la colecta y el canto del Santo.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/nbmzMOz-uzg" title="C 6 La comunión" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Capítulo 06</span>
+          <h3>La Consecración y la Comunión</h3>
+          <p>La presencia real en la Eucaristía, la postura física, el rito de la paz y el silencio agradecido.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/_2JBx8XucZQ" title="C El envío" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Capítulo 07</span>
+          <h3>El Envío y la Conclusión</h3>
+          <p>El vicio de retirarse antes de la oración final, los avisos parroquiales y el verdadero significado de la Misa en la vida diaria.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NOTICIAS DEL REINO -->
+    <div class="category-header">
+      <h2>Noticias del Reino — Formato Noticiero</h2>
+    </div>
+
+    <div class="video-grid">
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/rNO7cRlczLU" title="Nace el Rey de los Judíos" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Edición Especial</span>
+          <h3>Nace el Rey de los Judíos en Belén</h3>
+          <p>Cobertura en directo sobre la llegada de los pastores, los sabios de Oriente y la huida a Egipto.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/FEa4AGSEqLI" title="Entrada triunfal de Jesús" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Cobertura en Vivo</span>
+          <h3>Entrada Triunfal de Jesús en Jerusalén</h3>
+          <p>El ambiente en las calles, la aclamación con ramos de olivo y la tensión en las autoridades del Templo.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/-vbhXYVYokY" title="La última cena y el arresto" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Reportaje Histórico</span>
+          <h3>La Última Cena y el Arresto en Getsemaní</h3>
+          <p>Detalles del lavatorio de pies, la copa de la alianza y el operativo del arresto en el huerto.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/3CqYIzs6a7E" title="Juicio y crucifixión" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Edición Especial</span>
+          <h3>Juicio y Crucifixión de Jesús</h3>
+          <p>Análisis del interrogatorio en el Sanedrín, la decisión de Poncio Pilato y los sucesos en el Golgota.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/SwRvi4ItQNA" title="El sepulcro vacío" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Última Hora</span>
+          <h3>El Sepulcro Vacío</h3>
+          <p>Desaparición del cuerpo, testimonios de los guardias romanos y reportes de apariciones en el camino a Emaús.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TEMAS VARIOS -->
+    <div class="category-header">
+      <h2>Enseñanzas & Cápsulas Varias</h2>
+    </div>
+
+    <div class="video-grid">
+
+      <div class="video-card">
+        <iframe class="video-embed" src="https://www.youtube.com/embed/S6LIHQ9CN-8" title="El nombre de Dios" allowfullscreen></iframe>
+        <div class="video-info">
+          <span class="video-tag">Cápsula Bíblica</span>
+          <h3>01. ¿Cuál es el nombre de Dios?</h3>
+          <p>Explicación sobre Elohim, Adonai, Yahvé y el término "Abba" revelado en el Nuevo Testamento.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p><strong>Para el pueblo de Dios</strong> — Material audiovisual en acceso libre.</p>
+  </footer>
+
+</body>
+</html>
