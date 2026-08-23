@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talleres & Presentaciones | Para el pueblo de Dios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-main: #3b125e;
+      --purple-dark: #270b40;
+      --red-accent: #d32f2f;
+      --red-hover: #b71c1c;
+      --bg-light: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-md: 0 10px 25px -5px rgba(59, 18, 94, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif; 
+      background-color: var(--bg-light); 
+      color: var(--text-main); 
+      line-height: 1.6;
+    }
+
+    /* NAVEGACIÓN SUPERIOR */
+    header { 
+      background: var(--purple-dark); 
+      color: #ffffff; 
+      padding: 1rem 2rem; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+
+    .brand-box { display: flex; align-items: center; gap: 0.8rem; }
+
+    .logo-text { 
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; 
+      font-weight: 700; 
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .logo-text span { color: var(--red-accent); font-style: italic; }
+
+    nav a { 
+      color: #e2e8f0; 
+      text-decoration: none; 
+      font-weight: 500; 
+      font-size: 0.95rem;
+    }
+
+    .btn-back {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-back:hover { background: var(--red-accent); }
+
+    /* CABECERA DE SECCIÓN */
+    .hero-page { 
+      background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%); 
+      color: #ffffff; 
+      text-align: center; 
+      padding: 3rem 1.5rem 4rem 1.5rem; 
+    }
+
+    .hero-page h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .hero-page p { color: #cbd5e1; font-size: 1.1rem; }
+
+    /* CONTENEDOR PRINCIPAL */
+    .main-wrapper {
+      max-width: 1200px;
+      margin: -2rem auto 4rem auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .year-header {
+      margin: 2rem 0 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .year-header h2 { font-size: 1.5rem; color: var(--purple-main); font-weight: 800; }
+
+    .year-header::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 22px;
+      background: var(--red-accent);
+      border-radius: 2px;
+    }
+
+    /* GRILLA DE CATÁLOGO */
+    .workshop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .workshop-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .workshop-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--purple-main);
+    }
+
+    .workshop-card h3 {
+      font-size: 1.25rem;
+      color: var(--purple-main);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .workshop-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-download {
+      display: inline-block;
+      text-align: center;
+      background: var(--red-accent);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .btn-download:hover { background: var(--red-hover); }
+
+    footer { 
+      background: var(--purple-dark);
+      color: #94a3b8;
+      text-align: center; 
+      padding: 2.5rem 1.5rem; 
+      font-size: 0.9rem; 
+      border-top: 3px solid var(--red-accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="brand-box">
+        <a href="index.html" class="logo-text">Para el pueblo <span>de Dios</span></a>
+      </div>
+      <nav>
+        <a href="index.html" class="btn-back">&larr; Volver a la Portada</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <h1>Catálogo de Talleres & Presentaciones</h1>
+    <p>Material de formación bíblica y pastoral listo para descargar y utilizar.</p>
+  </section>
+
+  <main class="main-wrapper">
+
+    <!-- SECCIÓN AÑO 2025 -->
+    <div class="year-header">
+      <h2>Colección 2025</h2>
+    </div>
+
+    <div class="workshop-grid">
+      <!-- TALLER 1 -->
+      <div class="workshop-card">
+        <div>
+          <h3>01. El Mesianismo</h3>
+          <p>Presentación completa sobre las profecías mesiánicas en el Antiguo Testamento y su cumplimiento.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Abrir / Descargar PPT &rarr;</a>
+      </div>
+
+      <!-- TALLER 2 -->
+      <div class="workshop-card">
+        <div>
+          <h3>02. El Hijo de Dios</h3>
+          <p>Estudio cristológico centrado en los títulos de Jesús en los Evangelios comunitarios.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Abrir / Descargar PPT &rarr;</a>
+      </div>
+
+      <!-- TALLER 3 -->
+      <div class="workshop-card">
+        <div>
+          <h3>03. Los Comienzos</h3>
+          <p>Análisis de las primeras comunidades cristianas y los Hechos de los Apóstoles.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Abrir / Descargar PPT &rarr;</a>
+      </div>
+    </div>
+
+    <!-- SECCIÓN AÑO 2026 -->
+    <div class="year-header">
+      <h2>Colección 2026</h2>
+    </div>
+
+    <div class="workshop-grid">
+      <!-- TALLER 2026 -->
+      <div class="workshop-card">
+        <div>
+          <h3>Talleres 2026 (Carpeta Completa)</h3>
+          <p>Acceso directo a las presentaciones estructuradas para las actividades de este año.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Abrir Carpeta 2026 &rarr;</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p><strong>Para el pueblo de Dios</strong> — Material en acceso libre para la comunidad.</p>
+  </footer>
+
+</body>
+</html>
