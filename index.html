@@ -300,11 +300,24 @@
       margin-bottom: 1.5rem; 
     }
 
+    .card-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
     .card-link {
       color: var(--purple-main);
       font-weight: 700;
       font-size: 0.85rem;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card-link:hover {
+      color: var(--red-accent);
     }
 
     /* SECCIÓN DE ENLACES EXTERNOS / COMUNIDAD */
@@ -434,13 +447,17 @@
     </div>
 
     <div class="grid">
+      <!-- TARJETA TALLERES CON LOS DOS ENLACES DE DRIVE -->
       <div class="card" id="talleres">
         <div>
           <div class="card-tag">Formación</div>
           <h3>Talleres & PPT</h3>
-          <p>Presentaciones completas en PowerPoint y dinámicas estructuradas.</p>
+          <p>Presentaciones completas en PowerPoint y dinámicas estructuradas organizadas por año.</p>
         </div>
-        <a href="#" class="card-link">Ver talleres &rarr;</a>
+        <div class="card-actions">
+          <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="card-link">📁 Ver Talleres 2025 &rarr;</a>
+          <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="card-link">📁 Ver Talleres 2026 &rarr;</a>
+        </div>
       </div>
 
       <div class="card" id="guiones">
@@ -471,14 +488,13 @@
       </div>
     </div>
 
-    <!-- NUEVA SECCIÓN: ENLACES & COMUNIDAD -->
+    <!-- SECCIÓN: ENLACES & COMUNIDAD -->
     <section class="links-section" id="enlaces">
       <div class="section-header">
         <h2>Enlaces de Interés & Comunidad</h2>
       </div>
 
       <div class="links-grid">
-        <!-- Enlace 1: WhatsApp -->
         <a href="#" class="link-item">
           <span class="link-icon">💬</span>
           <div class="link-info">
@@ -487,7 +503,6 @@
           </div>
         </a>
 
-        <!-- Enlace 2: Sitio Capilla/Parroquia -->
         <a href="#" class="link-item">
           <span class="link-icon">⛪</span>
           <div class="link-info">
@@ -496,7 +511,6 @@
           </div>
         </a>
 
-        <!-- Enlace 3: Vaticano / Biblia -->
         <a href="https://www.vatican.va" target="_blank" class="link-item">
           <span class="link-icon">📖</span>
           <div class="link-info">
@@ -505,7 +519,6 @@
           </div>
         </a>
 
-        <!-- Enlace 4: Sitio Recomendado / Canal -->
         <a href="#" class="link-item">
           <span class="link-icon">🔗</span>
           <div class="link-info">
