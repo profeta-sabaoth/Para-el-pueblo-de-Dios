@@ -55,17 +55,11 @@
       gap: 0.8rem;
     }
 
-    .logo-img-placeholder {
-      width: 38px;
-      height: 38px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px dashed var(--red-accent);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      color: #cbd5e1;
+    .logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 4px;
     }
 
     .logo-text { 
@@ -383,11 +377,11 @@
 </head>
 <body>
 
-  <!-- NAVEGACIÓN SUPERIOR -->
+  <!-- NAVEGACIÓN SUPERIOR CON LOGO OFICIAL -->
   <header>
     <div class="nav-container">
       <div class="brand-box">
-        <div class="logo-img-placeholder">LOGO</div>
+        <img src="Gemini_Generated_Image_8byw2i8byw2i8byw.jpg" alt="Logo Para el pueblo de Dios" class="logo-img">
         <a href="index.html" class="logo-text">Para el pueblo <span>de Dios</span></a>
       </div>
       <nav>
@@ -442,7 +436,6 @@
     </div>
 
     <div class="grid">
-      <!-- TARJETA TALLERES -->
       <div class="card" id="talleres">
         <div>
           <div class="card-tag">Formación</div>
@@ -452,7 +445,6 @@
         <a href="talleres.html" class="card-link">📚 Explorar Catálogo de Talleres &rarr;</a>
       </div>
 
-      <!-- TARJETA GUIONES -->
       <div class="card" id="guiones">
         <div>
           <div class="card-tag">Celebración</div>
@@ -462,7 +454,6 @@
         <a href="#" class="card-link">Explorar guiones &rarr;</a>
       </div>
 
-      <!-- TARJETA VIDEOTECA -->
       <div class="card" id="videoteca">
         <div>
           <div class="card-tag">Contenido Visual</div>
@@ -472,7 +463,6 @@
         <a href="videoteca.html" class="card-link">🎬 Ver Videoteca &rarr;</a>
       </div>
 
-      <!-- TARJETA RECURSOS -->
       <div class="card" id="recursos">
         <div>
           <div class="card-tag">Diseño</div>
