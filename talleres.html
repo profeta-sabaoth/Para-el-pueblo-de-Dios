@@ -1,439 +1,95 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Talleres & Presentaciones | Para el pueblo de Dios</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --purple-main: #3b125e;
-      --purple-dark: #270b40;
-      --red-accent: #d32f2f;
-      --red-hover: #b71c1c;
-      --bg-light: #f8fafc;
-      --surface: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --border: #e2e8f0;
-      --shadow-md: 0 10px 25px -5px rgba(59, 18, 94, 0.08);
-    }
+# 🛠️ Manual de Uso: Cómo adaptar tus Prompts
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body { 
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif; 
-      background-color: var(--bg-light); 
-      color: var(--text-main); 
-      line-height: 1.6;
-    }
+¡Bienvenido! En este repositorio no te entregamos imágenes estáticas, sino las instrucciones (prompts) para que generes la imagen exacta que necesitas para tus talleres, catequesis o investigaciones.
 
-    header { 
-      background: var(--purple-dark); 
-      color: #ffffff; 
-      padding: 1rem 2rem; 
-      position: sticky; 
-      top: 0; 
-      z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
+Sigue estos sencillos pasos para aprender a modificar los prompts a tu gusto. 🎨✨
 
-    .nav-container { 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-    }
+---
 
-    .logo-text { 
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; 
-      font-weight: 700; 
-      color: #ffffff;
-      text-decoration: none;
-    }
+## 🧩 1. La Anatomía de un Prompt
 
-    .logo-text span { color: var(--red-accent); font-style: italic; }
+Un prompt es simplemente una receta de cocina para la Inteligencia Artificial. Si cambias los ingredientes, cambias el resultado.
 
-    .btn-back {
-      background: rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-      text-decoration: none;
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: background 0.2s;
-    }
+Cada plantilla de este repositorio tiene 4 ingredientes clave:
+* 🎨 **Estilo Visual:** Cómo se verá la imagen (óleo, ilustración infantil, foto realista, etc.).
+* 👤 **Sujeto u Objeto:** Quién o qué aparece (un profeta, una infografía, una escena bíblica).
+* 💡 **Detalles Ambientales:** La luz, la época, la vestimenta o los colores predominantes.
+* 📐 **Formato:** El tamaño de la imagen (por ejemplo, `--ar 16:9` para pantallas horizontales o `--ar 4:3` para presentaciones).
 
-    .btn-back:hover { background: var(--red-accent); }
+---
 
-    .hero-page { 
-      background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%); 
-      color: #ffffff; 
-      text-align: center; 
-      padding: 3rem 1.5rem 4rem 1.5rem; 
-    }
+## 🔍 2. La Regla de los Corchetes `[ ]`
 
-    .hero-page h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
-    .hero-page p { color: #cbd5e1; font-size: 1.1rem; }
+Para personalizar cualquier prompt de esta guía, solo debes modificar el texto que está dentro de los corchetes `[ ]`. Todo lo demás déjalo tal cual para mantener la precisión de la imagen.
 
-    .main-wrapper {
-      max-width: 1200px;
-      margin: -2rem auto 4rem auto;
-      padding: 0 1.5rem;
-      position: relative;
-      z-index: 10;
-    }
+> 💡 **Nota:** Al copiar el prompt en la IA, borra los corchetes y escribe tu texto.
 
-    .year-header {
-      margin: 2.5rem 0 1.2rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
+---
 
-    .year-header h2 { font-size: 1.6rem; color: var(--purple-main); font-weight: 800; }
+## 🚀 3. ¿Dónde usar estos Prompts?
 
-    .year-header::before {
-      content: "";
-      display: inline-block;
-      width: 4px;
-      height: 24px;
-      background: var(--red-accent);
-      border-radius: 2px;
-    }
+Puedes copiar y pegar estos textos de forma gratuita en cualquiera de estas herramientas:
+* 🌐 **[Google Gemini](https://gemini.google.com)** (Excelente para generar imágenes y esquemas visuales de forma rápida e integrada)
+* 🤖 **[ChatGPT](https://chatgpt.com)** / **[Microsoft Copilot](https://copilot.microsoft.com)** (Ideales para uso general y creación rápida)
+* 🎨 **[Leonardo.ai](https://leonardo.ai)** / **[Midjourney](https://www.midjourney.com)** (Para un control estético y artístico más avanzado)
+* 🖼️ **[Canva](https://www.canva.com)** (Muy práctico si vas a integrar las imágenes directamente en tus presentaciones o folletos)
 
-    .workshop-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
+¡Solo copia el prompt, ajusta las palabras entre corchetes, pégalo en tu plataforma favorita y genera el material que necesitas!
 
-    .workshop-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.8rem 1.5rem;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+---
 
-    .workshop-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--purple-main);
-    }
+## 🛠️ 4. Plantilla Única de Prompt Universal
 
-    .card-num {
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: var(--red-accent);
-      text-transform: uppercase;
-      margin-bottom: 0.4rem;
-    }
+Para generar cualquier escena, solo debes copiar el texto y completar las instrucciones que están dentro de los corchetes `[ ]`.
+El resto del texto déjalo exactamente como está, ya que contiene los detalles técnicos automáticos para que la imagen quede perfecta.
 
-    .workshop-card h3 {
-      font-size: 1.2rem;
-      color: var(--purple-main);
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-      line-height: 1.3;
-    }
+### 🇪🇸 Español (Copiar y pegar)
 
-    .workshop-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
+> *Una `[indicar fotografía realista / cuadro pintado al óleo / dibujo animado infantil]` de `[indicar el personaje o la escena bíblica]`, `[indicar qué acción está haciendo]`, ubicada en `[indicar el lugar]`, durante `[indicar la hora del día o si es de noche]`. La escena debe ser en formato `[indicar horizontal o vertical]`. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.*
 
-    .action-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+---
 
-    .btn-download {
-      display: block;
-      text-align: center;
-      background: var(--red-accent);
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.2s ease;
-    }
+### 📝 Ejemplo de cómo lo llena el usuario:
 
-    .btn-download:hover { background: var(--red-hover); }
+Si la persona quiere ilustrar al profeta Isaías, solo debe completar los corchetes así:
+* **Estilo:** fotografía realista
+* **Personaje:** el profeta Isaías
+* **Acción:** escribiendo un pergamino con concentrada atención
+* **Lugar:** su taller en Jerusalén
+* **Momento:** el atardecer
+* **Formato:** horizontal
 
-    .btn-sub {
-      display: block;
-      text-align: center;
-      background: var(--bg-light);
-      color: var(--purple-main);
-      border: 1px solid var(--border);
-      font-weight: 600;
-      font-size: 0.8rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
+**Resultado final listo para pegar en Gemini o ChatGPT:**
 
-    .btn-sub:hover {
-      background: #ffffff;
-      border-color: var(--purple-main);
-    }
+> *Una fotografía realista del profeta Isaías, escribiendo un pergamino con concentrada atención, ubicada en su taller en Jerusalén, durante el atardecer. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.*
 
-    footer { 
-      background: var(--purple-dark);
-      color: #94a3b8;
-      text-align: center; 
-      padding: 2.5rem 1.5rem; 
-      font-size: 0.9rem; 
-      border-top: 3px solid var(--red-accent);
-    }
-  </style>
-</head>
-<body>
+---
 
-  <header>
-    <div class="nav-container">
-      <a href="index.html" class="logo-text">Para el pueblo <span>de Dios</span></a>
-      <a href="index.html" class="btn-back">&larr; Volver a la Portada</a>
-    </div>
-  </header>
+## 🖼️ Ejemplos de imágenes generadas con esta plantilla
 
-  <section class="hero-page">
-    <h1>Catálogo de Talleres & Presentaciones</h1>
-    <p>Material de formación bíblica y pastoral listo para trabajar en comunidad.</p>
-  </section>
+Aquí puedes ver ejemplos reales de imágenes creadas en Gemini utilizando este mismo método:
 
-  <main class="main-wrapper">
+### 1. Moisés con las Tablas de la Ley
 
-    <!-- COLECCIÓN 2025 -->
-    <div class="year-header">
-      <h2>Colección 2025</h2>
-    </div>
+![Moisés y las tablas de la ley](./imagenes/Moisés%20y%20las%20tablas%20de%20la%20ley.jpg)
 
-    <div class="workshop-grid">
+**Prompt utilizado:**
+> *Una fotografía realista de el profeta Moisés, sosteniendo con firmeza las Tablas de la Ley de piedra mientras desciende con mirada solemne y cansada pero llena de majestad, ubicada en la ladera rocosa del Monte Sinaí, durante el amanecer con un cielo tormentoso de fondo. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.*
 
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 01</div>
-          <h3>El Mesianismo</h3>
-          <p>Presentación sobre el anuncio profético y la esperanza mesiánica.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
+---
 
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 02</div>
-          <h3>El Hijo de Dios</h3>
-          <p>Estudio sobre la identidad y revelación de Cristo en los Evangelios.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
+### 2. Juan el Bautista bautizando en el río Jordán
 
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 03</div>
-          <h3>Los Comienzos</h3>
-          <p>El nacimiento de la comunidad cristiana y los Hechos de los Apóstoles.</p>
-        </div>
-        <div class="action-group">
-          <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver PPT &rarr;</a>
-          <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-sub">📄 Guía Actividad 1 (.docx)</a>
-        </div>
-      </div>
+![Juan el Bautista](./imagenes/Juan%20el%20Bautista.jpg)
 
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 04</div>
-          <h3>Los Apóstoles</h3>
-          <p>El llamado, la vocación y el envío de los doce discípulos.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
+**Prompt utilizado:**
+> *Una fotografía realista de San Juan el Bautista, bautizando a una persona sumergiéndola suavemente en las aguas del río, ubicada en la orilla del río Jordán rodeado de vegetación baja y rocas, durante la mañana soleada. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.*
 
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 05</div>
-          <h3>El Reino de los Cielos</h3>
-          <p>Las parábolas centrales y el anuncio del Reino por parte de Jesús.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
+---
 
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 06</div>
-          <h3>Los Milagros</h3>
-          <p>Los signos de liberación y compasión manifestados por Jesús.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
+### 3. Jesús resucitando a la hija de Jairo
 
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 07</div>
-          <h3>La Dureza del Reino</h3>
-          <p>Reflexión sobre la exigencia del seguimiento y el compromiso discipular.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
+![La hija de Jairo](./imagenes/La%20hija%20de%20Jairo.jpg)
 
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 08</div>
-          <h3>¿Quién es Bueno?</h3>
-          <p>Un análisis sobre la moral evangélica y la gracia frente a la ley.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 09</div>
-          <h3>Jesús y la Vida Eterna</h3>
-          <p>La promesa de la salvación y el sentido de la esperanza fe cristiana.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 10</div>
-          <h3>Jesús y el Amor de Dios</h3>
-          <p>El rostro misericordioso del Padre revelado en el Evangelio.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 11</div>
-          <h3>¿Quiénes Dicen que Soy?</h3>
-          <p>La pregunta personal de Jesús a sus discípulos y la confesión de fe.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 13</div>
-          <h3>Entrada a Jerusalén</h3>
-          <p>El triunfo del Domingo de Ramos y la preparación para la Pasión.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 14</div>
-          <h3>La Pasión y la Muerte</h3>
-          <p>Acompañamiento reflexivo a la entrega total de Cristo en la cruz.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 15</div>
-          <h3>Resurrección</h3>
-          <p>El triunfo sobre la muerte y la luz pascual en la vida pastoral.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
-      </div>
-
-    </div>
-
-    <!-- COLECCIÓN 2026 -->
-    <div class="year-header">
-      <h2>Colección 2026 — Serie Profetas</h2>
-    </div>
-
-    <div class="workshop-grid">
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 01</div>
-          <h3>Los Profetas</h3>
-          <p>Introducción general al ministerio profético y su contexto histórico.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 02</div>
-          <h3>Elías (Parte 1)</h3>
-          <p>El profeta del fuego y la confrontación con la idolatría.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 03</div>
-          <h3>Elías (Parte 2)</h3>
-          <p>La voz apacible en el Horeb y la transmisión del manto a Eliseo.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 04</div>
-          <h3>Jeremías (Parte 1)</h3>
-          <p>El llamado desde el vientre materno y la misión del profeta doliente.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 05</div>
-          <h3>Jeremías (Parte 2)</h3>
-          <p>La nueva alianza grabada en el corazón y el mensaje durante el exilio.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 06</div>
-          <h3>Isaías</h3>
-          <p>La santidad de Dios, la vocación del profeta y los cánticos del Siervo.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
-      </div>
-
-      <div class="workshop-card">
-        <div>
-          <div class="card-num">Taller 07</div>
-          <h3>Isaías (Capítulos 2, 3, 4 y 5)</h3>
-          <p>Profecías del juicio, el poema de la viña y la promesa de paz futura.</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
-      </div>
-
-    </div>
-
-  </main>
-
-  <footer>
-    <p><strong>Para el pueblo de Dios</strong> — Material libre para la labor evangelizadora.</p>
-  </footer>
-
-</body>
-</html>
+**Prompt utilizado:**
+> *Una fotografía realista de Jesús de Nazaret, tomando con ternura la mano de la hija de Jairo mientras la niña comienza a despertar en su cama, ubicada en una habitación sencilla de una casa galilea de la época, durante la tarde con luz suave entrando por la ventana. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.*
