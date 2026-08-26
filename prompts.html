@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorio de Prompts | Para el pueblo de Dios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-main: #3b125e;
+      --purple-dark: #270b40;
+      --red-accent: #d32f2f;
+      --red-hover: #b71c1c;
+      --bg-light: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-md: 0 10px 25px -5px rgba(59, 18, 94, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif; 
+      background-color: var(--bg-light); 
+      color: var(--text-main); 
+      line-height: 1.6;
+    }
+
+    header { 
+      background: var(--purple-dark); 
+      color: #ffffff; 
+      padding: 1rem 2rem; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+
+    .logo-text { 
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; 
+      font-weight: 700; 
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .logo-text span { color: var(--red-accent); font-style: italic; }
+
+    .btn-back {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .btn-back:hover { background: var(--red-accent); }
+
+    .hero-page { 
+      background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%); 
+      color: #ffffff; 
+      text-align: center; 
+      padding: 3rem 1.5rem 4rem 1.5rem; 
+    }
+
+    .hero-page h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .hero-page p { color: #cbd5e1; font-size: 1.1rem; max-width: 750px; margin: 0 auto; }
+
+    .main-wrapper {
+      max-width: 1100px;
+      margin: -2rem auto 4rem auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .manual-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--purple-main);
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .anatomy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .anatomy-box {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      padding: 1.2rem;
+      border-radius: 8px;
+    }
+
+    .anatomy-box h4 {
+      font-size: 0.95rem;
+      color: var(--purple-main);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .anatomy-box p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .prompt-box {
+      background: #0f172a;
+      color: #f1f5f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 1rem 0 1.5rem 0;
+      position: relative;
+      border-left: 4px solid var(--red-accent);
+    }
+
+    .tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .tool-badge {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      color: var(--purple-main);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+    }
+
+    /* EJEMPLOS DE PROMPTS Y MUESTRAS */
+    .example-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .example-img-box {
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      min-height: 300px;
+    }
+
+    .example-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .example-content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .example-content h3 {
+      font-size: 1.3rem;
+      color: var(--purple-main);
+      margin-bottom: 0.8rem;
+    }
+
+    .copy-btn {
+      background: var(--red-accent);
+      color: #ffffff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      align-self: flex-start;
+      margin-top: 1rem;
+    }
+
+    .copy-btn:hover { background: var(--red-hover); }
+
+    footer { 
+      background: var(--purple-dark);
+      color: #94a3b8;
+      text-align: center; 
+      padding: 2.5rem 1.5rem; 
+      font-size: 0.9rem; 
+      border-top: 3px solid var(--red-accent);
+    }
+
+    @media (max-width: 850px) {
+      .example-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo-text">Para el pueblo <span>de Dios</span></a>
+      <a href="index.html" class="btn-back">&larr; Volver a la Portada</a>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <h1>Laboratorio de Prompts Religiosos</h1>
+    <p>Aprende a generar tus propias imágenes personalizadas para talleres, catequesis e investigaciones con Inteligencia Artificial.</p>
+  </section>
+
+  <main class="main-wrapper">
+
+    <!-- MANUAL DE USO -->
+    <div class="manual-card">
+      <div class="section-title">
+        <span>🛠️</span>
+        <h2>Manual de Uso: Cómo adaptar tus Prompts</h2>
+      </div>
+      <p>En este repositorio no te entregamos imágenes estáticas, sino las instrucciones (prompts) para que generes la imagen exacta que necesitas. Sigue estos sencillos pasos para aprender a modificar los prompts a tu gusto.</p>
+
+      <br>
+      <h3 style="color: var(--purple-main);">🧩 1. La Anatomía de un Prompt</h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted);">Un prompt es simplemente una receta de cocina para la Inteligencia Artificial. Si cambias los ingredientes, cambias el resultado:</p>
+
+      <div class="anatomy-grid">
+        <div class="anatomy-box">
+          <h4>🎨 Estilo Visual</h4>
+          <p>Cómo se verá la imagen (óleo, ilustración infantil, foto realista, etc.).</p>
+        </div>
+        <div class="anatomy-box">
+          <h4>👤 Sujeto u Objeto</h4>
+          <p>Quién o qué aparece (un profeta, una infografía, una escena bíblica).</p>
+        </div>
+        <div class="anatomy-box">
+          <h4>💡 Detalles Ambientales</h4>
+          <p>La luz, la época, la vestimenta o los colores predominantes.</p>
+        </div>
+        <div class="anatomy-box">
+          <h4>📐 Formato</h4>
+          <p>El tamaño de la imagen (pantallas horizontales o presentaciones).</p>
+        </div>
+      </div>
+
+      <h3 style="color: var(--purple-main); margin-top: 1.5rem;">🔍 2. La Regla de los Corchetes [ ]</h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted);">Para personalizar cualquier prompt de esta guía, solo debes modificar el texto que está dentro de los corchetes <strong>[ ]</strong>. Todo lo demás déjalo tal cual para mantener la precisión histórica y estética. <em>Nota: Al copiar el prompt en la IA, borra los corchetes y escribe tu texto.</em></p>
+
+      <h3 style="color: var(--purple-main); margin-top: 1.5rem;">🚀 3. ¿Dónde usar estos Prompts?</h3>
+      <div class="tools-list">
+        <span class="tool-badge">🌐 Google Gemini</span>
+        <span class="tool-badge">🤖 ChatGPT / Copilot</span>
+        <span class="tool-badge">🎨 Leonardo.ai</span>
+        <span class="tool-badge">🖼️ Canva</span>
+      </div>
+
+      <br><hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;"><br>
+
+      <div class="section-title">
+        <span>🛠️</span>
+        <h3>Plantilla Única de Prompt Universal</h3>
+      </div>
+      <p style="font-size: 0.9rem;">Copia la estructura base y completa lo que necesites:</p>
+
+      <div class="prompt-box" id="universal-prompt">
+Una [indicar fotografía realista / cuadro pintado al óleo / dibujo animado infantil] de [indicar el personaje o la escena bíblica], [indicar qué acción está haciendo], ubicada en [indicar el lugar], durante [indicar la hora del día o si es de noche]. La escena debe ser en formato [indicar horizontal o vertical]. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.
+      </div>
+      <button class="copy-btn" onclick="copyToClipboard('universal-prompt')">📋 Copiar Plantilla Universal</button>
+    </div>
+
+    <!-- EJEMPLOS REALES GENERADOS -->
+    <div class="section-title">
+      <span>✨</span>
+      <h2>Ejemplos Listos para Usar</h2>
+    </div>
+
+    <!-- EJEMPLO 1: MOISÉS -->
+    <div class="example-card">
+      <div class="example-img-box">
+        <img src="Moisés y las tablas de la ley.jpg" alt="Moisés con las Tablas de la Ley" class="example-img">
+      </div>
+      <div class="example-content">
+        <div>
+          <h3>1. Moisés con las Tablas de la Ley</h3>
+          <div class="prompt-box" id="prompt-1" style="font-size: 0.8rem; margin: 0.5rem 0;">
+Una fotografía realista de el profeta Moisés, sosteniendo con firmeza las Tablas de la Ley de piedra mientras desciende con mirada solemne y cansada pero llena de majestad, ubicada en la ladera rocosa del Monte Sinaí, durante el amanecer con un cielo tormentoso de fondo. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.
+          </div>
+        </div>
+        <button class="copy-btn" onclick="copyToClipboard('prompt-1')">📋 Copiar Prompt de Moisés</button>
+      </div>
+    </div>
+
+    <!-- EJEMPLO 2: JUAN EL BAUTISTA -->
+    <div class="example-card">
+      <div class="example-img-box">
+        <img src="Juan el Bautista.jpg" alt="Juan el Bautista bautizando" class="example-img">
+      </div>
+      <div class="example-content">
+        <div>
+          <h3>2. Juan el Bautista en el río Jordán</h3>
+          <div class="prompt-box" id="prompt-2" style="font-size: 0.8rem; margin: 0.5rem 0;">
+Una fotografía realista de San Juan el Bautista, bautizando a una persona sumergiéndola suavemente en las aguas del río, ubicada en la orilla del río Jordán rodeado de vegetación baja y rocas, durante la mañana soleada. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.
+          </div>
+        </div>
+        <button class="copy-btn" onclick="copyToClipboard('prompt-2')">📋 Copiar Prompt de Juan el Bautista</button>
+      </div>
+    </div>
+
+    <!-- EJEMPLO 3: LA HIJA DE JAIRO -->
+    <div class="example-card">
+      <div class="example-img-box">
+        <img src="La hija de Jairo.jpg" alt="Jesús resucitando a la hija de Jairo" class="example-img">
+      </div>
+      <div class="example-content">
+        <div>
+          <h3>3. Jesús y la hija de Jairo</h3>
+          <div class="prompt-box" id="prompt-3" style="font-size: 0.8rem; margin: 0.5rem 0;">
+Una fotografía realista de Jesús de Nazaret, tomando con ternura la mano de la hija de Jairo mientras la niña comienza a despertar en su cama, ubicada en una habitación sencilla de una casa galilea de la época, durante la tarde con luz suave entrando por la ventana. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.
+          </div>
+        </div>
+        <button class="copy-btn" onclick="copyToClipboard('prompt-3')">📋 Copiar Prompt de la Hija de Jairo</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p><strong>Para el pueblo de Dios</strong> — Herramientas abiertas de creación pastoral.</p>
+  </footer>
+
+  <script>
+    function copyToClipboard(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('¡Prompt copiado al portapapeles! Listo para pegar en tu IA favorita.');
+      });
+    }
+  </script>
+
+</body>
+</html>
