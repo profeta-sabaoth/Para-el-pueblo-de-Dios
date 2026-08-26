@@ -249,17 +249,17 @@
       <div class="grid-2">
         <div class="form-group">
           <label for="primeraLectura">📖 1ª Lectura / Cita:</label>
-          <input type="text" id="primeraLectura" placeholder="Ej: Eclesiástico 3, 17-18. 20. 28-29">
+          <input type="text" id="primeraLectura" placeholder="Ej: Jeremías 20, 7-9">
         </div>
         <div class="form-group">
           <label for="evangelio">📜 Evangelio / Cita:</label>
-          <input type="text" id="evangelio" placeholder="Ej: Lucas 14, 1. 7-14">
+          <input type="text" id="evangelio" placeholder="Ej: Mateo 16, 21-27">
         </div>
       </div>
 
       <div class="form-group">
         <label for="ideaClave">💡 Idea central / Tema del día (para la monición):</label>
-        <input type="text" id="ideaClave" placeholder="Ej: La humildad frente a Dios y en los banquetes">
+        <input type="text" id="ideaClave" placeholder="Ej: El fuego de la vocación y las exigencias del seguimiento a Cristo">
       </div>
 
       <div class="form-group">
@@ -285,15 +285,15 @@
   </footer>
 
   <script>
-    // Base de datos local para domingos específicos (Ciclo A 2026)
+    // Base de datos local para domingos del Ciclo A (2026)
     const calendarioLocal = {
       "2026-08-30": {
         titulo: "22° Domingo del Tiempo Ordinario (Ciclo A)",
-        primera: "Eclesiástico 3, 17-18. 20. 28-29",
-        evangelio: "Lucas 14, 1. 7-14",
-        idea: "La virtud de la humildad sincera frente a la vanidad del mundo",
-        monicion1: "El libro del Eclesiástico nos exhorta a la humildad: 'Cuanto más grande seas, más humilde debes ser', para encontrar la gracia y la benevolencia ante los ojos del Señor.",
-        monicionEv: "Jesús observa las actitudes en la mesa del fariseo y nos enseña a elegir el último lugar y a ofrecer ayuda sin esperar nada a cambio."
+        primera: "Jeremías 20, 7-9",
+        evangelio: "Mateo 16, 21-27",
+        idea: "El ardor de la vocación profética y la exigencia de tomar la cruz para seguir a Cristo",
+        monicion1: "El profeta Jeremías expresa con conmovedora honestidad la lucha interna de su vocación: aunque la misión le trae burlas y rechazo, la Palabra de Dios arde en su interior como un fuego ardiente que no puede contener.",
+        monicionEv: "Jesús revela a sus discípulos el anuncio de su Pasión y les plantea las condiciones del verdadero discipulado: quien quiera seguirlo debe negarse a sí mismo, tomar su cruz y estar dispuesto a perder la vida por el Reino."
       },
       "2026-09-06": {
         titulo: "23° Domingo del Tiempo Ordinario (Ciclo A)",
@@ -305,7 +305,6 @@
       }
     };
 
-    // Cargar fecha actual por defecto
     const fechaInput = document.getElementById('fechaMisa');
     fechaInput.valueAsDate = new Date();
 
