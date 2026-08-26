@@ -3,64 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para el Pueblo de Dios - Repositorio Gratuito</title>
+    <title>Para el Pueblo de Dios</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background-color: #f8f9fa; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background-color: #ffffff; }
         
-        /* Header */
-        header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: #ffffff; text-align: center; padding: 4rem 1.5rem 3rem; }
-        header h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 0.8rem; letter-spacing: -0.5px; }
-        header p { font-size: 1.25rem; color: #e0e6ed; max-width: 750px; margin: 0 auto; font-weight: 300; }
+        /* Encabezado en Morado */
+        header { background-color: #4a154b; color: #ffffff; text-align: center; padding: 3rem 1.5rem; }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 700; }
+        header p { font-size: 1.2rem; color: #f3e5f5; }
         
         /* Navegación */
-        nav { background-color: #15294b; text-align: center; padding: 0.8rem 1rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-        nav a { color: #ffffff; text-decoration: none; padding: 0.7rem 1.4rem; margin: 0 0.2rem; border-radius: 6px; font-weight: 600; font-size: 0.95rem; display: inline-block; transition: all 0.25s ease; }
-        nav a:hover, nav a.active { background-color: #27ae60; color: #ffffff; }
+        nav { background-color: #311b92; text-align: center; padding: 0.8rem; position: sticky; top: 0; z-index: 100; }
+        nav a { color: #ffffff; text-decoration: none; padding: 0.7rem 1.5rem; margin: 0 0.3rem; border-radius: 4px; font-weight: bold; display: inline-block; transition: background 0.3s; }
+        nav a:hover, nav a.active { background-color: #d32f2f; }
         
-        /* Contenedor Principal */
-        .container { max-width: 1100px; margin: 3rem auto; padding: 0 1.5rem; }
+        /* Contenedor */
+        .container { max-width: 1000px; margin: 2.5rem auto; padding: 0 1.5rem; }
         
-        /* Sección de Bienvenida / Filosofía */
-        .intro-section { background: #ffffff; border-radius: 12px; padding: 2.5rem; margin-bottom: 3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 6px solid #27ae60; }
-        .intro-section h2 { color: #1e3c72; font-size: 1.8rem; margin-bottom: 1rem; }
-        .intro-section p { font-size: 1.05rem; color: #4a5568; margin-bottom: 1rem; }
-        .intro-section p:last-child { margin-bottom: 0; }
-
-        /* Grid de Secciones */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1.5rem; }
+        /* Secciones y Tarjetas con acentos Rojos y Morados */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .card { background: #ffffff; border: 2px solid #f3e5f5; border-top: 5px solid #d32f2f; border-radius: 8px; padding: 1.8rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .card h3 { color: #4a154b; font-size: 1.4rem; margin-bottom: 1rem; }
+        .card p { color: #555; margin-bottom: 1.5rem; flex-grow: 1; }
         
-        /* Tarjetas de Recursos */
-        .card { background: #ffffff; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.06); text-align: left; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e2e8f0; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        .card-icon { font-size: 2.5rem; margin-bottom: 1rem; display: inline-block; }
-        .card h3 { color: #1e3c72; font-size: 1.4rem; margin-bottom: 0.8rem; }
-        .card p { color: #64748b; font-size: 0.98rem; margin-bottom: 1.8rem; flex-grow: 1; line-height: 1.5; }
+        /* Botones en Rojo */
+        .btn { display: inline-block; background-color: #d32f2f; color: #ffffff; padding: 0.8rem 1.6rem; text-decoration: none; border-radius: 4px; font-weight: bold; transition: background 0.3s; }
+        .btn:hover { background-color: #b71c1c; }
         
-        /* Botones */
-        .btn { display: inline-block; background-color: #1e3c72; color: #ffffff; padding: 0.8rem 1.6rem; text-decoration: none; border-radius: 6px; font-weight: 600; text-align: center; transition: background-color 0.2s ease; }
-        .btn:hover { background-color: #2a5298; }
-        .btn-green { background-color: #27ae60; }
-        .btn-green:hover { background-color: #219150; }
-
-        /* Banner de Prompts */
-        .banner-prompts { background: linear-gradient(135deg, #27ae60 0%, #1e7e34 100%); color: #ffffff; border-radius: 12px; padding: 2.5rem; margin: 3rem 0; text-align: center; box-shadow: 0 6px 20px rgba(39, 174, 96, 0.25); }
-        .banner-prompts h2 { font-size: 2rem; margin-bottom: 1rem; }
-        .banner-prompts p { font-size: 1.1rem; max-width: 800px; margin: 0 auto 1.8rem; color: #f0fdf4; }
-        .banner-prompts .btn { background-color: #ffffff; color: #1e7e34; font-size: 1.05rem; padding: 0.9rem 2rem; }
-        .banner-prompts .btn:hover { background-color: #f8fafc; color: #14532d; }
-
-        /* Pie de Página */
-        footer { text-align: center; padding: 2.5rem 1rem; background-color: #15294b; color: #94a3b8; margin-top: 4rem; font-size: 0.95rem; }
-        footer p { margin-bottom: 0.5rem; }
-        footer strong { color: #ffffff; }
+        /* Pie de página */
+        footer { text-align: center; padding: 2rem; background-color: #4a154b; color: #ffffff; margin-top: 4rem; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Para el Pueblo de Dios</h1>
-        <p>Un espacio abierto de formación, investigación personal y recursos gratuitos para talleres y catequesis.</p>
+        <p>Repositorio gratuito de recursos para talleres, investigación personal, aprendizaje y catequesis.</p>
     </header>
 
     <nav>
@@ -70,60 +49,25 @@
     </nav>
 
     <div class="container">
-        
-        <!-- Sección de Bienvenida -->
-        <div class="intro-section">
-            <h2>Bienvenido a este repositorio comunitario</h2>
-            <p>Este sitio web ha sido creado con el propósito de compartir material de estudio, herramientas de enseñanza y recursos audiovisuales de libre acceso. Todo el contenido está pensado para apoyar el trabajo de catequistas, educadores, agentes pastorales y cualquier persona interesada en profundizar en la fe y la historia sagrada.</p>
-            <p>Aquí no encontrarás productos cerrados, sino herramientas vivas diseñadas para que puedas adaptarlas a las necesidades de tu comunidad o taller.</p>
-        </div>
-
-        <!-- Banner destacado del Taller de Prompts -->
-        <div class="banner-prompts">
-            <h2>🛠️ Nuevo: Taller Práctico de Prompts e Imágenes</h2>
-            <p>En lugar de ofrecer un banco de imágenes estáticas, te enseñamos a construir tus propias instrucciones (prompts) para generar material visual a la medida con Inteligencia Artificial. Mantén el control del estilo, la precisión histórica y el enfoque teológico.</p>
-            <a href="taller.html" class="btn">Aprender a crear tus Prompts</a>
-        </div>
-
-        <!-- Grid de Recursos Principales -->
-        <h2 style="color: #1e3c72; margin-bottom: 1.5rem; text-align: center;">Recursos Disponibles</h2>
-        
         <div class="grid">
             
             <div class="card">
-                <div>
-                    <span class="card-icon">🎨</span>
-                    <h3>Taller de Prompts e IA</h3>
-                    <p>Accede a la plantilla universal de instrucciones para generar cuadros al óleo, fotografías realistas o ilustraciones infantiles sobre escenas bíblicas en herramientas gratuitas como Gemini o ChatGPT.</p>
-                </div>
-                <a href="taller.html" class="btn btn-green">Ir al Taller</a>
+                <h3>🛠️ Taller de Prompts e Imágenes</h3>
+                <p>Instrucciones y plantillas para generar tus propias imágenes y esquemas bíblicos o catequéticos con Inteligencia Artificial.</p>
+                <a href="taller.html" class="btn">Entrar al Taller</a>
             </div>
 
             <div class="card">
-                <div>
-                    <span class="card-icon">📹</span>
-                    <h3>Videoteca Formativa</h3>
-                    <p>Colección de videos, clips audiovisuales y material de apoyo preparado para proyectar en encuentros, charlas, jornadas de reflexión o clases de religión.</p>
-                </div>
-                <a href="videoteca.html" class="btn">Ver Videoteca</a>
-            </div>
-
-            <div class="card">
-                <div>
-                    <span class="card-icon">📚</span>
-                    <h3>Materiales de Estudio</h3>
-                    <p>Documentos, guías de lectura e investigación personal organizados para facilitar la preparación de talleres o el aprendizaje autodidacta.</p>
-                </div>
-                <a href="taller.html" class="btn">Explorar Recursos</a>
+                <h3>📹 Videoteca</h3>
+                <p>Colección de material audiovisual preparado para apoyar talleres, formación y encuentros comunitarios.</p>
+                <a href="videoteca.html" class="btn">Ver Videos</a>
             </div>
 
         </div>
-
     </div>
 
     <footer>
-        <p><strong>Para el Pueblo de Dios</strong> — Material de libre distribución y uso gratuito.</p>
-        <p>Diseñado para servir a la comunidad, la catequesis y la formación personal.</p>
+        <p>Para el Pueblo de Dios — Material de libre acceso y uso gratuito.</p>
     </footer>
 
 </body>
