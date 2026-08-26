@@ -167,7 +167,7 @@
       z-index: 10;
     }
 
-    /* SECCIÓN DESTACADA A ANCHO COMPLETO */
+    /* SECCIÓN DESTACADA: LIBRO JEREMÍAS */
     .featured-section {
       background: #ffffff;
       border: 1px solid var(--border);
@@ -178,7 +178,7 @@
       margin-bottom: 3rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 2.5rem;
       align-items: center;
     }
 
@@ -205,20 +205,25 @@
     .featured-content p {
       color: var(--text-muted);
       font-size: 0.95rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .featured-preview-box {
       background: #0f172a;
-      border-radius: 8px;
-      aspect-ratio: 16 / 9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #94a3b8;
-      border: 1px solid var(--border);
+      border-radius: 12px;
       overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .featured-preview-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
     }
 
     /* TITULARES DE SECCIÓN */
@@ -454,16 +459,17 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-wrapper">
 
-    <!-- SECCIÓN DESTACADA A ANCHO COMPLETO -->
+    <!-- SECCIÓN DESTACADA: LIBRO DE JEREMÍAS -->
     <section class="featured-section">
       <div class="featured-content">
-        <span class="featured-badge">Tema Destacado</span>
-        <h2>Taller Dinámico: El Profeta Jeremías</h2>
-        <p>Una propuesta interactiva y directa sobre la vocación profética, lista para descargar con guía de trabajo y presentación en PowerPoint.</p>
-        <a href="talleres.html" class="nav-btn" style="display: inline-block; text-decoration: none;">Ver material completo &rarr;</a>
+        <span class="featured-badge">Libro Destacado</span>
+        <h2>Jeremías: Guía de Supervivencia para Creyentes Cómodos</h2>
+        <p><strong>Olvídate de los cuentos de hadas: esto no es un final de Disney.</strong> Un recorrido directo, irreverente pero teológicamente riguroso por las memorias del profeta más incómodo de la Biblia.</p>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Sin anestesia ni maquillaje espiritual: descubre por qué la fe real no es un amuleto mágico de buena suerte, sino una lealtad radical a prueba de fuego.</p>
+        <a href="Jeremias_Guia_de_Supervivencia.pdf" target="_blank" class="nav-btn" style="display: inline-block; text-decoration: none; margin-top: 0.5rem;">📖 Leer / Descargar PDF Gratis &rarr;</a>
       </div>
       <div class="featured-preview-box">
-        <p style="font-size: 0.85rem; padding: 1rem; text-align: center;">[ Espacio reservado para la portada del libro PDF ]</p>
+        <img src="Gemini_Generated_Image_edh99hedh99hedh9.png" alt="Portada de Jeremías: Manual de Supervivencia del Mundo Real">
       </div>
     </section>
 
@@ -510,7 +516,7 @@
       </div>
     </div>
 
-    <!-- SECCIÓN INTERMEDIA: VIDEO PROMOCIONAL EN LÍNEA -->
+    <!-- SECCIÓN INTERMEDIA: VIDEO PROMOCIONAL -->
     <section class="promo-banner-section">
       <div class="promo-info">
         <h3>🎬 ¿Eres catequista o formador pastoral?</h3>
