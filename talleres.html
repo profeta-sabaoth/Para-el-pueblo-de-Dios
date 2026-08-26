@@ -1,134 +1,439 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taller de Prompts y Recursos - Para el Pueblo de Dios</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background-color: #ffffff; }
-        
-        header { background-color: #4a154b; color: #ffffff; text-align: center; padding: 2.5rem 1.5rem; }
-        header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-        header p { font-size: 1.1rem; color: #f3e5f5; }
-        
-        nav { background-color: #311b92; text-align: center; padding: 0.8rem; position: sticky; top: 0; z-index: 100; }
-        nav a { color: #ffffff; text-decoration: none; padding: 0.7rem 1.5rem; margin: 0 0.3rem; border-radius: 4px; font-weight: bold; display: inline-block; transition: background 0.3s; }
-        nav a:hover { background-color: #d32f2f; }
-        
-        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
-        
-        .section-title { color: #4a154b; border-bottom: 3px solid #d32f2f; padding-bottom: 0.5rem; margin: 2rem 0 1.5rem; font-size: 1.6rem; }
-        
-        .box { background-color: #f8f9fa; border-left: 4px solid #311b92; padding: 15px; margin: 20px 0; border-radius: 0 4px 4px 0; }
-        .prompt-box { background-color: #f1f3f5; border: 1px solid #ced4da; padding: 15px; border-radius: 6px; font-family: monospace; white-space: pre-wrap; margin: 15px 0; color: #1a252f; font-size: 0.95rem; }
-        
-        .card-example { border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 25px; background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .card-example img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 0 auto 15px auto; }
-        
-        /* Lista de PowerPoints y Recursos */
-        .resource-list { list-style: none; padding: 0; }
-        .resource-item { background: #ffffff; border: 1px solid #e0e0e0; border-left: 5px solid #d32f2f; padding: 1.2rem; margin-bottom: 1rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-        .resource-info h4 { color: #4a154b; margin-bottom: 0.3rem; font-size: 1.1rem; }
-        .resource-info p { color: #666; font-size: 0.9rem; }
-        
-        .btn-download { background-color: #d32f2f; color: #ffffff; padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.9rem; transition: background 0.3s; }
-        .btn-download:hover { background-color: #b71c1c; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talleres & Presentaciones | Para el pueblo de Dios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-main: #3b125e;
+      --purple-dark: #270b40;
+      --red-accent: #d32f2f;
+      --red-hover: #b71c1c;
+      --bg-light: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-md: 0 10px 25px -5px rgba(59, 18, 94, 0.08);
+    }
 
-        footer { text-align: center; padding: 2rem; background-color: #4a154b; color: #ffffff; margin-top: 4rem; }
-    </style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif; 
+      background-color: var(--bg-light); 
+      color: var(--text-main); 
+      line-height: 1.6;
+    }
+
+    header { 
+      background: var(--purple-dark); 
+      color: #ffffff; 
+      padding: 1rem 2rem; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+
+    .logo-text { 
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; 
+      font-weight: 700; 
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .logo-text span { color: var(--red-accent); font-style: italic; }
+
+    .btn-back {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .btn-back:hover { background: var(--red-accent); }
+
+    .hero-page { 
+      background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%); 
+      color: #ffffff; 
+      text-align: center; 
+      padding: 3rem 1.5rem 4rem 1.5rem; 
+    }
+
+    .hero-page h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .hero-page p { color: #cbd5e1; font-size: 1.1rem; }
+
+    .main-wrapper {
+      max-width: 1200px;
+      margin: -2rem auto 4rem auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .year-header {
+      margin: 2.5rem 0 1.2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .year-header h2 { font-size: 1.6rem; color: var(--purple-main); font-weight: 800; }
+
+    .year-header::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--red-accent);
+      border-radius: 2px;
+    }
+
+    .workshop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .workshop-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .workshop-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--purple-main);
+    }
+
+    .card-num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--red-accent);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .workshop-card h3 {
+      font-size: 1.2rem;
+      color: var(--purple-main);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .workshop-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .action-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .btn-download {
+      display: block;
+      text-align: center;
+      background: var(--red-accent);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .btn-download:hover { background: var(--red-hover); }
+
+    .btn-sub {
+      display: block;
+      text-align: center;
+      background: var(--bg-light);
+      color: var(--purple-main);
+      border: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-sub:hover {
+      background: #ffffff;
+      border-color: var(--purple-main);
+    }
+
+    footer { 
+      background: var(--purple-dark);
+      color: #94a3b8;
+      text-align: center; 
+      padding: 2.5rem 1.5rem; 
+      font-size: 0.9rem; 
+      border-top: 3px solid var(--red-accent);
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Talleres y Recursos Didácticos</h1>
-        <p>Material de libre acceso para la enseñanza, catequesis e investigación personal</p>
-    </header>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo-text">Para el pueblo <span>de Dios</span></a>
+      <a href="index.html" class="btn-back">&larr; Volver a la Portada</a>
+    </div>
+  </header>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="#taller-prompts">🛠️ Taller de Prompts</a>
-        <a href="#presentaciones">📊 Presentaciones PowerPoint</a>
-        <a href="videoteca.html">📹 Videoteca</a>
-    </nav>
+  <section class="hero-page">
+    <h1>Catálogo de Talleres & Presentaciones</h1>
+    <p>Material de formación bíblica y pastoral listo para trabajar en comunidad.</p>
+  </section>
 
-    <div class="container">
+  <main class="main-wrapper">
 
-        <!-- SECCIÓN 1: TALLER DE PROMPTS -->
-        <h2 id="taller-prompts" class="section-title">🛠️ Manual y Taller de Prompts para IA</h2>
-        
-        <p>En este taller no entregamos únicamente imágenes estáticas, sino las instrucciones (prompts) para que puedas generar tus propios esquemas o ilustraciones respetando la precisión histórica y el enfoque teológico.</p>
+    <!-- COLECCIÓN 2025 -->
+    <div class="year-header">
+      <h2>Colección 2025</h2>
+    </div>
 
-        <div class="box">
-            <strong>¿Cómo usar la plantilla?</strong> Copia la plantilla universal de abajo, reemplaza lo que está entre los corchetes <code>[ ]</code> con tu tema y pégalo en herramientas gratuitas como <a href="https://gemini.google.com" target="_blank">Google Gemini</a> o ChatGPT.
+    <div class="workshop-grid">
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 01</div>
+          <h3>El Mesianismo</h3>
+          <p>Presentación sobre el anuncio profético y la esperanza mesiánica.</p>
         </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
 
-        <h3>Plantilla Única de Prompt Universal</h3>
-        <div class="prompt-box">Una [indicar fotografía realista / cuadro pintado al óleo / dibujo animado infantil] de [indicar el personaje o la escena bíblica], [indicar qué acción está haciendo], ubicada en [indicar el lugar], durante [indicar la hora del día o si es de noche]. La escena debe ser en formato [indicar horizontal o vertical]. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.</div>
-
-        <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: #4a154b;">Ejemplos Generados</h3>
-
-        <div class="card-example">
-            <h4>1. Moisés con las Tablas de la Ley</h4>
-            <img src="./Imágenes/Moisés y las tablas de la ley.jpg" alt="Moisés con las Tablas de la Ley">
-            <p><strong>Prompt aplicado:</strong></p>
-            <div class="prompt-box">Una fotografía realista de el profeta Moisés, sosteniendo con firmeza las Tablas de la Ley de piedra mientras desciende con mirada solemne y cansada pero llena de majestad, ubicada en la ladera rocosa del Monte Sinaí, durante el amanecer con un cielo tormentoso de fondo. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.</div>
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 02</div>
+          <h3>El Hijo de Dios</h3>
+          <p>Estudio sobre la identidad y revelación de Cristo en los Evangelios.</p>
         </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
 
-        <div class="card-example">
-            <h4>2. Juan el Bautista en el Río Jordán</h4>
-            <img src="./Imágenes/Juan el Bautista.jpg" alt="Juan el Bautista">
-            <p><strong>Prompt aplicado:</strong></p>
-            <div class="prompt-box">Una fotografía realista de San Juan el Bautista, bautizando a una persona sumergiéndola suavemente en las aguas del río, ubicada en la orilla del río Jordán rodeado de vegetación baja y rocas, durante la mañana soleada. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.</div>
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 03</div>
+          <h3>Los Comienzos</h3>
+          <p>El nacimiento de la comunidad cristiana y los Hechos de los Apóstoles.</p>
         </div>
-
-        <div class="card-example">
-            <h4>3. Jesús resucitando a la Hija de Jairo</h4>
-            <img src="./Imágenes/La hija de Jairo.jpg" alt="Hija de Jairo">
-            <p><strong>Prompt aplicado:</strong></p>
-            <div class="prompt-box">Una fotografía realista de Jesús de Nazaret, tomando con ternura la mano de la hija de Jairo mientras la niña comienza a despertar en su cama, ubicada en una habitación sencilla de una casa galilea de la época, durante la tarde con luz suave entrando por la ventana. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.</div>
+        <div class="action-group">
+          <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver PPT &rarr;</a>
+          <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-sub">📄 Guía Actividad 1 (.docx)</a>
         </div>
+      </div>
 
-        <!-- SECCIÓN 2: PRESENTACIONES POWERPOINT -->
-        <h2 id="presentaciones" class="section-title">📊 Presentaciones y Materiales de Apoyo (PowerPoint)</h2>
-        <p>A continuación encuentras el material descargable preparado para proyectar en encuentros, charlas y clases:</p>
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 04</div>
+          <h3>Los Apóstoles</h3>
+          <p>El llamado, la vocación y el envío de los doce discípulos.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
 
-        <ul class="resource-list" style="margin-top: 1.5rem;">
-            <li class="resource-item">
-                <div class="resource-info">
-                    <h4>Taller 1: Introducción a las Sagradas Escrituras</h4>
-                    <p>Presentación completa sobre el origen, estructura y contexto histórico de la Biblia. (Formato PPTX)</p>
-                </div>
-                <a href="./Los talleres/Taller_Introduccion_Escrituras.pptx" class="btn-download">Descargar PPT</a>
-            </li>
-            <li class="resource-item">
-                <div class="resource-info">
-                    <h4>Taller 2: Historia Sagrada y Profetas del Antiguo Testamento</h4>
-                    <p>Esquema visual sobre el rol de los profetas principales y la cronología bíblica. (Formato PPTX)</p>
-                </div>
-                <a href="./Los talleres/Taller_Profetas_Antiguo_Testamento.pptx" class="btn-download">Descargar PPT</a>
-            </li>
-            <li class="resource-item">
-                <div class="resource-info">
-                    <h4>Taller 3: El Evangelio y la Vida de Jesús</h4>
-                    <p>Apoyo audiovisual y gráfico de los pasajes clave del Nuevo Testamento. (Formato PPTX)</p>
-                </div>
-                <a href="./Los talleres/Taller_Evangelios_Vida_Jesus.pptx" class="btn-download">Descargar PPT</a>
-            </li>
-            <li class="resource-item">
-                <div class="resource-info">
-                    <h4>Taller 4: Los Sacramentos y la Catequesis Familiar</h4>
-                    <p>Guía interactiva para catequistas y formación comunitaria. (Formato PPTX)</p>
-                </div>
-                <a href="./Los talleres/Taller_Sacramentos_Catequesis.pptx" class="btn-download">Descargar PPT</a>
-            </li>
-        </ul>
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 05</div>
+          <h3>El Reino de los Cielos</h3>
+          <p>Las parábolas centrales y el anuncio del Reino por parte de Jesús.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 06</div>
+          <h3>Los Milagros</h3>
+          <p>Los signos de liberación y compasión manifestados por Jesús.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 07</div>
+          <h3>La Dureza del Reino</h3>
+          <p>Reflexión sobre la exigencia del seguimiento y el compromiso discipular.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 08</div>
+          <h3>¿Quién es Bueno?</h3>
+          <p>Un análisis sobre la moral evangélica y la gracia frente a la ley.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 09</div>
+          <h3>Jesús y la Vida Eterna</h3>
+          <p>La promesa de la salvación y el sentido de la esperanza fe cristiana.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 10</div>
+          <h3>Jesús y el Amor de Dios</h3>
+          <p>El rostro misericordioso del Padre revelado en el Evangelio.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 11</div>
+          <h3>¿Quiénes Dicen que Soy?</h3>
+          <p>La pregunta personal de Jesús a sus discípulos y la confesión de fe.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 13</div>
+          <h3>Entrada a Jerusalén</h3>
+          <p>El triunfo del Domingo de Ramos y la preparación para la Pasión.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 14</div>
+          <h3>La Pasión y la Muerte</h3>
+          <p>Acompañamiento reflexivo a la entrega total de Cristo en la cruz.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 15</div>
+          <h3>Resurrección</h3>
+          <p>El triunfo sobre la muerte y la luz pascual en la vida pastoral.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1c_1sirHzKj2eoPvIyEy7qe05Bsaywb4U?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
 
     </div>
 
-    <footer>
-        <p>Para el Pueblo de Dios — Material de libre acceso y uso gratuito.</p>
-    </footer>
+    <!-- COLECCIÓN 2026 -->
+    <div class="year-header">
+      <h2>Colección 2026 — Serie Profetas</h2>
+    </div>
+
+    <div class="workshop-grid">
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 01</div>
+          <h3>Los Profetas</h3>
+          <p>Introducción general al ministerio profético y su contexto histórico.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 02</div>
+          <h3>Elías (Parte 1)</h3>
+          <p>El profeta del fuego y la confrontación con la idolatría.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 03</div>
+          <h3>Elías (Parte 2)</h3>
+          <p>La voz apacible en el Horeb y la transmisión del manto a Eliseo.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 04</div>
+          <h3>Jeremías (Parte 1)</h3>
+          <p>El llamado desde el vientre materno y la misión del profeta doliente.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 05</div>
+          <h3>Jeremías (Parte 2)</h3>
+          <p>La nueva alianza grabada en el corazón y el mensaje durante el exilio.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 06</div>
+          <h3>Isaías</h3>
+          <p>La santidad de Dios, la vocación del profeta y los cánticos del Siervo.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 07</div>
+          <h3>Isaías (Capítulos 2, 3, 4 y 5)</h3>
+          <p>Profecías del juicio, el poema de la viña y la promesa de paz futura.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p><strong>Para el pueblo de Dios</strong> — Material libre para la labor evangelizadora.</p>
+  </footer>
 
 </body>
 </html>
