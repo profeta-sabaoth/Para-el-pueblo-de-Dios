@@ -1,95 +1,134 @@
-# 🛠️ Manual de Uso: Cómo adaptar tus Prompts
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de Prompts y Recursos - Para el Pueblo de Dios</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background-color: #ffffff; }
+        
+        header { background-color: #4a154b; color: #ffffff; text-align: center; padding: 2.5rem 1.5rem; }
+        header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        header p { font-size: 1.1rem; color: #f3e5f5; }
+        
+        nav { background-color: #311b92; text-align: center; padding: 0.8rem; position: sticky; top: 0; z-index: 100; }
+        nav a { color: #ffffff; text-decoration: none; padding: 0.7rem 1.5rem; margin: 0 0.3rem; border-radius: 4px; font-weight: bold; display: inline-block; transition: background 0.3s; }
+        nav a:hover { background-color: #d32f2f; }
+        
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+        
+        .section-title { color: #4a154b; border-bottom: 3px solid #d32f2f; padding-bottom: 0.5rem; margin: 2rem 0 1.5rem; font-size: 1.6rem; }
+        
+        .box { background-color: #f8f9fa; border-left: 4px solid #311b92; padding: 15px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+        .prompt-box { background-color: #f1f3f5; border: 1px solid #ced4da; padding: 15px; border-radius: 6px; font-family: monospace; white-space: pre-wrap; margin: 15px 0; color: #1a252f; font-size: 0.95rem; }
+        
+        .card-example { border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 25px; background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .card-example img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 0 auto 15px auto; }
+        
+        /* Lista de PowerPoints y Recursos */
+        .resource-list { list-style: none; padding: 0; }
+        .resource-item { background: #ffffff; border: 1px solid #e0e0e0; border-left: 5px solid #d32f2f; padding: 1.2rem; margin-bottom: 1rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .resource-info h4 { color: #4a154b; margin-bottom: 0.3rem; font-size: 1.1rem; }
+        .resource-info p { color: #666; font-size: 0.9rem; }
+        
+        .btn-download { background-color: #d32f2f; color: #ffffff; padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.9rem; transition: background 0.3s; }
+        .btn-download:hover { background-color: #b71c1c; }
 
-¡Bienvenido! En este repositorio no te entregamos imágenes estáticas, sino las instrucciones (prompts) para que generes la imagen exacta que necesitas para tus talleres, catequesis o investigaciones.
+        footer { text-align: center; padding: 2rem; background-color: #4a154b; color: #ffffff; margin-top: 4rem; }
+    </style>
+</head>
+<body>
 
-Sigue estos sencillos pasos para aprender a modificar los prompts a tu gusto. 🎨✨
+    <header>
+        <h1>Talleres y Recursos Didácticos</h1>
+        <p>Material de libre acceso para la enseñanza, catequesis e investigación personal</p>
+    </header>
 
----
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="#taller-prompts">🛠️ Taller de Prompts</a>
+        <a href="#presentaciones">📊 Presentaciones PowerPoint</a>
+        <a href="videoteca.html">📹 Videoteca</a>
+    </nav>
 
-## 🧩 1. La Anatomía de un Prompt
+    <div class="container">
 
-Un prompt es simplemente una receta de cocina para la Inteligencia Artificial. Si cambias los ingredientes, cambias el resultado.
+        <!-- SECCIÓN 1: TALLER DE PROMPTS -->
+        <h2 id="taller-prompts" class="section-title">🛠️ Manual y Taller de Prompts para IA</h2>
+        
+        <p>En este taller no entregamos únicamente imágenes estáticas, sino las instrucciones (prompts) para que puedas generar tus propios esquemas o ilustraciones respetando la precisión histórica y el enfoque teológico.</p>
 
-Cada plantilla de este repositorio tiene 4 ingredientes clave:
-* 🎨 **Estilo Visual:** Cómo se verá la imagen (óleo, ilustración infantil, foto realista, etc.).
-* 👤 **Sujeto u Objeto:** Quién o qué aparece (un profeta, una infografía, una escena bíblica).
-* 💡 **Detalles Ambientales:** La luz, la época, la vestimenta o los colores predominantes.
-* 📐 **Formato:** El tamaño de la imagen (por ejemplo, `--ar 16:9` para pantallas horizontales o `--ar 4:3` para presentaciones).
+        <div class="box">
+            <strong>¿Cómo usar la plantilla?</strong> Copia la plantilla universal de abajo, reemplaza lo que está entre los corchetes <code>[ ]</code> con tu tema y pégalo en herramientas gratuitas como <a href="https://gemini.google.com" target="_blank">Google Gemini</a> o ChatGPT.
+        </div>
 
----
+        <h3>Plantilla Única de Prompt Universal</h3>
+        <div class="prompt-box">Una [indicar fotografía realista / cuadro pintado al óleo / dibujo animado infantil] de [indicar el personaje o la escena bíblica], [indicar qué acción está haciendo], ubicada en [indicar el lugar], durante [indicar la hora del día o si es de noche]. La escena debe ser en formato [indicar horizontal o vertical]. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.</div>
 
-## 🔍 2. La Regla de los Corchetes `[ ]`
+        <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: #4a154b;">Ejemplos Generados</h3>
 
-Para personalizar cualquier prompt de esta guía, solo debes modificar el texto que está dentro de los corchetes `[ ]`. Todo lo demás déjalo tal cual para mantener la precisión de la imagen.
+        <div class="card-example">
+            <h4>1. Moisés con las Tablas de la Ley</h4>
+            <img src="./Imágenes/Moisés y las tablas de la ley.jpg" alt="Moisés con las Tablas de la Ley">
+            <p><strong>Prompt aplicado:</strong></p>
+            <div class="prompt-box">Una fotografía realista de el profeta Moisés, sosteniendo con firmeza las Tablas de la Ley de piedra mientras desciende con mirada solemne y cansada pero llena de majestad, ubicada en la ladera rocosa del Monte Sinaí, durante el amanecer con un cielo tormentoso de fondo. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.</div>
+        </div>
 
-> 💡 **Nota:** Al copiar el prompt en la IA, borra los corchetes y escribe tu texto.
+        <div class="card-example">
+            <h4>2. Juan el Bautista en el Río Jordán</h4>
+            <img src="./Imágenes/Juan el Bautista.jpg" alt="Juan el Bautista">
+            <p><strong>Prompt aplicado:</strong></p>
+            <div class="prompt-box">Una fotografía realista de San Juan el Bautista, bautizando a una persona sumergiéndola suavemente en las aguas del río, ubicada en la orilla del río Jordán rodeado de vegetación baja y rocas, durante la mañana soleada. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.</div>
+        </div>
 
----
+        <div class="card-example">
+            <h4>3. Jesús resucitando a la Hija de Jairo</h4>
+            <img src="./Imágenes/La hija de Jairo.jpg" alt="Hija de Jairo">
+            <p><strong>Prompt aplicado:</strong></p>
+            <div class="prompt-box">Una fotografía realista de Jesús de Nazaret, tomando con ternura la mano de la hija de Jairo mientras la niña comienza a despertar en su cama, ubicada en una habitación sencilla de una casa galilea de la época, durante la tarde con luz suave entrando por la ventana. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.</div>
+        </div>
 
-## 🚀 3. ¿Dónde usar estos Prompts?
+        <!-- SECCIÓN 2: PRESENTACIONES POWERPOINT -->
+        <h2 id="presentaciones" class="section-title">📊 Presentaciones y Materiales de Apoyo (PowerPoint)</h2>
+        <p>A continuación encuentras el material descargable preparado para proyectar en encuentros, charlas y clases:</p>
 
-Puedes copiar y pegar estos textos de forma gratuita en cualquiera de estas herramientas:
-* 🌐 **[Google Gemini](https://gemini.google.com)** (Excelente para generar imágenes y esquemas visuales de forma rápida e integrada)
-* 🤖 **[ChatGPT](https://chatgpt.com)** / **[Microsoft Copilot](https://copilot.microsoft.com)** (Ideales para uso general y creación rápida)
-* 🎨 **[Leonardo.ai](https://leonardo.ai)** / **[Midjourney](https://www.midjourney.com)** (Para un control estético y artístico más avanzado)
-* 🖼️ **[Canva](https://www.canva.com)** (Muy práctico si vas a integrar las imágenes directamente en tus presentaciones o folletos)
+        <ul class="resource-list" style="margin-top: 1.5rem;">
+            <li class="resource-item">
+                <div class="resource-info">
+                    <h4>Taller 1: Introducción a las Sagradas Escrituras</h4>
+                    <p>Presentación completa sobre el origen, estructura y contexto histórico de la Biblia. (Formato PPTX)</p>
+                </div>
+                <a href="./Los talleres/Taller_Introduccion_Escrituras.pptx" class="btn-download">Descargar PPT</a>
+            </li>
+            <li class="resource-item">
+                <div class="resource-info">
+                    <h4>Taller 2: Historia Sagrada y Profetas del Antiguo Testamento</h4>
+                    <p>Esquema visual sobre el rol de los profetas principales y la cronología bíblica. (Formato PPTX)</p>
+                </div>
+                <a href="./Los talleres/Taller_Profetas_Antiguo_Testamento.pptx" class="btn-download">Descargar PPT</a>
+            </li>
+            <li class="resource-item">
+                <div class="resource-info">
+                    <h4>Taller 3: El Evangelio y la Vida de Jesús</h4>
+                    <p>Apoyo audiovisual y gráfico de los pasajes clave del Nuevo Testamento. (Formato PPTX)</p>
+                </div>
+                <a href="./Los talleres/Taller_Evangelios_Vida_Jesus.pptx" class="btn-download">Descargar PPT</a>
+            </li>
+            <li class="resource-item">
+                <div class="resource-info">
+                    <h4>Taller 4: Los Sacramentos y la Catequesis Familiar</h4>
+                    <p>Guía interactiva para catequistas y formación comunitaria. (Formato PPTX)</p>
+                </div>
+                <a href="./Los talleres/Taller_Sacramentos_Catequesis.pptx" class="btn-download">Descargar PPT</a>
+            </li>
+        </ul>
 
-¡Solo copia el prompt, ajusta las palabras entre corchetes, pégalo en tu plataforma favorita y genera el material que necesitas!
+    </div>
 
----
+    <footer>
+        <p>Para el Pueblo de Dios — Material de libre acceso y uso gratuito.</p>
+    </footer>
 
-## 🛠️ 4. Plantilla Única de Prompt Universal
-
-Para generar cualquier escena, solo debes copiar el texto y completar las instrucciones que están dentro de los corchetes `[ ]`.
-El resto del texto déjalo exactamente como está, ya que contiene los detalles técnicos automáticos para que la imagen quede perfecta.
-
-### 🇪🇸 Español (Copiar y pegar)
-
-> *Una `[indicar fotografía realista / cuadro pintado al óleo / dibujo animado infantil]` de `[indicar el personaje o la escena bíblica]`, `[indicar qué acción está haciendo]`, ubicada en `[indicar el lugar]`, durante `[indicar la hora del día o si es de noche]`. La escena debe ser en formato `[indicar horizontal o vertical]`. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.*
-
----
-
-### 📝 Ejemplo de cómo lo llena el usuario:
-
-Si la persona quiere ilustrar al profeta Isaías, solo debe completar los corchetes así:
-* **Estilo:** fotografía realista
-* **Personaje:** el profeta Isaías
-* **Acción:** escribiendo un pergamino con concentrada atención
-* **Lugar:** su taller en Jerusalén
-* **Momento:** el atardecer
-* **Formato:** horizontal
-
-**Resultado final listo para pegar en Gemini o ChatGPT:**
-
-> *Una fotografía realista del profeta Isaías, escribiendo un pergamino con concentrada atención, ubicada en su taller en Jerusalén, durante el atardecer. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.*
-
----
-
-## 🖼️ Ejemplos de imágenes generadas con esta plantilla
-
-Aquí puedes ver ejemplos reales de imágenes creadas en Gemini utilizando este mismo método:
-
-### 1. Moisés con las Tablas de la Ley
-
-![Moisés y las tablas de la ley](./imagenes/Moisés%20y%20las%20tablas%20de%20la%20ley.jpg)
-
-**Prompt utilizado:**
-> *Una fotografía realista de el profeta Moisés, sosteniendo con firmeza las Tablas de la Ley de piedra mientras desciende con mirada solemne y cansada pero llena de majestad, ubicada en la ladera rocosa del Monte Sinaí, durante el amanecer con un cielo tormentoso de fondo. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.*
-
----
-
-### 2. Juan el Bautista bautizando en el río Jordán
-
-![Juan el Bautista](./imagenes/Juan%20el%20Bautista.jpg)
-
-**Prompt utilizado:**
-> *Una fotografía realista de San Juan el Bautista, bautizando a una persona sumergiéndola suavemente en las aguas del río, ubicada en la orilla del río Jordán rodeado de vegetación baja y rocas, durante la mañana soleada. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.*
-
----
-
-### 3. Jesús resucitando a la hija de Jairo
-
-![La hija de Jairo](./imagenes/La%20hija%20de%20Jairo.jpg)
-
-**Prompt utilizado:**
-> *Una fotografía realista de Jesús de Nazaret, tomando con ternura la mano de la hija de Jairo mientras la niña comienza a despertar en su cama, ubicada en una habitación sencilla de una casa galilea de la época, durante la tarde con luz suave entrando por la ventana. La escena debe ser en formato horizontal. El vestuario y la ropa deben ser completamente fieles a la época histórica y al contexto bíblico. La iluminación debe ser natural y bien contrastada, con una atmósfera solemne, espiritual y cargada de sentido, cuidando los detalles en las texturas, los rostros y el entorno, sin texto flotante ni marcas de agua.*
+</body>
+</html>
