@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Guion Litúrgico | Para el pueblo de Dios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-main: #3b125e;
+      --purple-dark: #270b40;
+      --red-accent: #d32f2f;
+      --red-hover: #b71c1c;
+      --bg-light: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-md: 0 10px 25px -5px rgba(59, 18, 94, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif; 
+      background-color: var(--bg-light); 
+      color: var(--text-main); 
+      line-height: 1.6;
+    }
+
+    header { 
+      background: var(--purple-dark); 
+      color: #ffffff; 
+      padding: 1rem 2rem; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .logo-text { 
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; 
+      font-weight: 700; 
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .logo-text span { color: var(--red-accent); font-style: italic; }
+
+    .btn-back {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .btn-back:hover { background: var(--red-accent); }
+
+    .hero-page { 
+      background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%); 
+      color: #ffffff; 
+      text-align: center; 
+      padding: 3rem 1.5rem 4rem 1.5rem; 
+    }
+
+    .hero-page h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .hero-page p { color: #cbd5e1; font-size: 1.1rem; max-width: 750px; margin: 0 auto; }
+
+    .main-wrapper {
+      max-width: 850px;
+      margin: -2rem auto 4rem auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      color: var(--purple-main);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    input[type="date"], input[type="text"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      color: var(--text-main);
+      background: var(--bg-light);
+      transition: border-color 0.2s;
+    }
+
+    input[type="date"]:focus, input[type="text"]:focus {
+      outline: none;
+      border-color: var(--purple-main);
+      background: #ffffff;
+    }
+
+    .btn-primary {
+      background-color: var(--red-accent);
+      color: white;
+      border: none;
+      padding: 0.85rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: 700;
+      transition: background-color 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--red-hover);
+    }
+
+    .option-selector {
+      background: #f1f5f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      border-left: 4px solid var(--purple-main);
+    }
+
+    .option-selector h3 {
+      color: var(--purple-main);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .guion-preview {
+      margin-top: 1.5rem;
+      background: #0f172a;
+      color: #f1f5f9;
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      font-family: monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .copy-btn {
+      background-color: #2e7d32;
+      color: #ffffff;
+      border: none;
+      padding: 0.85rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: 700;
+      margin-top: 1rem;
+      transition: background-color 0.2s;
+    }
+
+    .copy-btn:hover {
+      background-color: #1b5e20;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer { 
+      background: var(--purple-dark);
+      color: #94a3b8;
+      text-align: center; 
+      padding: 2.5rem 1.5rem; 
+      font-size: 0.9rem; 
+      border-top: 3px solid var(--red-accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="brand-box">
+        <img src="Gemini_Generated_Image_8byw2i8byw2i8byw.jpg" alt="Logo Para el pueblo de Dios" class="logo-img">
+        <a href="index.html" class="logo-text">Para el pueblo <span>de Dios</span></a>
+      </div>
+      <a href="index.html" class="btn-back">&larr; Volver a la Portada</a>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <h1>Generador de Guion Litúrgico</h1>
+    <p>Consulta la fecha del calendario oficial y genera automáticamente la estructura completa para el animador o comentarista de la Misa.</p>
+  </section>
+
+  <main class="main-wrapper">
+
+    <div class="tool-card">
+      <div class="form-group">
+        <label for="fechaMisa">📅 Fecha de la celebración:</label>
+        <input type="date" id="fechaMisa">
+      </div>
+
+      <div class="form-group">
+        <label for="intencionEspecial">✍️ Intención particular o fecha especial (Opcional):</label>
+        <input type="text" id="intencionEspecial" placeholder="Ej: Aniversario de la capilla, intención por la familia Pérez, etc.">
+      </div>
+
+      <button class="btn-primary" onclick="buscarCelebracion()">
+        🔍 Consultar Liturgia Oficial
+      </button>
+
+      <!-- Selector para cuando existen múltiples opciones para un mismo día -->
+      <div id="opcionesContainer" class="option-selector hidden">
+        <h3>Múltiples celebraciones encontradas:</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">Selecciona la opción que deseas utilizar para el guion:</p>
+        <div id="listaOpciones"></div>
+        <button class="btn-primary" style="margin-top: 15px;" onclick="generarGuionSeleccionado()">Generar Guion</button>
+      </div>
+
+      <!-- Resultado y Vista Previa -->
+      <div id="resultadoContainer" class="hidden">
+        <h2 style="color: var(--purple-main); font-size: 1.4rem; margin-top: 2rem;">📜 Guion Generado</h2>
+        <div id="guionTexto" class="guion-preview"></div>
+        <button class="copy-btn" onclick="copiarGuion()">📋 Copiar Guion al Portapapeles</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p><strong>Para el pueblo de Dios</strong> — Herramientas abiertas de ayuda litúrgica.</p>
+  </footer>
+
+  <script>
+    // Cargar fecha actual por defecto
+    document.getElementById('fechaMisa').valueAsDate = new Date();
+    let datosLiturgicosActuales = null;
+
+    async function buscarCelebracion() {
+      const fecha = document.getElementById('fechaMisa').value;
+      if (!fecha) return;
+      const [year, month, day] = fecha.split('-');
+      const opcionesContainer = document.getElementById('opcionesContainer');
+      const resultadoContainer = document.getElementById('resultadoContainer');
+          
+      opcionesContainer.classList.add('hidden');
+      resultadoContainer.classList.add('hidden');
+      
+      try {
+        // Consulta a la API litúrgica oficial pública
+        const response = await fetch(`https://calapi.inadiutorium.cz/api/v0/en/calendars/default/${year}/${month}/${day}`);
+        const data = await response.json();
+              
+        datosLiturgicosActuales = data;
+        const celebraciones = data.celebrations;
+
+        if (celebraciones.length > 1) {
+          // Desplegar selector si hay varias celebraciones
+          const listaOpciones = document.getElementById('listaOpciones');
+          listaOpciones.innerHTML = '';
+                  
+          celebraciones.forEach((cel, index) => {
+            listaOpciones.innerHTML += `
+              <div style="margin-bottom: 8px;">
+                <input type="radio" id="opt_${index}" name="celebracionOpt" value="${index}" ${index === 0 ? 'checked' : ''}>
+                <label for="opt_${index}" style="display:inline; font-weight:normal; color: var(--text-main);">
+                  <strong>${cel.title}</strong> (${cel.rank || 'Memoria/Fiesta'})
+                </label>
+              </div>
+            `;
+          });
+                  
+          opcionesContainer.classList.remove('hidden');
+        } else {
+          // Generar directamente si solo hay una opción
+          construirTextoGuion(celebraciones[0]);
+        }
+      } catch (error) {
+        alert('No se pudo obtener la información litúrgica. Intenta nuevamente.');
+      }
+    }
+
+    function generarGuionSeleccionado() {
+      const selectedIndex = document.querySelector('input[name="celebracionOpt"]:checked').value;
+      construirTextoGuion(datosLiturgicosActuales.celebrations[selectedIndex]);
+    }
+
+    function construirTextoGuion(celebracion) {
+      const fechaInput = document.getElementById('fechaMisa').value;
+      const intencion = document.getElementById('intencionEspecial').value;
+          
+      const fechaObj = new Date(fechaInput + 'T00:00:00');
+      const fechaFormateada = fechaObj.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      let intencionTexto = intencion ? `\n\nIntención especial de esta misa: ${intencion}` : '';
+
+      const plantillaGuion = `GUION DE MISA
+Fecha: ${fechaFormateada}
+Celebración: ${celebracion.title}${intencionTexto}
+========================================
+
+1. MONICIÓN DE ENTRADA
+Hermanos y hermanas, bienvenidos a la celebración de la Eucaristía. Hoy nos reunimos como comunidad para celebrar la Palabra y el Sacramento que nos da vida. En este día celebrando "${celebracion.title}", abramos nuestro corazón a la gracia del Señor. Nos ponemos de pie y cantamos con alegría.
+
+========================================
+
+2. LITURGIA DE LA PALABRA
+
+• Introducción a la Primera Lectura:
+La primera lectura nos invita a escuchar la voz de Dios que nos guía y fortalece en nuestro caminar. Escuchemos con atención.
+
+• Ubicación de Lecturas:
+- Primera Lectura
+- Salmo Responsorial
+- Segunda Lectura
+- Evangelio
+
+• Introducción al Evangelio:
+Nos preparamos para escuchar la proclamación del Santo Evangelio, Palabra de salvación. De pie, entonamos el Aleluya.
+
+========================================
+
+3. ORACIÓN UNIVERSAL (PETICIONES)
+Animador: Presentemos al Señor nuestras oraciones y necesidades comunitarias. A cada petición respondemos: "Escucha, Señor, nuestra oración."
+
+1. Por la Santa Iglesia Católica, el Papa, nuestros obispos y sacerdotes, para que el Señor los guíe con sabiduría y fidelidad. Roguemos al Señor.
+2. Por los gobernantes y líderes de las naciones, para que trabajen siempre por la paz, la justicia y el bienestar de los más necesitados. Roguemos al Señor.
+3. Por nuestra comunidad parroquial y por las intenciones que llevamos en el corazón (especialmente por: ${intencion || 'nuestras familias e intenciones particulares'}), para que el Señor nos fortalezca en la fe. Roguemos al Señor.
+4. Por los enfermos, los que sufren y nuestros difuntos, para que encuentren en el Señor consuelo, esperanza y descanso eterno. Roguemos al Señor.
+
+========================================
+
+4. LITURGIA EUCARÍSTICA Y DESPEDIDA
+Presentamos el pan y el vino, fruto de la tierra y del trabajo del hombre. Nos preparamos para el momento central de nuestra fe.`;
+
+      document.getElementById('guionTexto').textContent = plantillaGuion;
+      document.getElementById('resultadoContainer').classList.remove('hidden');
+      document.getElementById('opcionesContainer').classList.add('hidden');
+    }
+
+    function copiarGuion() {
+      const texto = document.getElementById('guionTexto').textContent;
+      navigator.clipboard.writeText(texto).then(() => {
+        alert('¡Guion copiado al portapapeles!');
+      });
+    }
+  </script>
+
+</body>
+</html>
