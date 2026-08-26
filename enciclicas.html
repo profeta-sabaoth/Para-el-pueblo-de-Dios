@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca de Encíclicas | Para el pueblo de Dios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-main: #3b125e;
+      --purple-dark: #270b40;
+      --red-accent: #d32f2f;
+      --red-hover: #b71c1c;
+      --bg-light: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-md: 0 10px 25px -5px rgba(59, 18, 94, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif; 
+      background-color: var(--bg-light); 
+      color: var(--text-main); 
+      line-height: 1.6;
+    }
+
+    header { 
+      background: var(--purple-dark); 
+      color: #ffffff; 
+      padding: 1rem 2rem; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .logo-text { 
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; 
+      font-weight: 700; 
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .logo-text span { color: var(--red-accent); font-style: italic; }
+
+    .btn-back {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .btn-back:hover { background: var(--red-accent); }
+
+    .hero-page { 
+      background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%); 
+      color: #ffffff; 
+      text-align: center; 
+      padding: 3rem 1.5rem 4rem 1.5rem; 
+    }
+
+    .hero-page h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .hero-page p { color: #cbd5e1; font-size: 1.1rem; max-width: 750px; margin: 0 auto; }
+
+    .main-wrapper {
+      max-width: 1200px;
+      margin: -2rem auto 4rem auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .drive-banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--red-accent);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .drive-banner-text h3 {
+      color: var(--purple-main);
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+    }
+
+    .drive-banner-text p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .btn-drive {
+      background: var(--red-accent);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.7rem 1.3rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-drive:hover { background: var(--red-hover); }
+
+    .estanteria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .tarjeta-enciclica {
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .tarjeta-enciclica:hover {
+      transform: translateY(-4px);
+      border-color: var(--purple-main);
+    }
+
+    .portada-header {
+      background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%);
+      color: #ffffff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .portada-papa {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #cbd5e1;
+      font-weight: 700;
+    }
+
+    .portada-titulo-latin {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0.3rem 0;
+      font-style: italic;
+      color: #ffffff;
+    }
+
+    .portada-titulo-espanol {
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+
+    .portada-anio {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: rgba(211, 47, 47, 0.3);
+      border: 1px solid var(--red-accent);
+      color: #ffffff;
+      padding: 2px 12px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .cuerpo-explicacion {
+      padding: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      flex-grow: 1;
+      background: #ffffff;
+    }
+
+    footer { 
+      background: var(--purple-dark);
+      color: #94a3b8;
+      text-align: center; 
+      padding: 2.5rem 1.5rem; 
+      font-size: 0.9rem; 
+      border-top: 3px solid var(--red-accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="brand-box">
+        <img src="Gemini_Generated_Image_8byw2i8byw2i8byw.jpg" alt="Logo Para el pueblo de Dios" class="logo-img">
+        <a href="index.html" class="logo-text">Para el pueblo <span>de Dios</span></a>
+      </div>
+      <a href="index.html" class="btn-back">&larr; Volver a la Portada</a>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <h1>Biblioteca de Encíclicas Seleccionadas</h1>
+    <p>Documentos fundamentales del Magisterio de la Iglesia preparados para el estudio, la formación y la consulta pastoral.</p>
+  </section>
+
+  <main class="main-wrapper">
+
+    <div class="drive-banner">
+      <div class="drive-banner-text">
+        <h3>📁 Descarga de Archivos en PDF</h3>
+        <p>Accede directamente a la carpeta de almacenamiento para descargar los textos completos.</p>
+      </div>
+      <a href="https://drive.google.com/drive/folders/1CDuQi70Bsxs1PtRtiPP608TWjU7wTgIY" target="_blank" class="btn-drive">
+        Abrir Carpeta PDF &rarr;
+      </a>
+    </div>
+
+    <div class="estanteria-grid">
+      <!-- PABLO VI -->
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Pablo VI</div>
+          <div class="portada-titulo-latin">Ecclesiam Suam</div>
+          <div class="portada-titulo-espanol">Su Iglesia</div>
+          <span class="portada-anio">1964</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Reflexiona sobre el mandato de la Iglesia en el mundo moderno. Propone profundizar la autoconciencia eclesial, impulsar la conversión moral continua y entablar un "diálogo de salvación" sincero con la sociedad.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Pablo VI</div>
+          <div class="portada-titulo-latin">Mysterium Fidei</div>
+          <div class="portada-titulo-espanol">Misterio de fe</div>
+          <span class="portada-anio">1965</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Salvaguarda la doctrina y el culto de la Sagrada Eucaristía, reafirmando la presencia real de Cristo en las especies del pan y del vino y el dogma de la transustanciación.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Pablo VI</div>
+          <div class="portada-titulo-latin">Christi Matri</div>
+          <div class="portada-titulo-espanol">A la Madre de Cristo</div>
+          <span class="portada-anio">1966</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Exhortación orante motivada por los conflictos bélicos y la carrera nuclear, pidiendo la intercesión de la Virgen María para alcanzar la paz mundial.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Pablo VI</div>
+          <div class="portada-titulo-latin">Populorum Progressio</div>
+          <div class="portada-titulo-espanol">El desarrollo de los pueblos</div>
+          <span class="portada-anio">1967</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Aborda el desarrollo integral del ser humano y sostiene la célebre premisa de que "el desarrollo es el nuevo nombre de la paz", instando a la solidaridad mundial.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Pablo VI</div>
+          <div class="portada-titulo-latin">Sacerdotalis Caelibatus</div>
+          <div class="portada-titulo-espanol">Celibato sacerdotal</div>
+          <span class="portada-anio">1967</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Confirma la ley del celibato eclesiástico en la Iglesia latina ofreciendo su fundamento cristológico, eclesiológico y escatológico.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Pablo VI</div>
+          <div class="portada-titulo-latin">Humanae Vitae</div>
+          <div class="portada-titulo-espanol">De la vida humana</div>
+          <span class="portada-anio">1968</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Trata sobre la regulación de la natalidad y el valor sagrado de la vida humana, señalando el nexo indisoluble entre el aspecto unicitivo y procreador del matrimonio.
+        </div>
+      </article>
+
+      <!-- JUAN PABLO II -->
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Redemptor Hominis</div>
+          <div class="portada-titulo-espanol">Redentor del hombre</div>
+          <span class="portada-anio">1979</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Encíclica inaugural sobre Jesucristo como centro del cosmos y de la historia, afirmando que el hombre es el camino fundamental de la Iglesia.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Dives in Misericordia</div>
+          <div class="portada-titulo-espanol">Rico en misericordia</div>
+          <span class="portada-anio">1980</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Profundiza en el rostro paternal y compasivo de Dios manifestado en la misión de Cristo y llama a proclamar la misericordia divina en la sociedad.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Laborem Exercens</div>
+          <div class="portada-titulo-espanol">Trabajando</div>
+          <span class="portada-anio">1981</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Analiza el trabajo humano situándolo como clave de la cuestión social, defendiendo la primacía de la persona trabajadora sobre los medios de producción.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Dominum et Vivificantem</div>
+          <div class="portada-titulo-espanol">Señor y dador de vida</div>
+          <span class="portada-anio">1986</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Dedicada al Espíritu Santo en la vida de la Iglesia y del mundo, presentándolo como la fuerza renovadora que da la vida y guía a los creyentes.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Redemptoris Mater</div>
+          <div class="portada-titulo-espanol">Madre del Redentor</div>
+          <span class="portada-anio">1987</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Muestra la presencia de la Virgen María en el plan de salvación y la describe precediendo al Pueblo de Dios en la peregrinación de la fe.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Sollicitudo Rei Socialis</div>
+          <div class="portada-titulo-espanol">La preocupación social</div>
+          <span class="portada-anio">1987</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Denuncia las "estructuras de pecado" que mantienen la pobreza en el mundo y propone la solidaridad como una exigencia moral para superar las brechas sociales.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Redemptoris Missio</div>
+          <div class="portada-titulo-espanol">La misión del Redentor</div>
+          <span class="portada-anio">1990</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Reafirma la validez permanente del mandato misionero universal, invitando a anunciar el Evangelio con ardor y creatividad.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Centesimus Annus</div>
+          <div class="portada-titulo-espanol">Centésimo año</div>
+          <span class="portada-anio">1991</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Escrita al cumplirse 100 años de Rerum Novarum. Analiza los acontecimientos históricos de 1989 y la búsqueda de un orden social ético y justo.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Evangelium Vitae</div>
+          <div class="portada-titulo-espanol">El Evangelio de la vida</div>
+          <span class="portada-anio">1995</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Llamado a defender el valor inviolable de la vida humana desde la concepción hasta la muerte natural, frente a la llamada "cultura de la muerte".
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Ut Unum Sint</div>
+          <div class="portada-titulo-espanol">Que sean uno</div>
+          <span class="portada-anio">1995</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Reafirma el compromiso de la Iglesia católica con el ecumenismo y la búsqueda de la unidad visible de todos los cristianos.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Fides et Ratio</div>
+          <div class="portada-titulo-espanol">Fe y razón</div>
+          <span class="portada-anio">1998</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Examina la relación armoniosa entre la fe y la razón humana, definiéndolas como dos alas para elevarse hacia la contemplación de la verdad.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Juan Pablo II</div>
+          <div class="portada-titulo-latin">Ecclesia de Eucharistia</div>
+          <div class="portada-titulo-espanol">La Iglesia de la Eucaristía</div>
+          <span class="portada-anio">2003</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Recuerda que la Iglesia vive de la Eucaristía y busca reavivar el asombro y la devoción hacia el misterio eucarístico.
+        </div>
+      </article>
+
+      <!-- BENEDICTO XVI -->
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Benedicto XVI</div>
+          <div class="portada-titulo-latin">Deus Caritas Est</div>
+          <div class="portada-titulo-espanol">Dios es amor</div>
+          <span class="portada-anio">2005</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Reflexiona sobre el amor cristiano en sus dimensiones de eros y agapé, y sobre la misión de la Iglesia de ejercitar la caridad activa.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Benedicto XVI</div>
+          <div class="portada-titulo-latin">Spe Salvi</div>
+          <div class="portada-titulo-espanol">Salvados en la esperanza</div>
+          <span class="portada-anio">2007</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Tratado teológico sobre la esperanza cristiana como fuerza para afrontar los sufrimientos de la vida presente y sostener el camino del creyente.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Benedicto XVI</div>
+          <div class="portada-titulo-latin">Caritas in Veritate</div>
+          <div class="portada-titulo-espanol">La caridad en la verdad</div>
+          <span class="portada-anio">2009</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Aborda el desarrollo humano integral en el marco de la economía global, planteando la necesidad de unir la ética y la fraternidad a los procesos financieros.
+        </div>
+      </article>
+
+      <!-- FRANCISCO -->
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Francisco</div>
+          <div class="portada-titulo-latin">Lumen Fidei</div>
+          <div class="portada-titulo-espanol">La luz de la fe</div>
+          <span class="portada-anio">2013</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Presenta la fe como una luz capaz de iluminar toda la existencia humana y orientar la vida en sociedad hacia el bien común.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Francisco</div>
+          <div class="portada-titulo-latin">Evangelii Gaudium</div>
+          <div class="portada-titulo-espanol">La alegría del Evangelio</div>
+          <span class="portada-anio">2013</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Exhortación apostólica sobre la alegría de anunciar el Evangelio, proponiendo una conversión pastoral para una Iglesia decididamente misionera.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Francisco</div>
+          <div class="portada-titulo-latin">Laudato Si'</div>
+          <div class="portada-titulo-espanol">Alabado seas</div>
+          <span class="portada-anio">2015</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Sobre el cuidado de la casa común, proponiendo una "ecología integral" que une la protección del medio ambiente con la atención a los pobres.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Francisco</div>
+          <div class="portada-titulo-latin">Fratelli Tutti</div>
+          <div class="portada-titulo-espanol">Hermanos todos</div>
+          <span class="portada-anio">2020</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Llamado a la fraternidad y a la amistad social, proponiendo superar las divisiones globales mediante la cultura del encuentro y la solidaridad.
+        </div>
+      </article>
+
+      <article class="tarjeta-enciclica">
+        <div class="portada-header">
+          <div class="portada-papa">Francisco</div>
+          <div class="portada-titulo-latin">Dilexit Nos</div>
+          <div class="portada-titulo-espanol">Nos amó</div>
+          <span class="portada-anio">2024</span>
+        </div>
+        <div class="cuerpo-explicacion">
+          Sobre el amor humano y divino del Corazón de Jesucristo, invitando a recuperar la centralidad del corazón frente al consumismo y la frialdad del mundo actual.
+        </div>
+      </article>
+    </div>
+
+  </main>
+
+  <footer>
+    <p><strong>Para el pueblo de Dios</strong> — Proyecto desarrollado para facilitar la labor de catequistas y formadores.</p>
+  </footer>
+
+</body>
+</html>
