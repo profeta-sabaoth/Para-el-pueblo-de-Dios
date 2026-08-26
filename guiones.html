@@ -123,7 +123,7 @@
       font-size: 0.95rem;
     }
 
-    input[type="date"], input[type="text"], textarea {
+    input[type="date"], input[type="text"] {
       width: 100%;
       padding: 0.75rem 1rem;
       border: 1px solid var(--border);
@@ -135,7 +135,7 @@
       transition: border-color 0.2s;
     }
 
-    input:focus, textarea:focus {
+    input:focus {
       outline: none;
       border-color: var(--purple-main);
       background: #ffffff;
@@ -249,11 +249,11 @@
       <div class="grid-2">
         <div class="form-group">
           <label for="primeraLectura">📖 1ª Lectura / Cita:</label>
-          <input type="text" id="primeraLectura" placeholder="Ej: Eclesiástico 3, 17-24">
+          <input type="text" id="primeraLectura" placeholder="Ej: Eclesiástico 3, 17-18. 20. 28-29">
         </div>
         <div class="form-group">
           <label for="evangelio">📜 Evangelio / Cita:</label>
-          <input type="text" id="evangelio" placeholder="Ej: Lucas 14, 1.7-14">
+          <input type="text" id="evangelio" placeholder="Ej: Lucas 14, 1. 7-14">
         </div>
       </div>
 
@@ -285,23 +285,23 @@
   </footer>
 
   <script>
-    // Base de datos local para domingos específicos (Ciclo C 2026)
+    // Base de datos local para domingos específicos (Ciclo A 2026)
     const calendarioLocal = {
       "2026-08-30": {
-        titulo: "22° Domingo del Tiempo Ordinario (Ciclo C)",
-        primera: "Eclesiástico 3, 17-20. 28-29",
+        titulo: "22° Domingo del Tiempo Ordinario (Ciclo A)",
+        primera: "Eclesiástico 3, 17-18. 20. 28-29",
         evangelio: "Lucas 14, 1. 7-14",
-        idea: "La virtud de la humildad y la gratuidad al invitar a los marginados",
-        monicion1: "El libro del Eclesiástico nos recuerda que cuanto más grandes seamos, más humildes debemos ser para encontrar la gracia ante el Señor.",
-        monicionEv: "Jesús nos enseña en la casa del fariseo a no buscar los primeros puestos ni actuar por interés, sino a abrir el corazón con verdadera gratuidad."
+        idea: "La virtud de la humildad sincera frente a la vanidad del mundo",
+        monicion1: "El libro del Eclesiástico nos exhorta a la humildad: 'Cuanto más grande seas, más humilde debes ser', para encontrar la gracia y la benevolencia ante los ojos del Señor.",
+        monicionEv: "Jesús observa las actitudes en la mesa del fariseo y nos enseña a elegir el último lugar y a ofrecer ayuda sin esperar nada a cambio."
       },
       "2026-09-06": {
-        titulo: "23° Domingo del Tiempo Ordinario (Ciclo C)",
-        primera: "Sabiduría 9, 13-18",
-        evangelio: "Lucas 14, 25-33",
-        idea: "Exigencias del seguimiento a Cristo y calcular el costo del discipulado",
-        monicion1: "El libro de la Sabiduría nos invita a reconocer nuestras limitaciones humanas para comprender los planes de Dios sin el auxilio de su Espíritu.",
-        monicionEv: "Jesús nos habla con claridad sobre el costo de seguirlo, pidiéndonos priorizar el Reino por encima de todo apego terrenal."
+        titulo: "23° Domingo del Tiempo Ordinario (Ciclo A)",
+        primera: "Ezequiel 33, 7-9",
+        evangelio: "Mateo 18, 15-20",
+        idea: "La corrección fraterna y la responsabilidad comunitaria con el hermano",
+        monicion1: "El profeta Ezequiel nos recuerda nuestra responsabilidad de centinelas: advertir con amor al hermano cuando se extravía del camino de la verdad.",
+        monicionEv: "Jesús nos entrega la regla de oro para la vida comunitaria: la corrección fraterna a solas y el poder de la oración cuando nos reunimos en su Nombre."
       }
     };
 
@@ -320,7 +320,6 @@
       }
     }
 
-    // Cargar si la fecha por defecto coincide
     cargarLiturgiaOficial();
 
     function generarGuionEspecifico() {
@@ -344,13 +343,12 @@
       const idea = document.getElementById('ideaClave').value.trim();
       const intencion = document.getElementById('intencionEspecial').value.trim();
 
-      // Buscar si tenemos textos redactados en la base local
       const datosBase = calendarioLocal[fechaVal] || {};
       const monicionLectura1 = datosBase.monicion1 || `Escuchemos la Palabra de Dios (${primera}), que nos interpela y guía en nuestra vida comunitaria.`;
       const monicionEvangelio = datosBase.monicionEv || `De pie y entonando el Aleluya, nos disponemos a escuchar la proclamación del Santo Evangelio (${evangelio}).`;
 
       const intencionTexto = intencion ? `\nIntención especial de la misa: ${intencion}` : '';
-      const enfasisIdea = idea ? ` En esta Misa, la liturgia nos invita reflexionar sobre: ${idea}.` : '';
+      const enfasisIdea = idea ? ` En esta Misa, la liturgia nos invita a reflexionar sobre: ${idea}.` : '';
 
       const plantillaGuion = `GUION DE MISA
 Fecha: ${fechaFormateada.toUpperCase()}
