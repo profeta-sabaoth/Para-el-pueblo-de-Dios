@@ -20,74 +20,62 @@
       --border: #e2e8f0;
       --shadow-md: 0 10px 25px -5px rgba(59, 18, 94, 0.08);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body { 
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif; 
-      background-color: var(--bg-light); 
-      color: var(--text-main); 
-      line-height: 1.6;
+    body {
+       font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+       background-color: var(--bg-light);
+       color: var(--text-main);
+       line-height: 1.6;
     }
-
     /* NAVEGACIÓN SUPERIOR */
-    header { 
-      background: var(--purple-dark); 
-      color: #ffffff; 
-      padding: 1rem 2rem; 
-      position: sticky; 
-      top: 0; 
-      z-index: 1000;
+    header {
+       background: var(--purple-dark);
+       color: #ffffff;
+       padding: 1rem 2rem;
+       position: sticky;
+       top: 0;
+       z-index: 1000;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-
-    .nav-container { 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
+    .nav-container {
+       max-width: 1200px;
+       margin: 0 auto;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
     }
-
     .brand-box {
       display: flex;
       align-items: center;
       gap: 0.8rem;
     }
-
     .logo-img {
       height: 42px;
       width: auto;
       object-fit: contain;
       border-radius: 4px;
     }
-
-    .logo-text { 
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; 
-      font-weight: 700; 
-      color: #ffffff;
+    .logo-text {
+       font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+       font-weight: 700;
+       color: #ffffff;
       letter-spacing: -0.2px;
       text-decoration: none;
     }
-
-    .logo-text span { 
-      color: var(--red-accent); 
-      font-style: italic;
+    .logo-text span {
+       color: var(--red-accent);
+       font-style: italic;
     }
-
     nav ul { display: flex; list-style: none; gap: 1.8rem; }
-
-    nav a { 
-      color: #e2e8f0; 
-      text-decoration: none; 
-      font-weight: 500; 
-      font-size: 0.95rem;
+    nav a {
+       color: #e2e8f0;
+       text-decoration: none;
+       font-weight: 500;
+       font-size: 0.95rem;
       transition: color 0.2s ease;
     }
-
     nav a:hover { color: #ffffff; }
-
     .nav-btn {
       background: var(--red-accent);
       color: #ffffff !important;
@@ -96,16 +84,13 @@
       font-weight: 600;
       transition: background 0.2s ease;
     }
-
     .nav-btn:hover { background: var(--red-hover); }
-
     /* BARRA DE CONCEPTOS */
     .features-bar {
       background: #ffffff;
       border-bottom: 1px solid var(--border);
       padding: 0.75rem 1rem;
     }
-
     .features-bar-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -114,7 +99,6 @@
       gap: 3rem;
       flex-wrap: wrap;
     }
-
     .feature-item {
       font-size: 0.85rem;
       font-weight: 700;
@@ -125,39 +109,34 @@
       align-items: center;
       gap: 0.5rem;
     }
-
     .feature-item::before {
       content: "•";
       color: var(--red-accent);
       font-size: 1.2rem;
     }
-
     /* HERO PRINCIPAL */
-    .hero { 
-      background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%); 
-      color: #ffffff; 
-      text-align: center; 
-      padding: 4.5rem 1.5rem 5rem 1.5rem; 
+    .hero {
+       background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%);
+       color: #ffffff;
+       text-align: center;
+       padding: 4.5rem 1.5rem 5rem 1.5rem;
     }
-
-    .hero h1 { 
-      font-size: 2.8rem; 
-      font-weight: 800; 
-      letter-spacing: -1px; 
-      margin-bottom: 1rem; 
-      line-height: 1.25;
+    .hero h1 {
+       font-size: 2.8rem;
+       font-weight: 800;
+       letter-spacing: -1px;
+       margin-bottom: 1rem;
+       line-height: 1.25;
       max-width: 850px;
       margin-left: auto;
       margin-right: auto;
     }
-
-    .hero p { 
-      font-size: 1.15rem; 
-      color: #cbd5e1; 
-      max-width: 700px; 
-      margin: 0 auto; 
+    .hero p {
+       font-size: 1.15rem;
+       color: #cbd5e1;
+       max-width: 700px;
+       margin: 0 auto;
     }
-
     /* CONTENEDOR PRINCIPAL */
     .main-wrapper {
       max-width: 1200px;
@@ -166,7 +145,6 @@
       position: relative;
       z-index: 10;
     }
-
     /* SECCIÓN DESTACADA: LIBRO JEREMÍAS */
     .featured-section {
       background: #ffffff;
@@ -181,7 +159,6 @@
       gap: 2.5rem;
       align-items: center;
     }
-
     .featured-badge {
       display: inline-block;
       background: rgba(211, 47, 47, 0.1);
@@ -194,20 +171,17 @@
       border-radius: 4px;
       margin-bottom: 1rem;
     }
-
     .featured-content h2 {
       font-size: 1.8rem;
       color: var(--purple-main);
       margin-bottom: 0.8rem;
       line-height: 1.3;
     }
-
     .featured-content p {
       color: var(--text-muted);
       font-size: 0.95rem;
       margin-bottom: 1.2rem;
     }
-
     .featured-preview-box {
       background: #0f172a;
       border-radius: 12px;
@@ -218,14 +192,12 @@
       justify-content: center;
       align-items: center;
     }
-
     .featured-preview-box img {
       width: 100%;
       height: auto;
       display: block;
       object-fit: cover;
     }
-
     /* TITULARES DE SECCIÓN */
     .section-header {
       margin-bottom: 1.5rem;
@@ -233,13 +205,11 @@
       align-items: center;
       gap: 0.8rem;
     }
-
     .section-header h2 {
       font-size: 1.5rem;
       color: var(--purple-main);
       font-weight: 800;
     }
-
     .section-header::before {
       content: "";
       display: inline-block;
@@ -248,32 +218,28 @@
       background: var(--red-accent);
       border-radius: 2px;
     }
-
     /* GRILLAS */
-    .grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
-      gap: 1.5rem; 
-      margin-bottom: 3.5rem;
+    .grid {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+       gap: 1.5rem;
+       margin-bottom: 3.5rem;
     }
-
-    .card { 
-      background: var(--surface); 
-      border: 1px solid var(--border); 
-      border-radius: 12px; 
-      padding: 2rem 1.5rem; 
-      box-shadow: var(--shadow-md); 
-      transition: all 0.3s ease; 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: space-between; 
+    .card {
+       background: var(--surface);
+       border: 1px solid var(--border);
+       border-radius: 12px;
+       padding: 2rem 1.5rem;
+       box-shadow: var(--shadow-md);
+       transition: all 0.3s ease;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
     }
-
-    .card:hover { 
-      transform: translateY(-5px); 
-      border-color: var(--purple-main);
+    .card:hover {
+       transform: translateY(-5px);
+       border-color: var(--purple-main);
     }
-
     .card-tag {
       font-size: 0.75rem;
       font-weight: 800;
@@ -281,20 +247,17 @@
       text-transform: uppercase;
       margin-bottom: 0.5rem;
     }
-
-    .card h3 { 
-      font-size: 1.25rem; 
-      font-weight: 700; 
-      margin-bottom: 0.6rem; 
-      color: var(--purple-main); 
+    .card h3 {
+       font-size: 1.25rem;
+       font-weight: 700;
+       margin-bottom: 0.6rem;
+       color: var(--purple-main);
     }
-
-    .card p { 
-      color: var(--text-muted); 
-      font-size: 0.9rem; 
-      margin-bottom: 1.5rem; 
+    .card p {
+       color: var(--text-muted);
+       font-size: 0.9rem;
+       margin-bottom: 1.5rem;
     }
-
     .card-link {
       color: var(--purple-main);
       font-weight: 700;
@@ -304,11 +267,9 @@
       align-items: center;
       gap: 0.3rem;
     }
-
     .card-link:hover {
       color: var(--red-accent);
     }
-
     /* SECCIÓN INTERMEDIA: VIDEO PROMOCIONAL */
     .promo-banner-section {
       background: var(--surface);
@@ -323,19 +284,16 @@
       gap: 2rem;
       align-items: center;
     }
-
     .promo-info h3 {
       font-size: 1.4rem;
       color: var(--purple-main);
       font-weight: 800;
       margin-bottom: 0.5rem;
     }
-
     .promo-info p {
       color: var(--text-muted);
       font-size: 0.95rem;
     }
-
     .video-container-small {
       background: #0f172a;
       border-radius: 8px;
@@ -344,13 +302,11 @@
       width: 100%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-
     .video-container-small video {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     /* SECCIÓN DE ENLACES EXTERNOS / COMUNIDAD */
     .links-section {
       background: #ffffff;
@@ -359,14 +315,12 @@
       padding: 2rem;
       box-shadow: var(--shadow-md);
     }
-
     .links-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.2rem;
       margin-top: 1.2rem;
     }
-
     .link-item {
       display: flex;
       align-items: center;
@@ -379,39 +333,32 @@
       color: var(--text-main);
       transition: all 0.2s ease;
     }
-
     .link-item:hover {
       background: #ffffff;
       border-color: var(--red-accent);
       transform: translateX(4px);
     }
-
     .link-icon {
       font-size: 1.5rem;
     }
-
     .link-info h4 {
       font-size: 0.95rem;
       font-weight: 700;
       color: var(--purple-main);
     }
-
     .link-info p {
       font-size: 0.8rem;
       color: var(--text-muted);
     }
-
-    footer { 
-      background: var(--purple-dark);
+    footer {
+       background: var(--purple-dark);
       color: #94a3b8;
-      text-align: center; 
-      padding: 3rem 1.5rem; 
-      font-size: 0.9rem; 
-      border-top: 3px solid var(--red-accent);
+      text-align: center;
+       padding: 3rem 1.5rem;
+       font-size: 0.9rem;
+       border-top: 3px solid var(--red-accent);
     }
-
     footer strong { color: #ffffff; }
-
     @media (max-width: 850px) {
       .featured-section { grid-template-columns: 1fr; }
       .promo-banner-section { grid-template-columns: 1fr; }
@@ -419,7 +366,6 @@
   </style>
 </head>
 <body>
-
   <!-- NAVEGACIÓN SUPERIOR CON LOGO OFICIAL -->
   <header>
     <div class="nav-container">
@@ -439,7 +385,6 @@
       </nav>
     </div>
   </header>
-
   <!-- BARRA DE CONCEPTOS -->
   <div class="features-bar">
     <div class="features-bar-container">
@@ -449,16 +394,13 @@
       <span class="feature-item">Sin Fines de Lucro</span>
     </div>
   </div>
-
   <!-- HERO PRINCIPAL -->
   <section class="hero">
     <h1>Recursos y herramientas abiertas para la evangelización</h1>
     <p>Un archivo pastoral organizado con talleres, guiones, video y herramientas IA.</p>
   </section>
-
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-wrapper">
-
     <!-- SECCIÓN DESTACADA: LIBRO DE JEREMÍAS -->
     <section class="featured-section">
       <div class="featured-content">
@@ -472,12 +414,10 @@
         <img src="Gemini_Generated_Image_edh99hedh99hedh9.png" alt="Portada de Jeremías: Manual de Supervivencia del Mundo Real">
       </div>
     </section>
-
     <!-- ARCHIVO COMPLETO EN GRILLA -->
     <div class="section-header">
       <h2>Explorar el Repositorio</h2>
     </div>
-
     <div class="grid">
       <div class="card" id="talleres">
         <div>
@@ -487,7 +427,6 @@
         </div>
         <a href="talleres.html" class="card-link">📚 Explorar Catálogo de Talleres &rarr;</a>
       </div>
-
       <div class="card" id="guiones">
         <div>
           <div class="card-tag">Liturgia Generativa</div>
@@ -496,7 +435,6 @@
         </div>
         <a href="guiones.html" class="card-link">📜 Generar Guion por Fecha &rarr;</a>
       </div>
-
       <div class="card" id="videoteca">
         <div>
           <div class="card-tag">Contenido Visual</div>
@@ -505,7 +443,6 @@
         </div>
         <a href="videoteca.html" class="card-link">🎬 Ver Videoteca &rarr;</a>
       </div>
-
       <div class="card" id="recursos">
         <div>
           <div class="card-tag">Inteligencia Artificial</div>
@@ -515,7 +452,6 @@
         <a href="prompts.html" class="card-link">🎨 Ver Guía de Prompts &rarr;</a>
       </div>
     </div>
-
     <!-- SECCIÓN INTERMEDIA: VIDEO PROMOCIONAL -->
     <section class="promo-banner-section">
       <div class="promo-info">
@@ -524,18 +460,16 @@
       </div>
       <div class="video-container-small">
         <video controls poster="Gemini_Generated_Image_8byw2i8byw2i8byw.jpg">
-          <source src="promo.mp4" type="video/mp4">
+          <source src="Para%20el%20pueblo%20de%20Dios.mp4" type="video/mp4">
           Tu navegador no soporta el reproductor de video.
         </video>
       </div>
     </section>
-
     <!-- SECCIÓN: ENLACES & COMUNIDAD -->
     <section class="links-section" id="enlaces">
       <div class="section-header">
         <h2>Enlaces de Interés & Comunidad</h2>
       </div>
-
       <div class="links-grid">
         <a href="https://chat.whatsapp.com/CX8JwGqscOHKXDyaVbR4bO" target="_blank" class="link-item">
           <span class="link-icon">💬</span>
@@ -544,7 +478,6 @@
             <p>Unirse a la comunidad en línea</p>
           </div>
         </a>
-
         <a href="#" class="link-item">
           <span class="link-icon">⛪</span>
           <div class="link-info">
@@ -552,7 +485,6 @@
             <p>Horarios e información local</p>
           </div>
         </a>
-
         <a href="enciclicas.html" class="link-item">
           <span class="link-icon">📄</span>
           <div class="link-info">
@@ -560,7 +492,6 @@
             <p>Biblioteca de documentos papales</p>
           </div>
         </a>
-
         <a href="#" class="link-item">
           <span class="link-icon">🔗</span>
           <div class="link-info">
@@ -570,12 +501,9 @@
         </a>
       </div>
     </section>
-
   </main>
-
   <footer>
     <p><strong>Para el pueblo de Dios</strong> — Proyecto desarrollado para facilitar la labor de catequistas y formadores.</p>
   </footer>
-
 </body>
 </html>
