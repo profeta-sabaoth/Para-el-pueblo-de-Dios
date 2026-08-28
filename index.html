@@ -6,11 +6,11 @@
   <title>Para el pueblo de Dios | Recursos Pastoral</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --purple-main: #3b125e;
-      --purple-dark: #270b40;
+      --purple-main: #4a1575;
+      --purple-dark: #320c52;
       --red-accent: #d32f2f;
       --red-hover: #b71c1c;
       --bg-light: #f8fafc;
@@ -18,7 +18,7 @@
       --text-main: #0f172a;
       --text-muted: #475569;
       --border: #e2e8f0;
-      --shadow-md: 0 10px 25px -5px rgba(59, 18, 94, 0.08);
+      --shadow-md: 0 10px 25px -5px rgba(74, 21, 117, 0.12);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -116,40 +116,32 @@
       font-size: 1.2rem;
     }
 
-    /* HERO PRINCIPAL COMPACTADO CON LOGO Y TÍTULO EN UNA LÍNEA */
+    /* HERO PRINCIPAL: MORADO MÁS VIVO, SIN LOGO, FUENTE MÁS GRANDE Y ELEGANTE */
     .hero {
        background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%);
        color: #ffffff;
        text-align: center;
-       padding: 2.5rem 1.5rem 3.8rem 1.5rem;
-    }
-    .hero-logo-badge {
-      display: inline-block;
-      margin-bottom: 0.8rem;
-    }
-    .hero-logo-badge img {
-      height: 55px;
-      width: auto;
-      object-fit: contain;
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+       padding: 2.2rem 1.5rem 3.5rem 1.5rem;
     }
     .hero h1 {
-       font-size: 2.1rem;
+       font-family: 'Playfair Display', Georgia, serif;
+       font-size: 2.5rem;
        font-weight: 800;
-       letter-spacing: -0.5px;
-       margin-bottom: 0.5rem;
+       letter-spacing: -0.3px;
+       margin-bottom: 0.4rem;
        line-height: 1.2;
-       max-width: 1150px;
+       max-width: 1100px;
        margin-left: auto;
        margin-right: auto;
-       white-space: nowrap;
+       color: #ffffff;
+       text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     .hero p {
-       font-size: 1.05rem;
-       color: #cbd5e1;
-       max-width: 800px;
+       font-size: 1.1rem;
+       color: #e2e8f0;
+       max-width: 850px;
        margin: 0 auto;
+       font-weight: 500;
     }
 
     /* CONTENEDOR PRINCIPAL */
@@ -236,7 +228,7 @@
       border-radius: 2px;
     }
 
-    /* GRILLA DE 6 TARJETAS CON IMAGEN INTEGRADA */
+    /* GRILLA DE TARJETAS CON IMAGEN INTEGRADA */
     .grid {
        display: grid;
        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -508,8 +500,8 @@
        border-top: 3px solid var(--red-accent);
     }
     footer strong { color: #ffffff; }
-    @media (max-width: 1100px) {
-      .hero h1 { white-space: normal; font-size: 1.8rem; }
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 1.9rem; }
     }
     @media (max-width: 850px) {
       .featured-section { grid-template-columns: 1fr; }
@@ -551,11 +543,8 @@
     </div>
   </div>
 
-  <!-- HERO PRINCIPAL REESTRUCTURADO Y COMPACTO -->
+  <!-- HERO PRINCIPAL CON MORADO VIVO Y TITULAR DESTACADO -->
   <section class="hero">
-    <div class="hero-logo-badge">
-      <img src="Gemini_Generated_Image_8byw2i8byw2i8byw.jpg" alt="Logo Para el pueblo de Dios">
-    </div>
     <h1>Recursos y herramientas abiertas para la evangelización</h1>
     <p>Un archivo pastoral organizado con talleres, guiones, video y herramientas IA.</p>
   </section>
