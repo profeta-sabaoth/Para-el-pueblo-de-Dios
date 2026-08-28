@@ -201,7 +201,7 @@
       border-radius: 12px;
       padding: 2.5rem;
       box-shadow: var(--shadow-md);
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2.5rem;
@@ -247,65 +247,53 @@
       object-fit: cover;
     }
 
-    /* BANNER DE VERSÍCULO DIARIO */
+    /* BANNER DE VERSÍCULO DIARIO (SLIM & ROJO OFICIAL) */
     .daily-verse-banner {
-      background: linear-gradient(135deg, #7a1212 0%, #4a0505 50%, #2b0202 100%);
-      border: 1px solid #a32a2a;
-      border-top: 3px solid #f59e0b;
-      border-bottom: 3px solid #f59e0b;
-      border-radius: 12px;
-      padding: 2.2rem 2rem;
-      margin-bottom: 3.5rem;
-      box-shadow: 0 12px 30px rgba(74, 5, 5, 0.25);
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(135deg, #d32f2f 0%, #8b0000 100%);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 6px 16px rgba(211, 47, 47, 0.2);
       color: #ffffff;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
     }
-    .daily-verse-banner::before {
-      content: "“";
-      position: absolute;
-      top: -20px;
-      left: 20px;
-      font-family: 'Playfair Display', serif;
-      font-size: 12rem;
-      color: rgba(255, 255, 255, 0.04);
-      line-height: 1;
-      pointer-events: none;
+    .verse-content-box {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex: 1;
     }
     .verse-header-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #fca5a5;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 0.3rem 1rem;
-      border-radius: 20px;
-      border: 1px solid rgba(252, 165, 165, 0.2);
-      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
     }
     .verse-text {
       font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
+      font-size: 1.1rem;
       font-style: italic;
       font-weight: 600;
-      color: #fff1f2;
-      line-height: 1.5;
-      max-width: 900px;
-      margin: 0 auto 1rem auto;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      color: #ffffff;
+      line-height: 1.3;
+      margin: 0;
     }
     .verse-citation {
       font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #fbbf24;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fef08a;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
     /* TITULARES DE SECCIÓN */
@@ -478,7 +466,8 @@
     @media (max-width: 850px) {
       .featured-section { grid-template-columns: 1fr; }
       .promo-banner-section { grid-template-columns: 1fr; }
-      .verse-text { font-size: 1.2rem; }
+      .daily-verse-banner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+      .verse-content-box { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
       .liturgy-panel { flex-direction: column; align-items: flex-start; gap: 1rem; }
     }
   </style>
@@ -523,7 +512,7 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-wrapper">
 
-    <!-- PANEL LITÚRGICO DEL DÍA -->
+    <!-- PANEL GUÍA LITÚRGICO DEL DÍA -->
     <section class="liturgy-panel">
       <div class="liturgy-item">
         <span class="liturgy-icon-box">📅</span>
@@ -562,10 +551,12 @@
       </div>
     </section>
 
-    <!-- BANNER DE VERSÍCULO DIARIO -->
+    <!-- BANNER DE VERSÍCULO DIARIO (AJUSTADO EN ALTURA Y PALETA ROJA) -->
     <section class="daily-verse-banner">
-      <div class="verse-header-tag">✨ Palabra para hoy</div>
-      <div class="verse-text" id="verse-box">«Cargando el versículo del día...»</div>
+      <div class="verse-content-box">
+        <span class="verse-header-tag">✨ Palabra de hoy</span>
+        <p class="verse-text" id="verse-box">«Cargando el versículo del día...»</p>
+      </div>
       <div class="verse-citation" id="citation-box">― Cita Bíblica</div>
     </section>
 
