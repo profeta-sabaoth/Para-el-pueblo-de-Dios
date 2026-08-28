@@ -524,104 +524,104 @@
   </footer>
 
   <script>
-    // BASE DE DATOS Y MOTOR DE VARIACIÓN DINÁMICA POR FECHA Y MES
+    // BASE DE DATOS Y MOTOR DE VARIACIÓN DINÁMICA BASADO EN EL EVANGELIO DEL MES
     const databaseLiturgica = {
       meses: [
         {
           mes: 0, // Enero
-          tema: "el inicio de un nuevo año de gracia y la manifestación de Cristo como luz de las naciones",
-          primera: { cita: "Isaías 60, 1-6", intro: "El profeta Isaías anuncia con gozo la llegada de la luz de Dios que disipa las tinieblas del mundo y convoca a todos los pueblos a la unidad." },
+          ejeEvangelio: "Cristo como Luz de las Naciones que revela la salvación a todos los hombres",
+          primera: { cita: "Isaías 60, 1-6", intro: "El profeta Isaías contempla el despertar de Jerusalén inundada por la gloria del Señor, convocando a todos los pueblos que caminan en tinieblas hacia la luz verdadera." },
           salmo: { cita: "Salmo 71, 1-2. 7-8. 10-13", respuesta: "Se posstrarán ante ti, Señor, todos los reyes de la tierra." },
-          segunda: { cita: "Efesios 3, 2-3a. 5-6", intro: "San Pablo revela el misterio escondido desde siglos: que todos los pueblos están llamados a compartir la misma promesa en Cristo Jesús." },
-          evangelio: { cita: "Mateo 2, 1-12", intro: "Escuchemos la proclamación del Santo Evangelio. Los Magos de Oriente, guiados por la estrella, representan a toda la humanidad que busca sinceramente al Salvador." }
+          segunda: { cita: "Efesios 3, 2-3a. 5-6", intro: "San Pablo nos revela que el plan de salvación no es privilegio de unos pocos, sino una herencia abierta para toda la humanidad unida en Cristo." },
+          evangelio: { cita: "Mateo 2, 1-12", intro: "Escuchemos la proclamación del Santo Evangelio. Los Magos de Oriente nos enseñan que la búsqueda sincera de la verdad siempre encuentra su respuesta en el Salvador." }
         },
         {
           mes: 1, // Febrero
-          tema: "la llamada al seguimiento radical y la confianza en la providencia del Padre",
-          primera: { cita: "Jeremías 17, 5-8", intro: "Jeremías contrapone la esterilidad del que confía únicamente en las fuerzas humanas con la fecundidad del que pone su esperanza en el Señor." },
+          ejeEvangelio: "las Bienaventuranzas y el vuelco radical de los criterios del mundo",
+          primera: { cita: "Jeremías 17, 5-8", intro: "Jeremías contrapone la aridez de quien busca la seguridad únicamente en lo humano frente a la fecundidad incansable de quien echa raíces en el Señor." },
           salmo: { cita: "Salmo 1, 1-4. 6", respuesta: "Dichoso el hombre que ha puesto su confianza en el Señor." },
-          segunda: { cita: "1 Corintios 15, 12. 16-20", intro: "Pablo defiende la centralidad de la Resurrección de Cristo como el pilar fundamental sobre el cual se sostiene toda nuestra fe." },
-          evangelio: { cita: "Lucas 6, 17. 20-26", intro: "Nos ponemos de pie para acoger el Evangelio. Jesús proclama las Bienaventuranzas, invirtiendo la lógica del mundo para mostrar el verdadero camino de la felicidad." }
+          segunda: { cita: "1 Corintios 15, 12. 16-20", intro: "Pablo afirma con fuerza que la resurrección de Cristo es la certeza definitiva que transforma el sufrimiento y da sentido a nuestra existencia." },
+          evangelio: { cita: "Lucas 6, 17. 20-26", intro: "De pie acojamos la Palabra. Jesús proclama dichosos a los pobres y perseguidos, mostrándonos que el Reino pertenece a quienes confían plenamente en Dios." }
         },
         {
           mes: 2, // Marzo
-          tema: "la conversión del corazón, la oración sincera y la preparación para la Pascua",
-          primera: { cita: "Josué 5, 9a. 10-12", intro: "El pueblo de Israel celebra la Pascua tras cruzar el desierto, gustando por primera vez los frutos de la Tierra Prometida." },
+          ejeEvangelio: "la conversión del corazón y la misericordia inagotable del Padre",
+          primera: { cita: "Josué 5, 9a. 10-12", intro: "El pueblo de Israel, tras dejar atrás la esclavitud y el desierto, celebra la Pascua gustando los frutos de la tierra nueva que Dios les regala." },
           salmo: { cita: "Salmo 33, 2-7", respuesta: "Gusten y vean qué bueno es el Señor." },
-          segunda: { cita: "2 Corintios 5, 17-21", intro: "Apostol del perdón, Pablo nos suplica en nombre de Cristo: 'Déjense reconciliar con Dios', pues todo ha sido renovado en la Cruz." },
-          evangelio: { cita: "Lucas 15, 1-3. 11-32", intro: "Con el corazón contrito nos ponemos de pie. Jesús nos relata la parábola del Hijo Pródigo, revelando el rostro del Padre que siempre abraza y perdona." }
+          segunda: { cita: "2 Corintios 5, 17-21", intro: "San Pablo nos suplica dejarnos reconciliar con Dios, recordando que en la Cruz hemos sido liberados para empezar una vida renovada." },
+          evangelio: { cita: "Lucas 15, 1-3. 11-32", intro: "Con reverencia escuchamos el Evangelio. Mediante la parábola del Hijo Pródigo, Jesús nos revela que Dios no se cansa de esperar nuestro regreso para abrazarnos." }
         },
         {
           mes: 3, // Abril
-          tema: "la victoria de Cristo sobre la muerte y la alegría desbordante de la Resurrección",
-          primera: { cita: "Hechos de los Apóstoles 10, 34a. 37-43", intro: "Pedro atestigua con valentía el ministerio de Jesús, su crucifixión y la verdad indiscutible de su resurrección al tercer día." },
+          ejeEvangelio: "la victoria definitiva de Cristo sobre la muerte y la vida nueva",
+          primera: { cita: "Hechos de los Apóstoles 10, 34a. 37-43", intro: "Pedro atestigua con valentía que el mismo Jesús que pasó haciendo el bien y fue crucificado, ha resucitado para ser Señor de vivos y muertos." },
           salmo: { cita: "Salmo 117, 1-2. 16-17. 22-23", respuesta: "Este es el día que hizo el Señor: gocemos y alegrémonos en él." },
-          segunda: { cita: "Colosenses 3, 1-4", intro: "Si hemos resucitado con Cristo, Pablo nos invita a buscar las cosas de arriba, donde la vida plena está escondida con Dios." },
-          evangelio: { cita: "Juan 20, 1-9", intro: "¡Aleluya! Aclamamos el Evangelio de la Resurrección. María Magdalena y los discípulos corren al sepulcro vacío y comprenden la Escritura." }
+          segunda: { cita: "Colosenses 3, 1-4", intro: "San Pablo nos anima a mantener la mirada en los bienes del cielo, donde nuestra vida encuentra su plenitud junto a Cristo Resucitado." },
+          evangelio: { cita: "Juan 20, 1-9", intro: "¡Aleluya! Aclamamos la Palabra de Vida. El sepulcro vacío y los signos de la Resurrección abren los ojos de los discípulos a la fe verdadera." }
         },
         {
           mes: 4, // Mayo
-          tema: "la presencia confortadora del Espíritu Santo y el mandato de la caridad comunitaria",
-          primera: { cita: "Hechos de los Apóstoles 14, 21b-27", intro: "Pablo y Bernabé animan a las primeras comunidades a perseverar en la fe, recordando que es necesario pasar por tribulaciones para entrar al Reino." },
+          ejeEvangelio: "el Mandamiento Nuevo del Amor como distintivo del cristiano",
+          primera: { cita: "Hechos de los Apóstoles 14, 21b-27", intro: "Pablo y Bernabé fortalecen el espíritu de los primeros creyentes, enseñando que las dificultades del camino afianzan la fe comunitaria." },
           salmo: { cita: "Salmo 144, 8-13", respuesta: "Bendeciré tu nombre por siempre jamás, Dios mío, mi Rey." },
-          segunda: { cita: "Apocalipsis 21, 1-5a", intro: "Juan contempla la visión del cielo nuevo y la tierra nueva, donde Dios habitará con los hombres y enjugará toda lágrima de sus ojos." },
-          evangelio: { cita: "Juan 13, 31-33a. 34-35", intro: "Nos ponemos de pie para escuchar la Palabra del Señor. Jesús nos entrega su Mandamiento Nuevo: 'Que se amen los unos a los otros como yo los he amado'." }
+          segunda: { cita: "Apocalipsis 21, 1-5a", intro: "Juan contempla la promesa divina de un cielo nuevo y una tierra nueva, donde la presencia de Dios enjuga toda lágrima y dolor." },
+          evangelio: { cita: "Juan 13, 31-33a. 34-35", intro: "De pie escuchamos la voz del Maestro. Jesús nos entrega su sello característico: 'Ámense los unos a los otros como yo los he amado'." }
         },
         {
           mes: 5, // Junio
-          tema: "el misterio del Amor Divino manifestado en el Cuerpo y la Sangre de Cristo",
-          primera: { cita: "Génesis 14, 18-20", intro: "Melquisedec, rey de Salén y sacerdote del Dios Altísimo, ofrece pan y vino bendiciendo a Abraham, prefigurando el sacrificio de la Eucaristía." },
+          ejeEvangelio: "el Pan de Vida que se multiplica y se entrega por la salvación del mundo",
+          primera: { cita: "Génesis 14, 18-20", intro: "El rey y sacerdote Melquisedec ofrece pan y vino bendiciendo a Abraham, anticipando el gran misterio de la Eucaristía que hoy celebramos." },
           salmo: { cita: "Salmo 109, 1-4", respuesta: "Tú eres sacerdote para siempre, según el orden de Melquisedec." },
-          segunda: { cita: "1 Corintios 11, 23-26", intro: "San Pablo transmite el testimonio más antiguo de la Última Cena: 'Cada vez que comen de este pan y beben de este cáliz, proclaman la muerte del Señor'." },
-          evangelio: { cita: "Lucas 9, 11b-17", intro: "Aclamemos el Evangelio. Jesús multiplica los panes y los peces para saciar el hambre de la multitud, enseñando a sus discípulos a compartir lo que tienen." }
+          segunda: { cita: "1 Corintios 11, 23-26", intro: "Pablo conserva la memoria más antigua de la Cena del Señor, recordándonos que al comer este pan proclamamos su entrega hasta que vuelva." },
+          evangelio: { cita: "Lucas 9, 11b-17", intro: "Aclamamos el Santo Evangelio. Jesús sacia el hambre de la multitud desamparada, enseñándonos que lo poco puesto en sus manos alcanza para todos." }
         },
         {
           mes: 6, // Julio
-          tema: "la acogida de la Palabra de Dios y el servicio atento a los hermanos",
-          primera: { cita: "Génesis 18, 1-10a", intro: "Abraham acoge con generosidad a tres misteriosos visitantes junto a la encina de Mambré, recibiendo la promesa inesperada de un hijo." },
+          ejeEvangelio: "la elección de la 'mejor parte': la escucha atenta de la Palabra",
+          primera: { cita: "Génesis 18, 1-10a", intro: "Abraham descubre la presencia de Dios en la hospitalidad dispensada a tres forasteros, recibiendo la promesa de una vida fértil." },
           salmo: { cita: "Salmo 14, 2-5", respuesta: "Señor, ¿quién puede hospedarse en tu tienda?" },
-          segunda: { cita: "Colosenses 1, 24-28", intro: "Pablo expresa su gozo al completar en su propia carne lo que falta a las tribulaciones de Cristo en bien de la Iglesia." },
-          evangelio: { cita: "Lucas 10, 38-42", intro: "Nos ponemos de pie para la proclamación del Santo Evangelio. En el hogar de Marta y María, Jesús nos enseña la importancia de escuchar la 'mejor parte'." }
+          segunda: { cita: "Colosenses 1, 24-28", intro: "San Pablo expresa la alegría de anunciar a Cristo, el misterio oculto que ahora se manifiesta como esperanza de gloria para todos." },
+          evangelio: { cita: "Lucas 10, 38-42", intro: "De pie para escuchar al Señor. En la casa de Marta y María, Jesús nos invita a no dejar que las ajetreos diarios apaguen la escucha de su Palabra." }
         },
         {
           mes: 7, // Agosto
-          tema: "la vigilancia evangélica, la fe perseverante y la búsqueda de los bienes eternos",
-          primera: { cita: "Sabiduría 18, 6-9", intro: "El libro de la Sabiduría evoca la noche santa de la liberación de Egipto, donde el pueblo fiel esperó con firmeza el cumplimiento de las promesas." },
+          ejeEvangelio: "la actitud del siervo fiel que mantiene encendida la lámpara de la fe",
+          primera: { cita: "Sabiduría 18, 6-9", intro: "La Escritura recuerda la firmeza del pueblo creyente en la noche del Éxodo, sostenido únicamente por la confianza en las promesas de Dios." },
           salmo: { cita: "Salmo 32, 1. 12. 18-22", respuesta: "Dichoso el pueblo que el Señor se escogió como heredad." },
-          segunda: { cita: "Hebreos 11, 1-2. 8-19", intro: "La carta a los Hebreos nos ofrece una hermosa definición de la fe a través del ejemplo de Abraham, quien obedeció sin saber a dónde iba." },
-          evangelio: { cita: "Lucas 12, 32-48", intro: "De pie acojamos la Palabra de Cristo. Jesús nos exhorta a tener las lámparas encendidas y el corazón velando, pues el Hijo del hombre llegará a la hora menos pensada." }
+          segunda: { cita: "Hebreos 11, 1-2. 8-19", intro: "Se nos presenta el testimonio de Abraham, quien caminó guiado por una fe que es garantía de lo que se espera y prueba de lo que no se ve." },
+          evangelio: { cita: "Lucas 12, 32-48", intro: "Aclamemos la voz del Maestro. Jesús nos exhorta a estar vigilantes y preparados, recordando que nuestro verdadero tesoro está en el cielo." }
         },
         {
           mes: 8, // Septiembre
-          tema: "la humildad en el servicio y la escucha atenta de las Escrituras",
-          primera: { cita: "Eclesiástico 3, 17-18. 20. 28-29", intro: "El sabio Ben Sirá nos enseña que cuanto más grandes seamos, más debemos humillarnos para encontrar gracia ante los ojos del Señor." },
+          ejeEvangelio: "la verdadera humildad y la opción preferencial por los sencillos",
+          primera: { cita: "Eclesiástico 3, 17-18. 20. 28-29", intro: "Ben Sirá reflexiona sobre la grandeza del alma humilde, enseñando que quien actúa con sencillez encuentra el favor de Dios y el cariño de todos." },
           salmo: { cita: "Salmo 67, 4-7. 10-11", respuesta: "Has preparado, oh Dios, una casa para los pobres." },
-          segunda: { cita: "Hebreos 12, 18-19. 22-24a", intro: "El autor sagrado contrapone la experiencia sobrecogedora del Sinaí con la cercanía gozosa de la Jerusalén celestial y la mediación de Jesús." },
-          evangelio: { cita: "Lucas 14, 1. 7-14", intro: "Aclamemos con el canto del Aleluya. En la mesa de un fariseo, Jesús enseña que el que se humilla será enaltecido y nos invita a invitar a los que no tienen con qué pagar." }
+          segunda: { cita: "Hebreos 12, 18-19. 22-24a", intro: "El autor sagrado nos muestra la gloria de la nueva alianza en la Jerusalén celestial, donde Jesús es mediador de una gracia accesible a todos." },
+          evangelio: { cita: "Lucas 14, 1. 7-14", intro: "De pie acojamos el Evangelio. Jesús critica la prisa por ocupar los primeros puestos e invita a abrir la mesa a quienes no pueden devolver la invitación." }
         },
         {
           mes: 9, // Octubre
-          tema: "la perseverancia en la oración y la valentía del testimonio misionero",
-          primera: { cita: "Éxodo 17, 8-13", intro: "Mientras Josué combate en el valle, Moisés reza en la cima del monte con las manos alzadas, mostrando la fuerza invencible de la intercesión continua." },
+          ejeEvangelio: "la constancia e insistencia en la oración confiada",
+          primera: { cita: "Éxodo 17, 8-13", intro: "Moisés sostiene sus brazos elevados en oración durante el combate, mostrando a Israel que la victoria viene de la perseverancia en la fe." },
           salmo: { cita: "Salmo 120, 1-8", respuesta: "El auxilio me viene del Señor, que hizo el cielo y la tierra." },
-          segunda: { cita: "2 Timoteo 3, 14 — 4, 2", intro: "Pablo exhorta con vehemencia a Timoteo a permanecer firme en las Sagradas Escrituras y a proclamar la Palabra a tiempo y a destiempo." },
-          evangelio: { cita: "Lucas 18, 1-8", intro: "De pie para escuchar al Señor. Mediante la parábola de la viuda骨 insistente y el juez injusto, Jesús nos enseña la necesidad de orar siempre sin desfallecer." }
+          segunda: { cita: "2 Timoteo 3, 14 — 4, 2", intro: "Pablo encarga solemnemente a Timoteo proclamar la Palabra con paciencia y doctrina, recordando que la Escritura instruye para toda obra buena." },
+          evangelio: { cita: "Lucas 18, 1-8", intro: "Escuchemos la voz del Señor. Con la parábola de la viuda y el juez, Jesús nos enseña que Dios hace justicia prontamente a sus elegidos que claman día y noche." }
         },
         {
           mes: 10, // Noviembre
-          tema: "la esperanza en la vida eterna y la realeza de Cristo en el universo",
-          primera: { cita: "Daniel 7, 13-14", intro: "El profeta Daniel contempla en una visión nocturna la llegada de 'alguien como un hijo de hombre' a quien se le da un poder eterno que no pasará." },
+          ejeEvangelio: "Jesucristo, Rey y Señor del Universo, cuya verdad nos hace libres",
+          primera: { cita: "Daniel 7, 13-14", intro: "El profeta Daniel contempla la figura triunfante del Hijo del Hombre, a quien Dios entrega un dominio universal y un reino que no será destruido." },
           salmo: { cita: "Salmo 92, 1-2. 5", respuesta: "El Señor reina, vestido de majestad." },
-          segunda: { cita: "Apocalipsis 1, 5-8", intro: "El Apocalipsis proclama a Jesucristo como el Testigo fiel, el Primogénito de los muertos y el Soberano de los reyes de la tierra, Alfa y Omega." },
-          evangelio: { cita: "Juan 18, 33b-37", intro: "Aclamemos la Palabra del Rey de Reyes. Ante Poncio Pilato, Jesús afirma solemnemente la naturaleza de su realeza: 'Mi reino no es de este mundo; he venido a dar testimonio de la verdad'." }
+          segunda: { cita: "Apocalipsis 1, 5-8", intro: "Juan proclama la realeza de Jesucristo, el Soberano de los reyes de la tierra que nos ha liberado de nuestros pecados con su propia sangre." },
+          evangelio: { cita: "Juan 18, 33b-37", intro: "Aclamamos de pie a nuestro Rey. Ante Pilato, Jesús aclara que su realeza no busca el poder mundano, sino dar testimonio de la verdad." }
         },
         {
           mes: 11, // Diciembre
-          tema: "la esperanza gozosa del Adviento y la venida del Emmanuel",
-          primera: { cita: "Miqueas 5, 1-4a", intro: "El profeta Miqueas anuncia que de la pequeña Belén saldrá el Pastor de Israel, cuyo origen se remonta a los tiempos antiguos." },
+          ejeEvangelio: "la espera confiada en el Emmanuel, Dios-con-nosotros que viene a salvarnos",
+          primera: { cita: "Miqueas 5, 1-4a", intro: "Miqueas profetiza que de la pequeña e insignificante Belén nacerá el Salvador que gobernará a Israel con la fuerza misma del Señor." },
           salmo: { cita: "Salmo 79, 2-3. 15-16. 18-19", respuesta: "Oh Dios, restáuranos, que brille tu rostro y nos salve." },
-          segunda: { cita: "Hebreos 10, 5-10", intro: "El autor de la carta explica que Cristo entra en el mundo no para ofrecer sacrificios de animales, sino para hacer la voluntad del Padre entregando su propio cuerpo." },
-          evangelio: { cita: "Lucas 1, 39-45", intro: "De pie para escuchar el Santo Evangelio. María visita a su pariente Isabel; el niño salta de gozo en el vientre e Isabel proclama: '¡Dichosa tú que has creído!'." }
+          segunda: { cita: "Hebreos 10, 5-10", intro: "Se nos muestra la entrega obediente de Cristo, quien entra en la historia no para cumplir ritos vacíos, sino para hacer con amor la voluntad del Padre." },
+          evangelio: { cita: "Lucas 1, 39-45", intro: "De pie acojamos la buena noticia. María acude presurosa a servir a Isabel, haciéndonos comprender que la fe verdadera salta de gozo ante la llegada del Señor." }
         }
       ]
     };
@@ -680,11 +680,13 @@
 
       let gospelCitation = dataMes.evangelio.cita;
       let gospelIntro = dataMes.evangelio.intro;
+      let ejeTema = dataMes.ejeEvangelio;
 
       if (misaType === "solemnidad") {
         tiempoLiturgico = "Fiesta / Solemnidad de la Iglesia";
         colorLiturgico = "Blanco / Dorado";
         colorClass = "color-white";
+        ejeTema = "la manifestación gloriosa de la gracia de Dios en las grandes solemnidades de nuestra fe";
         firstCitation = "Hechos de los Apóstoles 2, 1-11";
         firstIntro = "En este día de fiesta, la Escritura nos muestra el derramamiento del Espíritu Santo sobre la Iglesia naciente, transformando el temor en valentía misionera.";
         psalmCitation = "Salmo 103, 1. 24. 29-31. 34";
@@ -697,6 +699,7 @@
         tiempoLiturgico = "Memoria Litúrgica / Santo del Día";
         colorLiturgico = "Rojo / Blanco";
         colorClass = "color-red";
+        ejeTema = "el testimonio radical de los santos que encarnaron el Evangelio en la vida cotidiana";
         firstCitation = "2 Corintios 4, 7-15";
         firstIntro = "La primera lectura nos recuerda que llevamos un tesoro divino en vasijas de barro, para que se vea que este poder extraordinario viene de Dios y no de nosotros.";
         psalmCitation = "Salmo 125, 1-6";
@@ -707,18 +710,18 @@
         gospelIntro = "Aclamamos de pie el Santo Evangelio. Jesús nos anima a no temer y a vender nuestros bienes para hacernos tesoros inagotables en el cielo, donde el ladrón no llega.";
       }
 
-      // Estructuración de la Monición de Entrada Extensa y Motivadora por Fecha
-      let entradaMainText = `«Muy buenos días (o tardes), hermanos y hermanas. Sean todos bienvenidos a la celebración eucarística de este día, ${formattedDate}. La comunidad de fe se reúne en este templo no por costumbre, sino movida por el amor de Dios que nos convoca a reflexionar sobre <strong>${dataMes.tema}</strong>.<br><br>En cada Misa, el Señor sale a nuestro encuentro, renueva nuestras fuerzas y nos ofrece el alimento de su Palabra y del Sacramento del Altar. Hoy traemos ante su presencia el trabajo de la semana, las luchas de nuestras familias y la necesidad constante de su gracia.`;
+      // MONICIÓN DE ENTRADA CONSTRUIDA A PARTIR DEL EVANGELIO DEL DÍA
+      let entradaMainText = `«Muy buenos días (o tardes), hermanos y hermanas. Les damos una calurosa bienvenida a nuestra capilla para celebrar juntos la Eucaristía de este día, ${formattedDate}.<br><br>Hoy la Liturgia de la Palabra coloca en el centro de nuestra reflexión <strong>${ejeTema}</strong>. Todo lo que escucharemos en las lecturas converge hacia esa enseñanza de Jesús, recordándonos que la Misa no es un rito desconectado de la vida, sino el lugar donde Cristo ilumina nuestras decisiones, fortalece nuestro ánimo y renueva nuestra esperanza comunitaria.`;
 
       let customPetition = "";
 
       if (customIntention !== "") {
-        entradaMainText += `<br><br>De manera muy especial, en esta celebración nos unimos en oración y acción de gracias por: <strong>${customIntention}</strong>. Que esta intención comunitaria sea presentada en el altar como fragancia agradable ante el Padre celestial.`;
+        entradaMainText += `<br><br>De manera muy especial, hoy como familia de fe nos congregamos para presentar al Señor la intención de: <strong>${customIntention}</strong>. Ponemos en sus manos amorosas este acontecimiento de nuestra comunidad, pidiéndole que su gracia acompañe y bendiga este motivo de oración.`;
         
-        customPetition = `4. Por nuestra intención comunitaria de hoy: <em>${customIntention}</em>; para que el Señor derrame su bendición, fortalezca el caminar de nuestra capilla y nos conceda perseverar unidos en el amor. <em>Roguemos al Señor.</em><br>`;
+        customPetition = `4. Por nuestra intención comunitaria de hoy: <em>${customIntention}</em>; para que el Señor escuche la oración de su pueblo, bendiga nuestro caminar e ilumine la vida de nuestra capilla. <em>Roguemos al Señor.</em><br>`;
       }
 
-      entradaMainText += `<br><br>Con un corazón abierto, humilde y agradecido, los invito a ponerse de pie y unir nuestras voces en el canto de entrada para recibir al sacerdote celebrante.»`;
+      entradaMainText += `<br><br>Dispongamos el corazón para escuchar a Dios y participar con fe del Banquete Eucarístico. Los invito a ponerse de pie y unir nuestras voces en el canto de entrada para recibir al sacerdote celebrante.»`;
 
       const scriptHTML = `
         <div class="script-output" id="printable-script">
@@ -732,7 +735,7 @@
             </div>
           </div>
 
-          <!-- MONICIÓN DE ENTRADA EXTENSA -->
+          <!-- MONICIÓN DE ENTRADA BASADA EN EL EVANGELIO -->
           <div class="rubric-container">
             <span class="rubric">Monitor — Monición de Entrada & Bienvenida</span>
           </div>
@@ -759,7 +762,7 @@
           </div>
           <p class="speech">«${secondIntro} Prestemos atención.»</p>
 
-          <!-- MONICIÓN EXPLICATIVA AL EVANGELIO -->
+          <!-- MONICIÓN EXPLICATIVA AL EVANGELIO (CENTRO DE LA CELEBRACIÓN) -->
           <div class="rubric-container">
             <span class="rubric">Monitor — Monición e Introducción al Evangelio</span>
             <span class="bible-citation">📖 ${gospelCitation}</span>
@@ -805,7 +808,6 @@
       });
     }
 
-    // FUNCIÓN PARA GENERAR Y DESCARGAR PDF DERECHO EN EL TELÉFONO O COMPUTADOR
     function downloadPDF() {
       const element = document.getElementById('printable-script');
       if (!element) {
