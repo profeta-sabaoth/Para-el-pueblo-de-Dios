@@ -157,7 +157,7 @@
       border-radius: 12px;
       padding: 1.2rem 1.8rem;
       box-shadow: var(--shadow-md);
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -201,109 +201,6 @@
       height: 12px;
       border-radius: 50%;
       margin-right: 5px;
-    }
-
-    /* SECCIÓN DESTACADA: LIBRO JEREMÍAS */
-    .featured-section {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-top: 4px solid var(--red-accent);
-      border-radius: 12px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow-md);
-      margin-bottom: 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-    .featured-badge {
-      display: inline-block;
-      background: rgba(211, 47, 47, 0.1);
-      color: var(--red-accent);
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-    }
-    .featured-content h2 {
-      font-size: 1.8rem;
-      color: var(--purple-main);
-      margin-bottom: 0.8rem;
-      line-height: 1.3;
-    }
-    .featured-content p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.2rem;
-    }
-    .featured-preview-box {
-      background: #0f172a;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .featured-preview-box img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-
-    /* BANNER DE VERSÍCULO DIARIO */
-    .daily-verse-banner {
-      background: linear-gradient(135deg, #d32f2f 0%, #8b0000 100%);
-      border-radius: 10px;
-      padding: 1rem 1.5rem;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 6px 16px rgba(211, 47, 47, 0.2);
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
-    .verse-content-box {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      flex: 1;
-    }
-    .verse-header-tag {
-      font-size: 0.7rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #ffffff;
-      background: rgba(0, 0, 0, 0.25);
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-    .verse-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-style: italic;
-      font-weight: 600;
-      color: #ffffff;
-      line-height: 1.3;
-      margin: 0;
-    }
-    .verse-citation {
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: #fef08a;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
     }
 
     /* TITULARES DE SECCIÓN */
@@ -401,6 +298,109 @@
     }
     .card-link:hover {
       color: var(--red-accent);
+    }
+
+    /* BANNER DE VERSÍCULO DIARIO */
+    .daily-verse-banner {
+      background: linear-gradient(135deg, #d32f2f 0%, #8b0000 100%);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 6px 16px rgba(211, 47, 47, 0.2);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .verse-content-box {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex: 1;
+    }
+    .verse-header-tag {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .verse-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.3;
+      margin: 0;
+    }
+    .verse-citation {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fef08a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    /* SECCIÓN DESTACADA: LIBRO JEREMÍAS */
+    .featured-section {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--red-accent);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .featured-badge {
+      display: inline-block;
+      background: rgba(211, 47, 47, 0.1);
+      color: var(--red-accent);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .featured-content h2 {
+      font-size: 1.8rem;
+      color: var(--purple-main);
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+    .featured-content p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+    .featured-preview-box {
+      background: #0f172a;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .featured-preview-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
     }
 
     /* SECCIÓN INTERMEDIA: VIDEO PROMOCIONAL */
@@ -570,30 +570,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN DESTACADA: LIBRO DE JEREMÍAS -->
-    <section class="featured-section">
-      <div class="featured-content">
-        <span class="featured-badge">Libro Destacado</span>
-        <h2>Jeremías: Guía de Supervivencia para Creyentes Cómodos</h2>
-        <p><strong>Olvídate de los cuentos de hadas: esto no es un final de Disney.</strong> Un recorrido directo, irreverente pero teológicamente riguroso por las memorias del profeta más incómodo de la Biblia.</p>
-        <p style="font-size: 0.88rem; color: var(--text-muted);">Sin anestesia ni maquillaje espiritual: descubre por qué la fe real no es un amuleto mágico de buena suerte, sino una lealtad radical a prueba de fuego.</p>
-        <a href="Jeremias_Guia_de_Supervivencia.pdf.pdf" target="_blank" class="nav-btn" style="display: inline-block; text-decoration: none; margin-top: 0.5rem;">📖 Leer / Descargar PDF Gratis &rarr;</a>
-      </div>
-      <div class="featured-preview-box">
-        <img src="Gemini_Generated_Image_edh99hedh99hedh9.png" alt="Portada de Jeremías: Manual de Supervivencia del Mundo Real">
-      </div>
-    </section>
-
-    <!-- BANNER DE VERSÍCULO DIARIO -->
-    <section class="daily-verse-banner">
-      <div class="verse-content-box">
-        <span class="verse-header-tag">✨ Palabra de hoy</span>
-        <p class="verse-text" id="verse-box">«Cargando el versículo del día...»</p>
-      </div>
-      <div class="verse-citation" id="citation-box">― Cita Bíblica</div>
-    </section>
-
-    <!-- ARCHIVO COMPLETO EN GRILLA CON IMÁGENES -->
+    <!-- ARCHIVO COMPLETO EN GRILLA CON IMÁGENES (OBJETIVO PRINCIPAL PRIMERO) -->
     <div class="section-header">
       <h2>Explorar el Repositorio</h2>
     </div>
@@ -670,6 +647,29 @@
       </div>
 
     </div>
+
+    <!-- BANNER DE VERSÍCULO DIARIO -->
+    <section class="daily-verse-banner">
+      <div class="verse-content-box">
+        <span class="verse-header-tag">✨ Palabra de hoy</span>
+        <p class="verse-text" id="verse-box">«Cargando el versículo del día...»</p>
+      </div>
+      <div class="verse-citation" id="citation-box">― Cita Bíblica</div>
+    </section>
+
+    <!-- SECCIÓN DESTACADA: LIBRO DE JEREMÍAS -->
+    <section class="featured-section">
+      <div class="featured-content">
+        <span class="featured-badge">Libro Destacado</span>
+        <h2>Jeremías: Guía de Supervivencia para Creyentes Cómodos</h2>
+        <p><strong>Olvídate de los cuentos de hadas: esto no es un final de Disney.</strong> Un recorrido directo, irreverente pero teológicamente riguroso por las memorias del profeta más incómodo de la Biblia.</p>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Sin anestesia ni maquillaje espiritual: descubre por qué la fe real no es un amuleto mágico de buena suerte, sino una lealtad radical a prueba de fuego.</p>
+        <a href="Jeremias_Guia_de_Supervivencia.pdf.pdf" target="_blank" class="nav-btn" style="display: inline-block; text-decoration: none; margin-top: 0.5rem;">📖 Leer / Descargar PDF Gratis &rarr;</a>
+      </div>
+      <div class="featured-preview-box">
+        <img src="Gemini_Generated_Image_edh99hedh99hedh9.png" alt="Portada de Jeremías: Manual de Supervivencia del Mundo Real">
+      </div>
+    </section>
 
     <!-- SECCIÓN INTERMEDIA: VIDEO PROMOCIONAL -->
     <section class="promo-banner-section">
@@ -768,7 +768,7 @@
     document.getElementById("verse-box").innerText = todayVerse.text;
     document.getElementById("citation-box").innerText = "― " + todayVerse.citation;
 
-    // Configuración corregida para 2026 (Año A / Ciclo II)
+    // Configuración para 2026 (Año A / Ciclo II)
     document.getElementById("liturgy-cycle").innerText = "Año A / Ciclo II (Tiempo Ordinario)";
     document.getElementById("liturgy-color").innerText = "Verde";
     document.getElementById("color-dot").style.background = "#16a34a";
