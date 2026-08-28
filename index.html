@@ -327,7 +327,7 @@
       object-fit: cover;
     }
 
-    /* PANEL GUÍA LITÚRGICO DEL DÍA (REUBICADO ABAJO) */
+    /* PANEL GUÍA LITÚRGICO DEL DÍA */
     .liturgy-panel {
       background: #ffffff;
       border: 1px solid var(--border);
@@ -520,12 +520,13 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-wrapper">
 
-    <!-- ARCHIVO COMPLETO EN GRILLA CON IMÁGENES -->
+    <!-- ARCHIVO COMPLETO EN GRILLA REORDENADO (1: Talleres, 2: Videoteca, 3: Infografías, 4: Guiones, 5: Prompts IA, 6: Encíclicas) -->
     <div class="section-header">
       <h2>Explorar el Repositorio</h2>
     </div>
     <div class="grid">
 
+      <!-- 1. Talleres & PPT -->
       <div class="card" id="talleres">
         <div class="card-img-box">
           <img src="Talleres ppt.jpg" alt="Talleres y PPT">
@@ -540,20 +541,7 @@
         </div>
       </div>
 
-      <div class="card" id="guiones">
-        <div class="card-img-box">
-          <img src="Guiones para misa.jpg" alt="Creación de Guiones para Misa">
-        </div>
-        <div class="card-body">
-          <div>
-            <div class="card-tag">Liturgia Generativa</div>
-            <h3>Creación de Guiones Misa</h3>
-            <p>Genera automáticamente el guion completo para cualquier fecha: saludo, lecturas y oración universal.</p>
-          </div>
-          <a href="guiones.html" class="card-link">📜 Generar Guion por Fecha &rarr;</a>
-        </div>
-      </div>
-
+      <!-- 2. Videoteca Pastoral -->
       <div class="card" id="videoteca">
         <div class="card-img-box">
           <img src="Videoteca pastoral.jpg" alt="Videoteca Pastoral">
@@ -568,6 +556,37 @@
         </div>
       </div>
 
+      <!-- 3. Infografías Pastorales -->
+      <div class="card" id="infografias">
+        <div class="card-img-box">
+          <img src="Libros.jpg" alt="Infografías Pastorales">
+        </div>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Recursos Visuales</div>
+            <h3>Infografías Pastorales</h3>
+            <p>Esquemas e infografías explicativas sobre la Biblia, la Misa y temas doctrinales para talleres.</p>
+          </div>
+          <a href="infografias.html" class="card-link">🖼️ Ver Infografías &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 4. Creación de Guiones Misa -->
+      <div class="card" id="guiones">
+        <div class="card-img-box">
+          <img src="Guiones para misa.jpg" alt="Creación de Guiones para Misa">
+        </div>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Liturgia Generativa</div>
+            <h3>Creación de Guiones Misa</h3>
+            <p>Genera automáticamente el guion completo para cualquier fecha: saludo, lecturas y oración universal.</p>
+          </div>
+          <a href="guiones.html" class="card-link">📜 Generar Guion por Fecha &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 5. Laboratorio de Prompts -->
       <div class="card" id="recursos">
         <div class="card-img-box">
           <img src="IA.jpg" alt="Laboratorio de Prompts e Inteligencia Artificial">
@@ -582,6 +601,7 @@
         </div>
       </div>
 
+      <!-- 6. Encíclicas en PDF -->
       <div class="card" id="enciclicas">
         <div class="card-img-box">
           <img src="Enciclicas.jpg" alt="Encíclicas Papales en PDF">
@@ -593,20 +613,6 @@
             <p>Biblioteca de documentos papales clave listos para lectura y descarga directa.</p>
           </div>
           <a href="enciclicas.html" class="card-link">📄 Ver Biblioteca &rarr;</a>
-        </div>
-      </div>
-
-      <div class="card" id="infografias">
-        <div class="card-img-box">
-          <img src="Libros.jpg" alt="Infografías Pastorales">
-        </div>
-        <div class="card-body">
-          <div>
-            <div class="card-tag">Recursos Visuales</div>
-            <h3>Infografías Pastorales</h3>
-            <p>Esquemas e infografías explicativas sobre la Biblia, la Misa y temas doctrinales para talleres.</p>
-          </div>
-          <a href="infografias.html" class="card-link">🖼️ Ver Infografías &rarr;</a>
         </div>
       </div>
 
@@ -635,7 +641,7 @@
       </div>
     </section>
 
-    <!-- PANEL GUÍA LITÚRGICO DEL DÍA (REUBICADO AQUÍ) -->
+    <!-- PANEL GUÍA LITÚRGICO DEL DÍA -->
     <section class="liturgy-panel">
       <div class="liturgy-item">
         <span class="liturgy-icon-box">📅</span>
