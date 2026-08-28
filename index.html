@@ -85,6 +85,7 @@
       transition: background 0.2s ease;
     }
     .nav-btn:hover { background: var(--red-hover); }
+
     /* BARRA DE CONCEPTOS */
     .features-bar {
       background: #ffffff;
@@ -114,6 +115,7 @@
       color: var(--red-accent);
       font-size: 1.2rem;
     }
+
     /* HERO PRINCIPAL */
     .hero {
        background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%);
@@ -137,6 +139,7 @@
        max-width: 700px;
        margin: 0 auto;
     }
+
     /* CONTENEDOR PRINCIPAL */
     .main-wrapper {
       max-width: 1200px;
@@ -145,6 +148,51 @@
       position: relative;
       z-index: 10;
     }
+
+    /* PANEL GUÍA LITÚRGICO DEL DÍA */
+    .liturgy-panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--purple-main);
+      border-radius: 12px;
+      padding: 1.2rem 1.8rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .liturgy-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .liturgy-icon-box {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .liturgy-data h4 {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+    .liturgy-data p {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--purple-main);
+    }
+    .color-badge {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+
     /* SECCIÓN DESTACADA: LIBRO JEREMÍAS */
     .featured-section {
       background: #ffffff;
@@ -199,7 +247,7 @@
       object-fit: cover;
     }
 
-    /* BANNER DE VERSÍCULO DIARIO (DE ANCHO COMPLETO) */
+    /* BANNER DE VERSÍCULO DIARIO */
     .daily-verse-banner {
       background: linear-gradient(135deg, #7a1212 0%, #4a0505 50%, #2b0202 100%);
       border: 1px solid #a32a2a;
@@ -280,7 +328,8 @@
       background: var(--red-accent);
       border-radius: 2px;
     }
-    /* GRILLAS RECONFIGURADAS */
+
+    /* GRILLAS */
     .grid {
        display: grid;
        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -332,6 +381,7 @@
     .card-link:hover {
       color: var(--red-accent);
     }
+
     /* SECCIÓN INTERMEDIA: VIDEO PROMOCIONAL */
     .promo-banner-section {
       background: var(--surface);
@@ -369,6 +419,7 @@
       height: 100%;
       object-fit: cover;
     }
+
     /* SECCIÓN DE ENLACES EXTERNOS / COMUNIDAD */
     .links-section {
       background: #ffffff;
@@ -428,6 +479,7 @@
       .featured-section { grid-template-columns: 1fr; }
       .promo-banner-section { grid-template-columns: 1fr; }
       .verse-text { font-size: 1.2rem; }
+      .liturgy-panel { flex-direction: column; align-items: flex-start; gap: 1rem; }
     }
   </style>
 </head>
@@ -451,6 +503,7 @@
       </nav>
     </div>
   </header>
+
   <!-- BARRA DE CONCEPTOS -->
   <div class="features-bar">
     <div class="features-bar-container">
@@ -460,13 +513,41 @@
       <span class="feature-item">Sin Fines de Lucro</span>
     </div>
   </div>
+
   <!-- HERO PRINCIPAL -->
   <section class="hero">
     <h1>Recursos y herramientas abiertas para la evangelización</h1>
     <p>Un archivo pastoral organizado con talleres, guiones, video y herramientas IA.</p>
   </section>
+
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-wrapper">
+
+    <!-- PANEL LITÚRGICO DEL DÍA -->
+    <section class="liturgy-panel">
+      <div class="liturgy-item">
+        <span class="liturgy-icon-box">📅</span>
+        <div class="liturgy-data">
+          <h4>Año Litúrgico</h4>
+          <p id="liturgy-cycle">Año B (Tiempo Ordinario)</p>
+        </div>
+      </div>
+      <div class="liturgy-item">
+        <span class="liturgy-icon-box">🎨</span>
+        <div class="liturgy-data">
+          <h4>Color del Día</h4>
+          <p><span class="color-badge" id="color-dot" style="background: #16a34a;"></span><span id="liturgy-color">Verde</span></p>
+        </div>
+      </div>
+      <div class="liturgy-item">
+        <span class="liturgy-icon-box">📜</span>
+        <div class="liturgy-data">
+          <h4>Lecturas Recomendadas</h4>
+          <p id="liturgy-readings">1ª Lect / Salmo / Evangelio</p>
+        </div>
+      </div>
+    </section>
+
     <!-- SECCIÓN DESTACADA: LIBRO DE JEREMÍAS -->
     <section class="featured-section">
       <div class="featured-content">
@@ -481,7 +562,7 @@
       </div>
     </section>
 
-    <!-- BANNER DE VERSÍCULO DIARIO (ENTRE JEREMÍAS Y EL REPOSITORIO) -->
+    <!-- BANNER DE VERSÍCULO DIARIO -->
     <section class="daily-verse-banner">
       <div class="verse-header-tag">✨ Palabra para hoy</div>
       <div class="verse-text" id="verse-box">«Cargando el versículo del día...»</div>
@@ -534,6 +615,7 @@
         <a href="enciclicas.html" class="card-link">📄 Ver Biblioteca de Encíclicas &rarr;</a>
       </div>
     </div>
+
     <!-- SECCIÓN INTERMEDIA: VIDEO PROMOCIONAL -->
     <section class="promo-banner-section">
       <div class="promo-info">
@@ -547,6 +629,7 @@
         </video>
       </div>
     </section>
+
     <!-- SECCIÓN: ENLACES & COMUNIDAD -->
     <section class="links-section" id="enlaces">
       <div class="section-header">
@@ -598,11 +681,12 @@
       </div>
     </section>
   </main>
+
   <footer>
     <p><strong>Para el pueblo de Dios</strong> — Proyecto desarrollado para facilitar la labor de catequistas y formadores.</p>
   </footer>
 
-  <!-- SCRIPT PARA ROTACIÓN AUTOMÁTICA DEL VERSÍCULO DIARIO -->
+  <!-- SCRIPT PARA ROTACIÓN AUTOMÁTICA DEL VERSÍCULO Y DATOS LITÚRGICOS -->
   <script>
     const verses = [
       { text: "«Yo sé muy bien los planes que tengo para ustedes —afirma el Señor—, planes de bienestar y no de calamidad, a fin de darles un futuro y una esperanza.»", citation: "Jeremías 29, 11" },
@@ -619,7 +703,6 @@
       { text: "«El Señor es mi luz y mi salvación, ¿a quién temeré? El Señor es la fortaleza de mi vida, ¿quién me hará temblar?»", citation: "Salmo 27, 1" }
     ];
 
-    // Calcula un índice fijo basado en el día del año para que cambie automáticamente cada 24 horas
     const now = new Date();
     const start = new Date(now.getFullYear(), 0, 0);
     const diff = now - start;
@@ -627,9 +710,14 @@
     const dayOfYear = Math.floor(diff / oneDay);
 
     const todayVerse = verses[dayOfYear % verses.length];
-
     document.getElementById("verse-box").innerText = todayVerse.text;
     document.getElementById("citation-box").innerText = "― " + todayVerse.citation;
+
+    // Configuración base litúrgica
+    document.getElementById("liturgy-cycle").innerText = "Año B (Tiempo Ordinario)";
+    document.getElementById("liturgy-color").innerText = "Verde";
+    document.getElementById("color-dot").style.background = "#16a34a";
+    document.getElementById("liturgy-readings").innerText = "Consultar Lecturas de Hoy";
   </script>
 
   <!-- ESPÍA SILENCIOSO (GoatCounter) -->
