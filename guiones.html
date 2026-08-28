@@ -202,113 +202,15 @@
   </footer>
 
   <script>
-    // MOTOR 1: CALENDARIO Y BASE DE DATOS TEOLÓGICA REAL (DETERMINISTA POR MES / DÍA)
-    const baseLiturgicaOficial = [
-      {
-        mes: 0,
-        temaCentral: "Cristo manifestado como Luz inagotable que guía a todas las naciones",
-        p1: { cita: "Isaías 60, 1-6", intro: "El profeta Isaías contempla el despertar de Jerusalén inmersa en la gloria del Señor, convocando a todos los pueblos que caminan en tinieblas hacia la verdadera luz." },
-        salmo: { cita: "Salmo 71, 1-2. 7-8", resp: "Se posstrarán ante ti, Señor, todos los reyes de la tierra." },
-        p2: { cita: "Efesios 3, 2-6", intro: "San Pablo revela que el plan de salvación no es privilegio exclusivo de unos pocos, sino una herencia abierta para toda la humanidad unida en Cristo." },
-        ev: { cita: "Mateo 2, 1-12", intro: "Los Magos de Oriente nos enseñan que la búsqueda sincera de la verdad siempre encuentra su respuesta en el Salvador. De pie acojamos el Evangelio." }
-      },
-      {
-        mes: 1,
-        temaCentral: "las Bienaventuranzas y el vuelco radical de los valores según el Corazón de Dios",
-        p1: { cita: "Jeremías 17, 5-8", intro: "Jeremías contrapone la aridez de quien busca seguridad solo en las fuerzas humanas frente a la fecundidad del que echa raíces profundas en el Señor." },
-        salmo: { cita: "Salmo 1, 1-4. 6", resp: "Dichoso el hombre que ha puesto su confianza en el Señor." },
-        p2: { cita: "1 Corintios 15, 12-20", intro: "Pablo defiende que la resurrección de Cristo es la certeza pilar que transforma nuestro sufrimiento y le da un horizonte pleno a la existencia." },
-        ev: { cita: "Lucas 6, 17. 20-26", intro: "Jesús proclama dichosos a los pobres y perseguidos, mostrándonos que el Reino pertenece a quienes confían en Dios. Escuchemos de pie." }
-      },
-      {
-        mes: 2,
-        temaCentral: "la conversión sincera, el perdón fraterno y la acogida del Padre misericordioso",
-        p1: { cita: "Josué 5, 9a. 10-12", intro: "El pueblo de Israel celebra la Pascua tras cruzar el desierto, gustando por primera vez los frutos de la tierra prometida que Dios les regala." },
-        salmo: { cita: "Salmo 33, 2-7", resp: "Gusten y vean qué bueno es el Señor." },
-        p2: { cita: "2 Corintios 5, 17-21", intro: "San Pablo nos suplica dejarnos reconciliar con Dios, recordando que en la Cruz hemos sido liberados para comenzar una vida nueva." },
-        ev: { cita: "Lucas 15, 11-32", intro: "Con la parábola del Hijo Pródigo, Jesús nos revela que el Padre nunca se cansa de esperar nuestro regreso para abrazarnos. De pie acojamos la Palabra." }
-      },
-      {
-        mes: 3,
-        temaCentral: "la victoria definitiva de Cristo sobre la muerte y la alegría desbordante de la Pascua",
-        p1: { cita: "Hechos 10, 34a. 37-43", intro: "Pedro atestigua con firmeza que el mismo Jesús que pasó haciendo el bien y fue crucificado, ha resucitado para ser Señor de vivos y muertos." },
-        salmo: { cita: "Salmo 117, 1-2. 16-17", resp: "Este es el día que hizo el Señor: gocemos y alegrémonos en él." },
-        p2: { cita: "Colosenses 3, 1-4", intro: "San Pablo nos invita a elevar la mirada hacia los bienes eternos, donde nuestra vida está custodiada junto a Cristo Resucitado." },
-        ev: { cita: "Juan 20, 1-9", intro: "El sepulcro vacío y las vendas por tierra abren los ojos de los discípulos a la fe pascual. Aclamamos de pie cantando el Aleluya." }
-      },
-      {
-        mes: 4,
-        temaCentral: "el Mandamiento Nuevo del Amor como distintivo y motor de la comunidad",
-        p1: { cita: "Hechos 14, 21b-27", intro: "Pablo y Bernabé animan el espíritu de los primeros creyentes, recordando que las pruebas del camino consolidan la fe comunitaria." },
-        salmo: { cita: "Salmo 144, 8-13", resp: "Bendeciré tu nombre por siempre jamás, Dios mío, mi Rey." },
-        p2: { cita: "Apocalipsis 21, 1-5a", intro: "Juan contempla la visión consoladora de un cielo nuevo y una tierra nueva, donde Dios habitará con los hombres y enjugará toda lágrima." },
-        ev: { cita: "Juan 13, 31-35", intro: "Jesús nos entrega su testamento fundamental: 'Que se amen los unos a los otros como yo los he amado'. Nos ponemos de pie." }
-      },
-      {
-        mes: 5,
-        temaCentral: "el Pan de Vida que se multiplica para alimento y fortaleza de los caminantes",
-        p1: { cita: "Génesis 14, 18-20", intro: "El sacerdote Melquisedec ofrece pan y vino bendiciendo a Abraham, prefigurando el sacrificio de la Eucaristía que celebramos hoy." },
-        salmo: { cita: "Salmo 109, 1-4", resp: "Tú eres sacerdote para siempre, según el orden de Melquisedec." },
-        p2: { cita: "1 Corintios 11, 23-26", intro: "Pablo transmite la memoria viva de la Última Cena, recordándonos que al comer este pan proclamamos la entrega del Señor hasta que vuelva." },
-        ev: { cita: "Lucas 9, 11b-17", intro: "Jesús sacia el hambre de la multitud, enseñándonos que lo poco puesto en sus manos se multiplica para todos. De pie para escuchar el Evangelio." }
-      },
-      {
-        mes: 6,
-        temaCentral: "la elección de la 'mejor parte': la escucha atenta y reposada de la Palabra de Dios",
-        p1: { cita: "Génesis 18, 1-10a", intro: "Abraham acoge con hospitalidad a tres visitantes junto a las encinas de Mambré, descubriendo en ellos el paso bendito del Señor." },
-        salmo: { cita: "Salmo 14, 2-5", resp: "Señor, ¿quién puede hospedarse en tu tienda?" },
-        p2: { cita: "Colosenses 1, 24-28", intro: "San Pablo expresa su gozo al anunciar a Cristo, el misterio que se manifiesta ahora como la verdadera esperanza de gloria." },
-        ev: { cita: "Lucas 10, 38-42", intro: "En la casa de Marta y María, el Maestro nos recuerda la importancia de detenernos a escuchar su Palabra por encima de las prisa. Escuchemos de pie." }
-      },
-      {
-        mes: 7,
-        temaCentral: "la actitud del siervo vigilante que mantiene encendida la lámpara de la fe",
-        p1: { cita: "Sabiduría 18, 6-9", intro: "La Escritura evoca la noche de la liberación en Egipto, donde el pueblo fiel se mantuvo firme apoyado únicamente en la promesa divina." },
-        salmo: { cita: "Salmo 32, 1. 12. 18-22", resp: "Dichoso el pueblo que el Señor se escogió como heredad." },
-        p2: { cita: "Hebreos 11, 1-2. 8-19", intro: "Se nos presenta el testimonio de Abraham, quien caminó en obediencia guiado por una fe que es certeza de lo que no se ve." },
-        ev: { cita: "Lucas 12, 32-48", intro: "Jesús nos exhorta a velar con las lámparas encendidas, recordando que nuestro verdadero tesoro está en el cielo. De pie acojamos la Palabra." }
-      },
-      {
-        mes: 8,
-        temaCentral: "la humildad en el servicio y la opción prioritaria por los sencillos y descartados",
-        p1: { cita: "Eclesiástico 3, 17-18. 20. 28-29", intro: "Ben Sirá reflexiona sobre la nobleza del alma humilde, enseñando que quien actúa con sencillez encuentra gracia ante Dios y afecto entre los hombres." },
-        salmo: { cita: "Salmo 67, 4-7. 10-11", resp: "Has preparado, oh Dios, una casa para los pobres." },
-        p2: { cita: "Hebreos 12, 18-19. 22-24a", intro: "El autor sagrado contrapone el temor del Sinaí con la cercanía gozosa de la Jerusalén celestial y la mediación de Jesús." },
-        ev: { cita: "Lucas 14, 1. 7-14", intro: "Jesús invita a no buscar los primeros lugares y a abrir la mesa a quienes no tienen cómo devolver la atención. Aclamamos de pie." }
-      },
-      {
-        mes: 9,
-        temaCentral: "la perseverancia, paciencia e insistencia en la oración confiada",
-        p1: { cita: "Éxodo 17, 8-13", intro: "Moisés sostiene sus brazos en oracion continua mientras Josué combate, mostrando que la victoria del pueblo nace de la perseverancia ante Dios." },
-        salmo: { cita: "Salmo 120, 1-8", resp: "El auxilio me viene del Señor, que hizo el cielo y la tierra." },
-        p2: { cita: "2 Timoteo 3, 14 — 4, 2", intro: "Pablo exhorta a Timoteo a proclamar la Palabra a tiempo y a destiempo, recordando que la Escritura nos capacita para toda obra buena." },
-        ev: { cita: "Lucas 18, 1-8", intro: "Con la parábola de la viuda insistente, Jesús nos asegura que Dios hace pronta justicia a sus elegidos que claman día y noche. Escuchemos de pie." }
-      },
-      {
-        mes: 10,
-        temaCentral: "Jesucristo, Rey y Señor del Universo, cuya verdad nos libera de toda servidumbre",
-        p1: { cita: "Daniel 7, 13-14", intro: "El profeta Daniel contempla en visión la llegada del Hijo del Hombre, a quien se le concede un reino eterno que no tendrá fin." },
-        salmo: { cita: "Salmo 92, 1-2. 5", resp: "El Señor reina, vestido de majestad." },
-        p2: { cita: "Apocalipsis 1, 5-8", intro: "Juan proclama a Jesucristo como el Soberano de los reyes de la tierra, quien nos ama y nos ha liberado de los pecados con su sangre." },
-        ev: { cita: "Juan 18, 33b-37", intro: "Ante Pilato, Jesús aclara que su realeza no es de este mundo ni busca el poder humano, sino dar testimonio de la Verdad. Nos ponemos de pie." }
-      },
-      {
-        mes: 11,
-        temaCentral: "la espera gozosa del Emmanuel, Dios-con-nosotros que viene a salvar a su pueblo",
-        p1: { cita: "Miqueas 5, 1-4a", intro: "Miqueas profetiza que de la pequeña Belén nacerá el Pastor de Israel, cuyos orígenes se remontan a los tiempos antiguos." },
-        salmo: { cita: "Salmo 79, 2-3. 15-16", resp: "Oh Dios, restáuranos, que brille tu rostro y nos salve." },
-        p2: { cita: "Hebreos 10, 5-10", intro: "Se nos muestra la obediencia de Cristo, quien entra en el mundo para hacer la voluntad del Padre entregando su cuerpo en sacrificio de amor." },
-        ev: { cita: "Lucas 1, 39-45", intro: "María acude presurosa a servir a Isabel, enseñándonos que la fe genuina salta de alegría ante la llegada del Salvador. De pie acojamos el Evangelio." }
-      }
-    ];
+    // URL DE TU WORKER EN CLOUDFLARE
+    const WORKER_URL = "https://guiones-liturgicos.soquitroqui.workers.dev";
 
-    // INICIALIZACIÓN DE EVENTOS AL CARGAR LA PÁGINA
     document.addEventListener('DOMContentLoaded', function() {
       setToday();
 
       document.getElementById('btn-today').addEventListener('click', setToday);
       document.getElementById('btn-sunday').addEventListener('click', setNextSunday);
-      document.getElementById('btn-generate').addEventListener('click', generateScript);
+      document.getElementById('btn-generate').addEventListener('click', generateScriptWithWorker);
       document.getElementById('btn-copy').addEventListener('click', copyToClipboard);
       document.getElementById('btn-pdf').addEventListener('click', downloadPDF);
       document.getElementById('btn-print').addEventListener('click', function() { window.print(); });
@@ -327,8 +229,7 @@
       document.getElementById('date-picker').value = now.toISOString().split('T')[0];
     }
 
-    // MOTOR 2: REDACTOR DEDICADO QUE GENERA EL HTML EDITORIAL FINAL
-    function generateScript() {
+    async function generateScriptWithWorker() {
       const dateVal = document.getElementById('date-picker').value;
       if (!dateVal) {
         alert('Por favor selecciona una fecha del calendario primero.');
@@ -338,135 +239,104 @@
       const misaType = document.getElementById('misa-type').value;
       const customIntention = document.getElementById('custom-intention').value.trim();
 
-      const dateObj = new Date(dateVal + 'T00:00:00');
-      const mesIndex = dateObj.getMonth();
-      const dataLit = baseLiturgicaOficial[mesIndex];
+      const statusTag = document.getElementById('status-tag');
+      const outputArea = document.getElementById('output-area');
 
+      statusTag.innerText = 'Redactando con IA...';
+      outputArea.innerHTML = '<div class="placeholder-text"><span class="placeholder-icon">⏳</span><p>Consultando el Leccionario y redactando el guion a la medida... Por favor espere unos segundos.</p></div>';
+
+      const dateObj = new Date(dateVal + 'T00:00:00');
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
       const formattedDate = dateObj.toLocaleDateString('es-ES', options);
 
-      let cicloLiturgico = "Año A / Ciclo II";
-      let tiempoLiturgico = "Tiempo Ordinario";
-      let colorLiturgico = "Verde";
-      let colorClass = "color-green";
+      try {
+        const response = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fecha: formattedDate,
+            tipo: misaType,
+            intencion: customIntention
+          })
+        });
 
-      let fCitation = dataLit.p1.cita;
-      let fIntro = dataLit.p1.intro;
-      let sCitation = dataLit.salmo.cita;
-      let sResp = dataLit.salmo.resp;
-      let secCitation = dataLit.p2.cita;
-      let secIntro = dataLit.p2.intro;
-      let gCitation = dataLit.ev.cita;
-      let gIntro = dataLit.ev.intro;
-      let ejeTema = dataLit.temaCentral;
+        if (!response.ok) {
+          throw new Error('Error al conectar con el servidor.');
+        }
 
-      if (misaType === "solemnidad") {
-        tiempoLiturgico = "Solemnidad / Festividad Especial";
-        colorLiturgico = "Blanco / Dorado";
-        colorClass = "color-white";
-        ejeTema = "la manifestación gloriosa de la gracia de Dios en las grandes festividades de la Iglesia";
-        fCitation = "Hechos 2, 1-11";
-        fIntro = "La Escritura nos muestra el derramamiento del Espíritu Santo sobre la Iglesia naciente, transformando el temor en valentía misionera.";
-        sCitation = "Salmo 103, 1. 24. 29-31";
-        sResp = "Envía tu Espíritu, Señor, y renueva la faz de la tierra.";
-        secCitation = "Gálatas 5, 16-25";
-        secIntro = "San Pablo nos presenta los frutos del Espíritu Santo, invitándonos a caminar guiados por el amor, la paz y la paciencia.";
-        gCitation = "Juan 20, 19-23";
-        gIntro = "Jesús se aparece a sus discípulos en el cenáculo, les comunica la paz y les regala el Espíritu Santo. De pie acojamos la Palabra.";
-      } else if (misaType === "memoria") {
-        tiempoLiturgico = "Memoria Litúrgica / Santo del Día";
-        colorLiturgico = "Rojo / Blanco";
-        colorClass = "color-red";
-        ejeTema = "el testimonio de fe de los santos que encarnaron el Evangelio en la vida diaria";
-        fCitation = "2 Corintios 4, 7-15";
-        fIntro = "La primera lectura nos recuerda que llevamos un tesoro divino en vasijas de barro, para que se vea que este poder extraordinario viene de Dios.";
-        sCitation = "Salmo 125, 1-6";
-        sResp = "Los que siembran entre lágrimas cosecharán entre cantores.";
-        secCitation = "1 Juan 3, 14-18";
-        secIntro = "La carta de Juan nos exhorta a no amar solamente de palabra ni de boca, sino con obras reales y de verdad.";
-        gCitation = "Lucas 12, 32-34";
-        gIntro = "Jesús nos anima a no temer y a hacernos tesoros inagotables en el cielo. Nos ponemos de pie para aclamar el Santo Evangelio.";
-      }
+        const data = await response.json();
 
-      // REDACCIÓN DE LA MONICIÓN DE ENTRADA EXTENSA CENTRADA EN EL EVANGELIO
-      let entradaText = `«Muy buenos días (o tardes), hermanos y hermanas. Sean todos bienvenidos a nuestra capilla para celebrar con alegría la Santa Eucaristía de este día, ${formattedDate}.<br><br>Hoy la Liturgia de la Palabra coloca en el centro de nuestra reflexión <strong>${ejeTema}</strong>. Todo lo que escucharemos en las lecturas nos recuerda que la Misa es el lugar donde Cristo ilumina nuestras decisiones, fortalece nuestro ánimo y renueva nuestra fe comunitaria.`;
-
-      let customPetition = "";
-
-      if (customIntention !== "") {
-        entradaText += `<br><br>De manera muy especial, hoy nos congregamos para encomendar a Dios la intención de: <strong>${customIntention}</strong>. Ponemos en sus manos amorosas este acontecimiento de nuestra comunidad, pidiéndole que su gracia acompañe y bendiga nuestra capilla.`;
-        
-        customPetition = `4. Por nuestra intención comunitaria especial: <em>${customIntention}</em>; para que el Señor escuche la oración de su pueblo y colme de bendiciones a nuestra comunidad. <em>Roguemos al Señor.</em><br>`;
-      }
-
-      entradaText += `<br><br>Con un corazón dispuesto, los invito a ponerse de pie y unir nuestras voces en el canto de entrada para recibir al celebrante.»`;
-
-      const scriptHTML = `
-        <div class="script-output" id="printable-script">
-          <div class="script-header-block">
-            <h2>Guion Litúrgico para la Misa</h2>
-            <div class="date-sub">${formattedDate}</div>
-            <div class="liturgical-badge-bar">
-              <span class="lit-badge">${cicloLiturgico}</span>
-              <span class="lit-badge">${tiempoLiturgico}</span>
-              <span class="lit-badge ${colorClass}">Color: ${colorLiturgico}</span>
+        const scriptHTML = `
+          <div class="script-output" id="printable-script">
+            <div class="script-header-block">
+              <h2>Guion Litúrgico para la Misa</h2>
+              <div class="date-sub">${formattedDate}</div>
+              <div class="liturgical-badge-bar">
+                <span class="lit-badge">${data.ciclo || 'Año Litúrgico'}</span>
+                <span class="lit-badge">${data.tiempo || 'Tiempo Ordinario'}</span>
+                <span class="lit-badge ${data.colorClass || 'color-green'}">Color: ${data.color || 'Verde'}</span>
+              </div>
             </div>
-          </div>
 
-          <div class="rubric-container">
-            <span class="rubric">Monitor — Monición de Entrada & Bienvenida</span>
-          </div>
-          <p class="speech">${entradaText}</p>
+            <div class="rubric-container">
+              <span class="rubric">Monitor — Monición de Entrada & Bienvenida</span>
+            </div>
+            <p class="speech">${data.bienvenida}</p>
 
-          <div class="rubric-container">
-            <span class="rubric">Monitor — Primera Lectura</span>
-            <span class="bible-citation">📖 ${fCitation}</span>
-          </div>
-          <p class="speech">«${fIntro} Escuchemos atentamente.»</p>
+            <div class="rubric-container">
+              <span class="rubric">Monitor — Primera Lectura</span>
+              <span class="bible-citation">📖 ${data.primera_cita}</span>
+            </div>
+            <p class="speech">«${data.primera_intro} Escuchemos atentamente.»</p>
 
-          <div class="rubric-container">
-            <span class="rubric">Monitor — Salmo Responsorial</span>
-            <span class="bible-citation">📖 ${sCitation}</span>
-          </div>
-          <p class="speech">«Uniendo nuestros corazones a la oración del salmista, respondemos todos juntos: <em>${sResp}</em>»</p>
+            <div class="rubric-container">
+              <span class="rubric">Monitor — Salmo Responsorial</span>
+              <span class="bible-citation">📖 ${data.salmo_cita}</span>
+            </div>
+            <p class="speech">«Uniendo nuestros corazones a la oración del salmista, respondemos todos juntos: <em>${data.salmo_resp}</em>»</p>
 
-          <div class="rubric-container">
-            <span class="rubric">Monitor — Segunda Lectura</span>
-            <span class="bible-citation">📖 ${secCitation}</span>
-          </div>
-          <p class="speech">«${secIntro} Prestemos atención.»</p>
+            <div class="rubric-container">
+              <span class="rubric">Monitor — Segunda Lectura</span>
+              <span class="bible-citation">📖 ${data.segunda_cita}</span>
+            </div>
+            <p class="speech">«${data.segunda_intro} Prestemos atención.»</p>
 
-          <div class="rubric-container">
-            <span class="rubric">Monitor — Monición e Introducción al Evangelio</span>
-            <span class="bible-citation">📖 ${gCitation}</span>
-          </div>
-          <p class="speech">«${gIntro} Aclamamos el Santo Evangelio cantando el Aleluya.»</p>
+            <div class="rubric-container">
+              <span class="rubric">Monitor — Monición e Introducción al Evangelio</span>
+              <span class="bible-citation">📖 ${data.evangelio_cita}</span>
+            </div>
+            <p class="speech">«${data.evangelio_intro} Aclamamos el Santo Evangelio cantando el Aleluya.»</p>
 
-          <div class="rubric-container">
-            <span class="rubric">Oración Universal (Peticiones)</span>
-          </div>
-          <p class="speech"><strong>Sacerdote:</strong> Presentemos confiadamente al Padre celestial nuestras súplicas por las necesidades de la Iglesia, del mundo y de nuestra comunidad.<br><br>
-          <strong>Lector:</strong><br>
-          1. Por la Santa Iglesia, el Papa y nuestros pastores, para que continúen guiando al pueblo de Dios con sabiduría y caridad. <em>Roguemos al Señor.</em><br>
-          2. Por las naciones y sus autoridades, para que promuevan la paz, la justicia y el bienestar de los más desfavorecidos. <em>Roguemos al Señor.</em><br>
-          3. Por los enfermos y ancianos de nuestra parroquia, para que encuentren en Cristo consuelo y en nosotros una mano fraterna. <em>Roguemos al Señor.</em><br>
-          ${customPetition}
-          <br><strong>Sacerdote:</strong> Padre santo, acoge con bondad las oraciones de tu familia. Por Jesucristo nuestro Señor. Amén.</p>
+            <div class="rubric-container">
+              <span class="rubric">Oración Universal (Peticiones)</span>
+            </div>
+            <p class="speech"><strong>Sacerdote:</strong> Presentemos confiadamente al Padre celestial nuestras súplicas por las necesidades de la Iglesia, del mundo y de nuestra comunidad.<br><br>
+            <strong>Lector:</strong><br>
+            1. ${data.peticion_1 || 'Por la Santa Iglesia y el Papa.'} <em>Roguemos al Señor.</em><br>
+            2. ${data.peticion_2 || 'Por las naciones y la paz.'} <em>Roguemos al Señor.</em><br>
+            3. ${data.peticion_3 || 'Por los enfermos y afligidos.'} <em>Roguemos al Señor.</em><br>
+            ${data.peticion_4 ? `4. ${data.peticion_4} <em>Roguemos al Señor.</em><br>` : ''}
+            <br><strong>Sacerdote:</strong> Padre santo, acoge con bondad las oraciones de tu familia. Por Jesucristo nuestro Señor. Amén.</p>
 
-          <div class="rubric-container">
-            <span class="rubric">Monitor — Ofertorio & Rito de Comunión</span>
-          </div>
-          <p class="speech">«Junto al pan y al vino, ofrecemos en el altar nuestras jornadas y sacrificios. Nos preparamos ahora para participar con fe de la Liturgia Eucarística.»</p>
+            <div class="rubric-container">
+              <span class="rubric">Monitor — Ofertorio & Rito de Comunión</span>
+            </div>
+            <p class="speech">«Junto al pan y al vino, ofrecemos en el altar nuestras jornadas y sacrificios. Nos preparamos ahora para participar con fe de la Liturgia Eucarística.»</p>
 
-          <div class="rubric-container">
-            <span class="rubric">Monitor — Despedida</span>
+            <div class="rubric-container">
+              <span class="rubric">Monitor — Despedida</span>
+            </div>
+            <p class="speech">«Alimentados por la Palabra y el Cuerpo de Cristo, salgamos a ser testimonio de su amor en nuestros hogares y trabajos. Que tengan una bendecida semana.»</p>
           </div>
-          <p class="speech">«Alimentados por la Palabra y el Cuerpo de Cristo, salgamos a ser testimonio de su amor en nuestros hogares y trabajos. Que tengan una bendecida semana.»</p>
-        </div>
-      `;
+        `;
 
-      document.getElementById('output-area').innerHTML = scriptHTML;
-      document.getElementById('status-tag').innerText = 'Guion Listo';
+        outputArea.innerHTML = scriptHTML;
+        statusTag.innerText = 'Guion Generado con IA';
+
+      } catch (err) {
+        statusTag.innerText = 'Error';
+        outputArea.innerHTML = `<div class="placeholder-text" style="color: #dc2626;"><span class="placeholder-icon">⚠️</span><p><strong>Ocurrió un error al generar el guion:</strong> ${err.message}</p></div>`;
+      }
     }
 
     function copyToClipboard() {
