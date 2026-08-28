@@ -200,7 +200,7 @@
   <script>
     const _k = ["AQ.Ab8RN6K", "-ols", "lFaRIRI6fFuVJ3dEB2j0hQhyTo0Pv6AzleiCYRw"];
 
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', function() {
       setToday();
     });
 
@@ -232,156 +232,13 @@
       const outputArea = document.getElementById('output-area');
 
       statusTag.innerText = 'Redactando con IA...';
-      outputArea.innerHTML = `
-        <div class="placeholder-text">
-          <span class="placeholder-icon">⏳</span>
-          <p>La IA está consultando el Evangelio del día y redactando el guion a la medida... Espere unos segundos.</p>
-        </div>
-      `;
+      outputArea.innerHTML = '<div class="placeholder-text"><span class="placeholder-icon">⏳</span><p>La IA está consultando el Evangelio del día y redactando el guion a la medida... Espere unos segundos.</p></div>';
 
       const dateObj = new Date(dateVal + 'T00:00:00');
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
       const formattedDate = dateObj.toLocaleDateString('es-ES', options);
 
-      const promptSystem = `
-Actúa como un teólogo católico experto en liturgia y redacción pastoral.
-Genera el guion completo para un monitor de Misa correspondiente a la fecha: ${formattedDate}.
-Tipo de celebración: ${misaType}.
-Acontecimiento especial o intención parroquial a integrar: "${customIntention || 'Ninguno'}".
-
-REGLAS DE SALIDA OBLIGATORIAS:
-Responde ÚNICAMENTE con código HTML válido formateado dentro del contenedor de salida (sin markdown, sin tres comillas simples).
-
-El código debe seguir exactamente esta estructura HTML:
-
-<div class="script-output" id="printable-script">
-  <div class="script-header-block">
-    <h2>Guion Litúrgico para la Misa</h2>
-    <div class="date-sub">${formattedDate}</div>
-    <div class="liturgical-badge-bar">
-      <span class="lit-badge">[AÑO LITÚRGICO Y CICLO REAL DE ESA FECHA]</span>
-      <span class="lit-badge">[TIEMPO LITÚRGICO REAL]</span>
-      <span class="lit-badge color-green">[COLOR LITÚRGICO REAL]</span>
-    </div>
-  </div>
-
-  <div class="rubric-container">
-    <span class="rubric">Monitor — Monición de Entrada & Bienvenida</span>
-  </div>
-  <p class="speech">[Escribe aquí una monición de entrada extensa, cálida y profunda de 3 párrafos construida explícitamente en torno al eje central del Evangelio oficial que corresponde a esta fecha exacta. Integra de forma natural y detallada el acontecimiento especial "${customIntention}" si existe.]</p>
-
-  <div class="rubric-container">
-    <span class="rubric">Monitor — Primera Lectura</span>
-    <span class="bible-citation">📖 [CITA BÍBLICA REAL DE LA 1ERA LECTURA]</span>
-  </div>
-  <p class="speech">[Breve monición explicativa que introduce la lectura en conexión con el Evangelio]. Escuchemos atentamente.</p>
-
-  <div class="rubric-container">
-    <span class="rubric">Monitor — Salmo Responsorial</span>
-    <span class="bible-citation">📖 [CITA BÍBLICA REAL DEL SALMO]</span>
-  </div>
-  <p class="speech">Respondemos todos juntos: <em>[RESPUESTA REAL DEL SALMO]</em></p>
-
-  <div class="rubric-container">
-    <span class="rubric">Monitor — Segunda Lectura</span>
-    <span class="bible-citation">📖 [CITA BÍBLICA REAL DE LA 2DA LECTURA SI CORRESPONDE]</span>
-  </div>
-  <p class="speech">[Breve monición explicativa]. Prestemos atención.</p>
-
-  <div class="rubric-container">
-    <span class="rubric">Monitor — Monición e Introducción al Evangelio</span>
-    <span class="bible-citation">📖 [CITA BÍBLICA REAL DEL EVANGELIO DE ESA FECHA]</span>
-  </div>
-  <p class="speech">[Monición que da la clave teológica del Evangelio]. Nos ponemos de pie y aclamamos cantando el Aleluya.</p>
-
-  <div class="rubric-container">
-    <span class="rubric">Oración Universal (Peticiones)</span>
-  </div>
-  <p class="speech"><strong>Sacerdote:</strong> [Introducción]
-  <br><br><strong>Lector:</strong><br>
-  1. Por la Iglesia y el Papa... <em>Roguemos al Señor.</em><br>
-  2. Por las naciones y la paz... <em>Roguemos al Señor.</em><br>
-  3. Por los necesitados y enfermos... <em>Roguemos al Señor.</em><br>
-  [Incluir petición 4 específica por la intención "${customIntention}" si existe]<br><br>
-  <strong>Sacerdote:</strong> [Conclusión de las peticiones]</p>
-
-  <div class="rubric-container">
-    <span class="rubric">Monitor — Ofertorio & Rito de Comunión</span>
-  </div>
-  <p class="speech">[Monición breve de las ofrendas]</p>
-
-  <div class="rubric-container">
-    <span class="rubric">Monitor — Despedida</span>
-  </div>
-  <p class="speech">[Monición final y despedida]</p>
-</div>
-`;
+      const promptSystem = 'Actúa como un teólogo católico experto en liturgia y redacción pastoral. Genera el guion completo para un monitor de Misa correspondiente a la fecha: ' + formattedDate + '. Tipo de celebración: ' + misaType + '. Acontecimiento especial o intención parroquial a integrar: "' + (customIntention || 'Ninguno') + '". Responde ÚNICAMENTE con código HTML válido formateado dentro de un contenedor <div class="script-output" id="printable-script"> con título, distintivos litúrgicos, monición de entrada extensa de 3 párrafos centrada en el Evangelio oficial real de esa fecha, introducciones a las lecturas con sus citas bíblicas reales, salmo, evangelio, oración universal con peticiones e intención especial, oferente y despedida.';
 
       try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/openai/chat/completions`, {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-          },
-          body: JSON.stringify({
-            model: "gemini-1.5-flash",
-            messages: [{ role: "user", content: promptSystem }]
-          })
-        });
-
-        if (!response.ok) {
-          throw new Error('No se pudo conectar con el servicio de IA.');
-        }
-
-        const data = await response.json();
-        let htmlResult = data.choices[0].message.content;
-        htmlResult = htmlResult.replace(/```html/g, '').replace(/```/g, '').trim();
-
-        outputArea.innerHTML = htmlResult;
-        statusTag.innerText = 'Guion Generado con IA';
-
-      } catch (err) {
-        statusTag.innerText = 'Error';
-        outputArea.innerHTML = `
-          <div class="placeholder-text" style="color: #dc2626;">
-            <span class="placeholder-icon">⚠️</span>
-            <p><strong>Ocurrió un error al generar el guion:</strong> ${err.message}</p>
-          </div>
-        `;
-      }
-    }
-
-    function copyToClipboard() {
-      const output = document.getElementById('output-area');
-      if (output.querySelector('.placeholder-text')) {
-        alert('Primero debes generar un guion.');
-        return;
-      }
-      navigator.clipboard.writeText(output.innerText).then(() => {
-        alert('Guion copiado al portapapeles con éxito.');
-      });
-    }
-
-    function downloadPDF() {
-      const element = document.getElementById('printable-script');
-      if (!element) {
-        alert('Primero debes generar un guion para descargarlo.');
-        return;
-      }
-
-      const opt = {
-        margin:       [0.5, 0.5, 0.5, 0.5],
-        filename:     'Guion_Liturgico_Misa_IA.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2 },
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-      };
-
-      html2pdf().set(opt).from(element).save();
-    }
-  </script>
-
-  <script data-goatcounter="https://ruddy.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-</body>
-</html>
+        const response = await fetch('
