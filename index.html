@@ -86,60 +86,34 @@
     }
     .nav-btn:hover { background: var(--red-hover); }
 
-    /* BARRA DE CONCEPTOS */
-    .features-bar {
+    /* FRANJA BLANCA CON TITULAR PRINCIPAL EN ROJO */
+    .title-white-bar {
       background: #ffffff;
       border-bottom: 1px solid var(--border);
-      padding: 0.75rem 1rem;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
     }
-    .features-bar-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-    .feature-item {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--purple-main);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .feature-item::before {
-      content: "•";
+    .title-white-bar h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 800;
       color: var(--red-accent);
-      font-size: 1.2rem;
+      margin: 0;
+      line-height: 1.2;
+      letter-spacing: -0.3px;
     }
 
-    /* HERO PRINCIPAL: MORADO MÁS VIVO, SIN LOGO, FUENTE MÁS GRANDE Y ELEGANTE */
-    .hero {
+    /* FRANJA MORADA COMPACTA CON SUBTÍTULO */
+    .hero-subtitle-bar {
        background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%);
        color: #ffffff;
        text-align: center;
-       padding: 2.2rem 1.5rem 3.5rem 1.5rem;
+       padding: 1.2rem 1.5rem 3rem 1.5rem;
     }
-    .hero h1 {
-       font-family: 'Playfair Display', Georgia, serif;
-       font-size: 2.5rem;
-       font-weight: 800;
-       letter-spacing: -0.3px;
-       margin-bottom: 0.4rem;
-       line-height: 1.2;
-       max-width: 1100px;
-       margin-left: auto;
-       margin-right: auto;
-       color: #ffffff;
-       text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    .hero p {
+    .hero-subtitle-bar p {
        font-size: 1.1rem;
-       color: #e2e8f0;
-       max-width: 850px;
+       color: #f1f5f9;
+       max-width: 900px;
        margin: 0 auto;
        font-weight: 500;
     }
@@ -501,7 +475,7 @@
     }
     footer strong { color: #ffffff; }
     @media (max-width: 900px) {
-      .hero h1 { font-size: 1.9rem; }
+      .title-white-bar h1 { font-size: 1.6rem; }
     }
     @media (max-width: 850px) {
       .featured-section { grid-template-columns: 1fr; }
@@ -533,19 +507,13 @@
     </div>
   </header>
 
-  <!-- BARRA DE CONCEPTOS -->
-  <div class="features-bar">
-    <div class="features-bar-container">
-      <span class="feature-item">Formación Bíblica</span>
-      <span class="feature-item">Liturgia Abierta</span>
-      <span class="feature-item">Fe Para Dummies</span>
-      <span class="feature-item">Sin Fines de Lucro</span>
-    </div>
+  <!-- FRANJA BLANCA CON TITULAR EN ROJO DESTACADO -->
+  <div class="title-white-bar">
+    <h1>Recursos y herramientas abiertas para la evangelización</h1>
   </div>
 
-  <!-- HERO PRINCIPAL CON MORADO VIVO Y TITULAR DESTACADO -->
-  <section class="hero">
-    <h1>Recursos y herramientas abiertas para la evangelización</h1>
+  <!-- FRANJA MORADA COMPACTA CON SUBTÍTULO -->
+  <section class="hero-subtitle-bar">
     <p>Un archivo pastoral organizado con talleres, guiones, video y herramientas IA.</p>
   </section>
 
