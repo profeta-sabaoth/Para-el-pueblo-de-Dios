@@ -317,15 +317,15 @@
     }
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.2rem;
       margin-top: 1.2rem;
     }
     .link-item {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 1rem;
-      padding: 1rem;
+      padding: 1.2rem;
       background: var(--bg-light);
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -336,19 +336,22 @@
     .link-item:hover {
       background: #ffffff;
       border-color: var(--red-accent);
-      transform: translateX(4px);
+      transform: translateY(-2px);
     }
     .link-icon {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
+      line-height: 1;
     }
     .link-info h4 {
       font-size: 0.95rem;
       font-weight: 700;
       color: var(--purple-main);
+      margin-bottom: 0.2rem;
     }
     .link-info p {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
+      line-height: 1.35;
     }
     footer {
        background: var(--purple-dark);
@@ -471,32 +474,46 @@
         <h2>Enlaces de Interés & Comunidad</h2>
       </div>
       <div class="links-grid">
+        <a href="https://www.youtube.com/@F%C3%A9paraDummies" target="_blank" class="link-item">
+          <span class="link-icon">📺</span>
+          <div class="link-info">
+            <h4>Canal de YouTube</h4>
+            <p>Serie "Fe para Dummies" con explicaciones sencillas, directas y al grano sobre temas bíblicos y doctrinales.</p>
+          </div>
+        </a>
+        <a href="https://www.facebook.com/?_rdc=1&_rdr" target="_blank" class="link-item">
+          <span class="link-icon">👥</span>
+          <div class="link-info">
+            <h4>Comunidad en Facebook</h4>
+            <p>Página oficial de "Fe para Dummies" con actualizaciones, debates y material complementario.</p>
+          </div>
+        </a>
         <a href="https://chat.whatsapp.com/CX8JwGqscOHKXDyaVbR4bO" target="_blank" class="link-item">
           <span class="link-icon">💬</span>
           <div class="link-info">
             <h4>Grupo de WhatsApp</h4>
-            <p>Unirse a la comunidad en línea</p>
+            <p>Espacio abierto para la comunidad. Comparte material, resuelve dudas y mantente al día.</p>
           </div>
         </a>
-        <a href="#" class="link-item">
+        <a href="https://www.vatican.va/archive/ESL0022/_INDEX.HTM" target="_blank" class="link-item">
+          <span class="link-icon">📖</span>
+          <div class="link-info">
+            <h4>Catecismo Oficial (Vaticano)</h4>
+            <p>Buscador directo del Catecismo de la Iglesia Católica para consultar la doctrina oficial sin rodeos.</p>
+          </div>
+        </a>
+        <a href="https://www.iglesia.cl" target="_blank" class="link-item">
           <span class="link-icon">⛪</span>
           <div class="link-info">
-            <h4>Nuestra Capilla</h4>
-            <p>Horarios e información local</p>
+            <h4>Conferencia Episcopal de Chile</h4>
+            <p>Portal oficial con noticias, orientaciones pastorales y documentos vigentes de la Iglesia local.</p>
           </div>
         </a>
-        <a href="enciclicas.html" class="link-item">
-          <span class="link-icon">📄</span>
+        <a href="https://unsplash.com/es" target="_blank" class="link-item">
+          <span class="link-icon">🖼️</span>
           <div class="link-info">
-            <h4>Encíclicas en PDF</h4>
-            <p>Biblioteca de documentos papales</p>
-          </div>
-        </a>
-        <a href="#" class="link-item">
-          <span class="link-icon">🔗</span>
-          <div class="link-info">
-            <h4>Recursos Externos</h4>
-            <p>Sitios recomendados</p>
+            <h4>Banco de Fotos de Alta Calidad</h4>
+            <p>Imágenes libres de derechos ideales para armar afiches, presentaciones y material para la capilla.</p>
           </div>
         </a>
       </div>
