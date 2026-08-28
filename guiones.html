@@ -195,7 +195,7 @@
     }
     textarea.form-control {
       resize: vertical;
-      min-height: 80px;
+      min-height: 85px;
     }
 
     .quick-buttons {
@@ -300,7 +300,7 @@
     .script-output {
       font-family: 'Playfair Display', Georgia, serif;
       color: #1e293b;
-      line-height: 1.7;
+      line-height: 1.75;
     }
     .script-header-block {
       text-align: center;
@@ -314,28 +314,51 @@
       font-weight: 800;
       margin-bottom: 0.3rem;
     }
-    .script-header-block p {
+    .script-header-block .date-sub {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      color: var(--red-accent);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      color: #334155;
+      margin-bottom: 0.5rem;
     }
+    
+    /* FICHA LITÚRGICA SUPERIOR */
+    .liturgical-badge-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .lit-badge {
+      background: #f1f5f9;
+      color: var(--purple-main);
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+    .lit-badge.color-green { border-left: 4px solid #16a34a; }
+    .lit-badge.color-white { border-left: 4px solid #cbd5e1; }
+    .lit-badge.color-red { border-left: 4px solid #dc2626; }
+    .lit-badge.color-purple { border-left: 4px solid #9333ea; }
 
-    /* RÚBRICAS LITÚRGICAS EN ROJO CON CITAS CITA EN AMARILLO/NEGRO */
+    /* RÚBRICAS LITÚRGICAS EN ROJO CON CITAS */
     .rubric-container {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-top: 1.6rem;
-      margin-bottom: 0.3rem;
-      border-bottom: 1px solid #f1f5f9;
+      margin-top: 1.8rem;
+      margin-bottom: 0.4rem;
+      border-bottom: 1px solid #e2e8f0;
       padding-bottom: 0.2rem;
     }
     .rubric {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 800;
       color: var(--red-accent);
       text-transform: uppercase;
@@ -353,7 +376,8 @@
     .speech {
       font-size: 1.05rem;
       color: #0f172a;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
+      text-align: justify;
     }
     .placeholder-text {
       text-align: center;
@@ -432,7 +456,7 @@
 
       <!-- NOTA SARCÁSTICA DE USO -->
       <div class="sarcastic-note">
-        <strong>Manual para despistados:</strong> Selecciona una fecha, escoge el tipo de misa y presiona el botón. Si esperas que el guion se escriba por revelación divina sin tocar nada, siéntate a esperar cómodo.
+        <strong>Manual para despistados:</strong> Selecciona la fecha, ajusta las opciones y presiona el botón. Si esperas que el guion se escriba por revelación divina sin tocar nada, siéntate a esperar cómodo.
       </div>
 
       <div class="form-group">
@@ -455,10 +479,10 @@
         </select>
       </div>
 
-      <!-- INTENCIÓN PARROQUIAL ESPECIAL -->
+      <!-- INTENCIÓN / EVENTO PARROQUIAL ESPECIAL -->
       <div class="form-group">
-        <label for="custom-intention">Intención Especial de la Comunidad</label>
-        <textarea id="custom-intention" class="form-control" placeholder="Ej: Primeras Comuniones, Aniversario de la Capilla, Acción de gracias por los enfermos..."></textarea>
+        <label for="custom-intention">Acontecimiento Parroquial / Intención</label>
+        <textarea id="custom-intention" class="form-control" placeholder="Ej: Aniversario del Club de Adulto Mayor San José, Inauguración de la capilla, Primeras Comuniones..."></textarea>
       </div>
 
       <button type="button" class="btn-primary" onclick="generateScript()">
@@ -480,7 +504,7 @@
       <div id="output-area">
         <div class="placeholder-text">
           <span class="placeholder-icon">📜</span>
-          <p>Selecciona la fecha y las opciones en el panel izquierdo y haz clic en <strong>Generar Guion Completo</strong> para desplegar la estructura con sus citas bíblicas correspondientes.</p>
+          <p>Selecciona la fecha y las opciones en el panel izquierdo y haz clic en <strong>Generar Guion Completo</strong> para desplegar la estructura con sus citas bíblicas y datos litúrgicos.</p>
         </div>
       </div>
     </section>
@@ -526,87 +550,109 @@
 
       document.getElementById('status-tag').innerText = 'Guion listo';
 
-      // Citas Bíblicas de Ejemplo según la fecha/tipo
+      // Parámetros litúrgicos por defecto (2026)
+      let cicloLiturgico = "Año A / Ciclo II";
+      let tiempoLiturgico = "Tiempo Ordinario";
+      let colorLiturgico = "Verde";
+      let colorClass = "color-green";
+
       let firstReadingCitation = "Isaías 49, 1-6";
       let psalmCitation = "Salmo 138, 1-3. 13-15";
       let secondReadingCitation = "1 Corintios 12, 12-26";
       let gospelCitation = "Mateo 5, 13-16";
-      let celTitle = "Tiempo Ordinario (Año A / Ciclo II)";
 
       if (misaType === "solemnidad") {
-        celTitle = "Misa de Solemnidad Litúrgica";
+        tiempoLiturgico = "Fiesta / Solemnidad de la Iglesia";
+        colorLiturgico = "Blanco / Dorado";
+        colorClass = "color-white";
         firstReadingCitation = "Hechos de los Apóstoles 2, 1-11";
         psalmCitation = "Salmo 103, 1. 24. 29-31. 34";
         secondReadingCitation = "Gálatas 5, 16-25";
         gospelCitation = "Juan 20, 19-23";
       } else if (misaType === "memoria") {
-        celTitle = "Memoria Litúrgica / Santo del Día";
+        tiempoLiturgico = "Memoria Litúrgica";
+        colorLiturgico = "Rojo / Blanco";
+        colorClass = "color-red";
         firstReadingCitation = "2 Corintios 4, 7-15";
         psalmCitation = "Salmo 125, 1-6";
         secondReadingCitation = "1 Juan 3, 14-18";
         gospelCitation = "Lucas 12, 32-34";
       }
 
-      // Integración de la Intención Parroquial en las municiones
-      let intentionGreeting = "";
+      // Estructuración de la Monición de Entrada Extensa y la Intención
+      let entradaMainText = `«Muy buenos días (o tardes), hermanos y hermanas. Sean todos bienvenidos a la casa del Señor, espacio de encuentro, fraternidad y oración para nuestra comunidad. Nos hemos congregado hoy impulsados por la fe para celebrar la Santa Eucaristía, el regalo más grande donde Cristo mismo se hace presente entre nosotros en su Palabra y en el Sacramento del Altar.<br><br>En este caminar de la Iglesia, se nos invita a renovar nuestra esperanza, a depositar ante el altar nuestros afanes semanales, las alegrías de nuestras familias y también nuestras fragilidades, sabiendo que el Señor nunca nos abandona y nos renueva constantemente con su gracia.`;
+
       let customPetition = "";
 
       if (customIntention !== "") {
-        intentionGreeting = `<br><br><strong>Motivo Especial:</strong> En esta celebración nos unimos de manera particular por: <em>${customIntention}</em>.`;
-        customPetition = `4. Oramos también de manera especial por <em>${customIntention}</em>, para que el Señor derrame sus bendiciones sobre esta intención comunitaria. <em>Roguemos al Señor.</em><br>`;
+        entradaMainText += `<br><br>De manera muy especial, hoy como familia parroquial nos unimos en oración y acción de gracias por: <strong>${customIntention}</strong>. Ponemos en las manos de Dios este acontecimiento tan significativo para nosotros, pidiéndole que siga guiando nuestros pasos y fortaleciendo nuestros lazos comunitarios.`;
+        
+        customPetition = `4. Por nuestra intención particular de hoy: <em>${customIntention}</em>; para que el Señor escuche la gratitud y las necesidades de nuestra comunidad y nos conceda perseverar unidos en el amor. <em>Roguemos al Señor.</em><br>`;
       }
+
+      entradaMainText += `<br><br>Con esta disposición en el corazón, dispuestos a dejar que la Palabra de Dios transforme nuestras vidas, los invito a ponerse de pie y unir nuestras voces en el canto de entrada para recibir al celebrante.»`;
 
       const scriptHTML = `
         <div class="script-output">
           <div class="script-header-block">
             <h2>Guion Litúrgico para la Misa</h2>
-            <p>${formattedDate} • ${celTitle}</p>
+            <div class="date-sub">${formattedDate}</div>
+            <div class="liturgical-badge-bar">
+              <span class="lit-badge">${cicloLiturgico}</span>
+              <span class="lit-badge">${tiempoLiturgico}</span>
+              <span class="lit-badge ${colorClass}">Color: ${colorLiturgico}</span>
+            </div>
           </div>
 
           <div class="rubric-container">
-            <span class="rubric">Monitor — Rito de Entrada</span>
+            <span class="rubric">Monitor — Monición de Entrada & Bienvenida</span>
           </div>
-          <p class="speech">«Hermanos y hermanas: Nos reunimos hoy como comunidad viva para celebrar la Eucaristía, fuente y culmen de nuestra fe. En esta celebración, el Señor sale a nuestro encuentro mediante su Palabra y el Pan de Vida.${intentionGreeting} Nos ponemos de pie y acompañamos con alegría el canto de entrada.»</p>
+          <p class="speech">${entradaMainText}</p>
 
           <div class="rubric-container">
             <span class="rubric">Monitor — Primera Lectura</span>
             <span class="bible-citation">📖 ${firstReadingCitation}</span>
           </div>
-          <p class="speech">«La primera lectura nos invita a reconocer la fidelidad de Dios en medio de las pruebas históricas de su pueblo. Escuchemos con atención y corazón dispuesto.»</p>
+          <p class="speech">«La primera lectura nos sitúa en el proyecto de Dios para su pueblo, recordándonos que su alianza es eterna y su fidelidad permanece para siempre. Escuchemos con atención y reverencia.»</p>
 
           <div class="rubric-container">
             <span class="rubric">Monitor — Salmo Responsorial</span>
             <span class="bible-citation">📖 ${psalmCitation}</span>
           </div>
-          <p class="speech">«A cada estrofa del salmo respondemos todos juntos: <em>El Señor es mi luz y mi salvación.</em>»</p>
+          <p class="speech">«Acompañamos el salmo meditando en las maravillas que el Señor obra diariamente en nuestra existencia. A cada estrofa respondemos todos juntos: <em>El Señor es mi luz y mi salvación.</em>»</p>
 
           <div class="rubric-container">
             <span class="rubric">Monitor — Segunda Lectura</span>
             <span class="bible-citation">📖 ${secondReadingCitation}</span>
           </div>
-          <p class="speech">«San Pablo nos recuerda la importancia de la unidad en la fe y el compromiso activo con el servicio a los hermanos. Prestemos oído atento.»</p>
+          <p class="speech">«En la segunda lectura, la palabra apostólica nos exhorta a vivir en unidad, ejerciendo la caridad fraterna y poniendo nuestros dones al servicio de la comunidad. Prestemos oído atento.»</p>
 
           <div class="rubric-container">
             <span class="rubric">Monitor — Santo Evangelio</span>
             <span class="bible-citation">📖 ${gospelCitation}</span>
           </div>
-          <p class="speech">«Nos ponemos de pie para aclamar el Santo Evangelio. Cristo mismo nos habla hoy con autoridad y misericordia.»</p>
+          <p class="speech">«Llegamos al momento cumbre de la Liturgia de la Palabra. Nos ponemos de pie y entonamos el Aleluya para acoger el Evangelio, donde Cristo vivo nos habla hoy.»</p>
 
           <div class="rubric-container">
             <span class="rubric">Oración Universal (Peticiones)</span>
           </div>
-          <p class="speech"><strong>Sacerdote:</strong> Presentemos al Padre nuestras súplicas por las necesidades de la Iglesia y del mundo entero.<br><br>
+          <p class="speech"><strong>Sacerdote:</strong> Presentemos confiadamente al Padre celestial nuestras súplicas por las necesidades de la Iglesia, del mundo y de nuestra comunidad.<br><br>
           <strong>Lector:</strong><br>
-          1. Por la Santa Iglesia, por el Papa y nuestros pastores, para que guiados por el Espíritu Santo continúen siendo faro de esperanza. <em>Roguemos al Señor.</em><br>
-          2. Por nuestra patria y sus autoridades, para que trabajen incansablemente por la justicia, la paz y la dignidad de los más vulnerables. <em>Roguemos al Señor.</em><br>
-          3. Por nuestra comunidad parroquial y los enfermos, para que sientan la presencia reconfortante del Señor. <em>Roguemos al Señor.</em><br>
+          1. Por la Santa Iglesia, el Papa y todos los pastores, para que continúen guiando al pueblo de Dios con sabiduría, valentía y caridad pastoral. <em>Roguemos al Señor.</em><br>
+          2. Por las naciones y sus gobernantes, para que promuevan la paz, el respeto a la vida y el bienestar de los más desfavorecidos. <em>Roguemos al Señor.</em><br>
+          3. Por los enfermos, los ancianos y los sufridos de nuestra parroquia, para que encuentren en Cristo consuelo y en nuestra comunidad una mano fraterna. <em>Roguemos al Señor.</em><br>
           ${customPetition}
-          <br><strong>Sacerdote:</strong> Escucha, Padre, las oraciones de tu pueblo que confía en tu amor infinito. Por Jesucristo nuestro Señor. Amén.</p>
+          <br><strong>Sacerdote:</strong> Padre santo, acoge con bondad las oraciones de tu familia que te busca de todo corazón. Por Jesucristo nuestro Señor. Amén.</p>
 
           <div class="rubric-container">
-            <span class="rubric">Monitor — Liturgia Eucarística & Despedida</span>
+            <span class="rubric">Monitor — Ofertorio & Rito de Comunión</span>
           </div>
-          <p class="speech">«Presentemos junto al pan y el vino nuestras vidas y esfuerzos de esta semana. Al finalizar la comunión, salgamos a ser testimonio del Reino en nuestros hogares y trabajos.»</p>
+          <p class="speech">«Junto al pan y al vino, ofrecemos en el altar nuestras jornadas, alegrías y sacrificios. Nos preparamos ahora para participar con respeto y fe de la Liturgia Eucarística.»</p>
+
+          <div class="rubric-container">
+            <span class="rubric">Monitor — Despedida</span>
+          </div>
+          <p class="speech">«Habiendo alimentado nuestra fe con la Palabra y el Cuerpos de Cristo, salgamos a ser misioneros de la alegría y la paz en nuestros hogares y lugares de trabajo. Que tengan una bendecida semana.»</p>
         </div>
       `;
 
