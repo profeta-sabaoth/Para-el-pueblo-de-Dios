@@ -11,8 +11,8 @@
     :root {
       --purple-main: #4a1575;
       --purple-dark: #320c52;
-      --red-accent: #d32f2f;
-      --red-hover: #b71c1c;
+      --red-accent: #e53935;
+      --red-hover: #c62828;
       --bg-light: #f8fafc;
       --surface: #ffffff;
       --text-main: #0f172a;
@@ -86,7 +86,7 @@
     }
     .nav-btn:hover { background: var(--red-hover); }
 
-    /* FRANJA BLANCA CON TITULAR PRINCIPAL EN ROJO */
+    /* FRANJA BLANCA CON TITULAR PRINCIPAL EN ROJO INTENSO */
     .title-white-bar {
       background: #ffffff;
       border-bottom: 1px solid var(--border);
@@ -125,60 +125,6 @@
       padding: 0 1.5rem;
       position: relative;
       z-index: 10;
-    }
-
-    /* PANEL GUÍA LITÚRGICO DEL DÍA */
-    .liturgy-panel {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-left: 5px solid var(--purple-main);
-      border-radius: 12px;
-      padding: 1.2rem 1.8rem;
-      box-shadow: var(--shadow-md);
-      margin-bottom: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .liturgy-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .liturgy-icon-box {
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-    .liturgy-data h4 {
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      letter-spacing: 0.5px;
-    }
-    .liturgy-data p {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--purple-main);
-    }
-    .liturgy-link {
-      color: var(--red-accent);
-      text-decoration: none;
-      font-weight: 700;
-      transition: color 0.2s ease;
-    }
-    .liturgy-link:hover {
-      color: var(--red-hover);
-      text-decoration: underline;
-    }
-    .color-badge {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 5px;
     }
 
     /* TITULARES DE SECCIÓN */
@@ -280,11 +226,11 @@
 
     /* BANNER DE VERSÍCULO DIARIO */
     .daily-verse-banner {
-      background: linear-gradient(135deg, #d32f2f 0%, #8b0000 100%);
+      background: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
       border-radius: 10px;
       padding: 1rem 1.5rem;
       margin-bottom: 3.5rem;
-      box-shadow: 0 6px 16px rgba(211, 47, 47, 0.2);
+      box-shadow: 0 6px 16px rgba(229, 57, 53, 0.25);
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -327,7 +273,7 @@
       white-space: nowrap;
     }
 
-    /* SECCIÓN DESTACADA: LIBRO JEREMÍAS */
+    /* SECCIÓN DESTACADA (RECURSO DESTACADO) */
     .featured-section {
       background: #ffffff;
       border: 1px solid var(--border);
@@ -343,7 +289,7 @@
     }
     .featured-badge {
       display: inline-block;
-      background: rgba(211, 47, 47, 0.1);
+      background: rgba(229, 57, 53, 0.1);
       color: var(--red-accent);
       font-size: 0.75rem;
       font-weight: 800;
@@ -379,6 +325,60 @@
       height: auto;
       display: block;
       object-fit: cover;
+    }
+
+    /* PANEL GUÍA LITÚRGICO DEL DÍA (REUBICADO ABAJO) */
+    .liturgy-panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--purple-main);
+      border-radius: 12px;
+      padding: 1.2rem 1.8rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .liturgy-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .liturgy-icon-box {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .liturgy-data h4 {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+    .liturgy-data p {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--purple-main);
+    }
+    .liturgy-link {
+      color: var(--red-accent);
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+    .liturgy-link:hover {
+      color: var(--red-hover);
+      text-decoration: underline;
+    }
+    .color-badge {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
     }
 
     /* SECCIÓN INTERMEDIA: VIDEO PROMOCIONAL */
@@ -507,7 +507,7 @@
     </div>
   </header>
 
-  <!-- FRANJA BLANCA CON TITULAR EN ROJO DESTACADO -->
+  <!-- FRANJA BLANCA CON TITULAR EN ROJO INTENSO -->
   <div class="title-white-bar">
     <h1>Recursos y herramientas abiertas para la evangelización</h1>
   </div>
@@ -519,31 +519,6 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-wrapper">
-
-    <!-- PANEL GUÍA LITÚRGICO DEL DÍA -->
-    <section class="liturgy-panel">
-      <div class="liturgy-item">
-        <span class="liturgy-icon-box">📅</span>
-        <div class="liturgy-data">
-          <h4>Año Litúrgico</h4>
-          <p id="liturgy-cycle">Año A / Ciclo II (Tiempo Ordinario)</p>
-        </div>
-      </div>
-      <div class="liturgy-item">
-        <span class="liturgy-icon-box">🎨</span>
-        <div class="liturgy-data">
-          <h4>Color del Día</h4>
-          <p><span class="color-badge" id="color-dot" style="background: #16a34a;"></span><span id="liturgy-color">Verde</span></p>
-        </div>
-      </div>
-      <div class="liturgy-item">
-        <span class="liturgy-icon-box">📜</span>
-        <div class="liturgy-data">
-          <h4>Evangelio y Lecturas</h4>
-          <p><a href="https://www.dominicos.org/predicacion/evangelio-del-dia/hoy/" target="_blank" class="liturgy-link">📖 Leer lecturas de hoy &rarr;</a></p>
-        </div>
-      </div>
-    </section>
 
     <!-- ARCHIVO COMPLETO EN GRILLA CON IMÁGENES -->
     <div class="section-header">
@@ -646,10 +621,10 @@
       <div class="verse-citation" id="citation-box">― Cita Bíblica</div>
     </section>
 
-    <!-- SECCIÓN DESTACADA: LIBRO DE JEREMÍAS -->
+    <!-- SECCIÓN DESTACADA: JEREMÍAS (RECURSO DESTACADO) -->
     <section class="featured-section">
       <div class="featured-content">
-        <span class="featured-badge">Libro Destacado</span>
+        <span class="featured-badge">Recurso Destacado</span>
         <h2>Jeremías: Guía de Supervivencia para Creyentes Cómodos</h2>
         <p><strong>Olvídate de los cuentos de hadas: esto no es un final de Disney.</strong> Un recorrido directo, irreverente pero teológicamente riguroso por las memorias del profeta más incómodo de la Biblia.</p>
         <p style="font-size: 0.88rem; color: var(--text-muted);">Sin anestesia ni maquillaje espiritual: descubre por qué la fe real no es un amuleto mágico de buena suerte, sino una lealtad radical a prueba de fuego.</p>
@@ -657,6 +632,31 @@
       </div>
       <div class="featured-preview-box">
         <img src="Gemini_Generated_Image_edh99hedh99hedh9.png" alt="Portada de Jeremías: Manual de Supervivencia del Mundo Real">
+      </div>
+    </section>
+
+    <!-- PANEL GUÍA LITÚRGICO DEL DÍA (REUBICADO AQUÍ) -->
+    <section class="liturgy-panel">
+      <div class="liturgy-item">
+        <span class="liturgy-icon-box">📅</span>
+        <div class="liturgy-data">
+          <h4>Año Litúrgico</h4>
+          <p id="liturgy-cycle">Año A / Ciclo II (Tiempo Ordinario)</p>
+        </div>
+      </div>
+      <div class="liturgy-item">
+        <span class="liturgy-icon-box">🎨</span>
+        <div class="liturgy-data">
+          <h4>Color del Día</h4>
+          <p><span class="color-badge" id="color-dot" style="background: #16a34a;"></span><span id="liturgy-color">Verde</span></p>
+        </div>
+      </div>
+      <div class="liturgy-item">
+        <span class="liturgy-icon-box">📜</span>
+        <div class="liturgy-data">
+          <h4>Evangelio y Lecturas</h4>
+          <p><a href="https://www.dominicos.org/predicacion/evangelio-del-dia/hoy/" target="_blank" class="liturgy-link">📖 Leer lecturas de hoy &rarr;</a></p>
+        </div>
       </div>
     </section>
 
