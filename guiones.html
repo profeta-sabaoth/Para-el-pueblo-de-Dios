@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liturgia Generativa IA | Para el pueblo de Dios</title>
+  <title>Liturgia Generativa | Para el pueblo de Dios</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -73,8 +73,10 @@
 
     .quick-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.2rem; }
     .btn-secondary { background: #f1f5f9; border: 1px solid var(--border); color: var(--purple-main); padding: 0.5rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
+    .btn-secondary:hover { background: var(--purple-main); color: #ffffff; }
 
     .btn-primary { width: 100%; background: var(--red-accent); color: #ffffff; border: none; padding: 0.9rem; border-radius: 6px; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: 0 4px 12px rgba(229, 57, 53, 0.25); }
+    .btn-primary:hover { background: var(--red-hover); }
 
     .preview-container { background: var(--paper-bg); border: 1px solid var(--border); border-top: 5px solid var(--purple-main); border-radius: 12px; padding: 2.5rem; box-shadow: var(--shadow-md); min-height: 550px; }
     .preview-toolbar { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
@@ -90,6 +92,8 @@
     .liturgical-badge-bar { display: flex; justify-content: center; gap: 1rem; margin-top: 0.8rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; }
     .lit-badge { background: #f1f5f9; color: var(--purple-main); padding: 0.3rem 0.7rem; border-radius: 4px; border: 1px solid var(--border); }
     .lit-badge.color-green { border-left: 4px solid #16a34a; }
+    .lit-badge.color-white { border-left: 4px solid #cbd5e1; }
+    .lit-badge.color-red { border-left: 4px solid #dc2626; }
 
     .rubric-container { display: flex; justify-content: space-between; align-items: baseline; margin-top: 1.8rem; margin-bottom: 0.4rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.2rem; }
     .rubric { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; font-weight: 800; color: var(--red-accent); text-transform: uppercase; }
@@ -126,11 +130,11 @@
   </header>
 
   <div class="title-white-bar">
-    <h1>Liturgia Generativa: Guiones con IA</h1>
+    <h1>Liturgia Generativa: Guiones para Misa</h1>
   </div>
 
   <section class="hero-subtitle-bar">
-    <p>Estructuración automática de guiones de misa por fecha impulsada por Inteligencia Artificial.</p>
+    <p>Estructuración automática de guiones litúrgicos con lecturas e intenciones parroquiales.</p>
   </section>
 
   <main class="main-wrapper">
@@ -141,7 +145,7 @@
       </div>
 
       <div class="sarcastic-note">
-        <strong>Manual para despistados:</strong> Selecciona la fecha y el acontecimiento. La Inteligencia Artificial redactará un guion único para el Evangelio real de ese día.
+        <strong>Manual para despistados:</strong> Selecciona una fecha, escoge el tipo de Misa e ingresa la intención de la capilla. Presiona el botón rojo y listo.
       </div>
 
       <div class="form-group">
@@ -150,8 +154,8 @@
       </div>
 
       <div class="quick-buttons">
-        <button type="button" class="btn-secondary" onclick="setToday()">Hoy</button>
-        <button type="button" class="btn-secondary" onclick="setNextSunday()">Próximo Domingo</button>
+        <button type="button" class="btn-secondary" id="btn-today">Hoy</button>
+        <button type="button" class="btn-secondary" id="btn-sunday">Próximo Domingo</button>
       </div>
 
       <div class="form-group">
@@ -168,7 +172,7 @@
         <textarea id="custom-intention" class="form-control" placeholder="Ej: Aniversario del Club de Adulto Mayor, Primeras Comuniones, Acción de gracias..."></textarea>
       </div>
 
-      <button type="button" class="btn-primary" onclick="generateScriptWithAI()">
+      <button type="button" class="btn-primary" id="btn-generate">
         ⚡ Generar Guion Completo
       </button>
     </aside>
@@ -177,9 +181,9 @@
       <div class="preview-toolbar">
         <span class="preview-status" id="status-tag">Esperando fecha...</span>
         <div class="action-tools">
-          <button type="button" class="btn-icon" onclick="copyToClipboard()">📋 Copiar Texto</button>
-          <button type="button" class="btn-icon" onclick="downloadPDF()">📄 Descargar PDF</button>
-          <button type="button" class="btn-icon" onclick="window.print()">🖨️ Imprimir</button>
+          <button type="button" class="btn-icon" id="btn-copy">📋 Copiar Texto</button>
+          <button type="button" class="btn-icon" id="btn-pdf">📄 Descargar PDF</button>
+          <button type="button" class="btn-icon" id="btn-print">🖨️ Imprimir</button>
         </div>
       </div>
 
@@ -198,11 +202,104 @@
   </footer>
 
   <script>
-    const _k = ["AQ.Ab8RN6K", "-ols", "lFaRIRI6fFuVJ3dEB2j0hQhyTo0Pv6AzleiCYRw"];
+    // BASE DE DATOS TEOLÓGICA DINÁMICA POR MES / EVANGELIO
+    const catalogoLiturgico = [
+      {
+        eje: "Cristo como Luz de las Naciones que revela la salvación a todos los hombres",
+        p1: { cita: "Isaías 60, 1-6", intro: "El profeta Isaías contempla el despertar de Jerusalén inundada por la gloria del Señor, convocando a todos los pueblos que caminan en tinieblas hacia la luz verdadera." },
+        salmo: { cita: "Salmo 71, 1-2. 7-8", resp: "Se posstrarán ante ti, Señor, todos los reyes de la tierra." },
+        p2: { cita: "Efesios 3, 2-6", intro: "San Pablo nos revela que el plan de salvación no es privilegio de unos pocos, sino una herencia abierta para toda la humanidad unida en Cristo." },
+        ev: { cita: "Mateo 2, 1-12", intro: "Los Magos de Oriente nos enseñan que la búsqueda sincera de la verdad siempre encuentra su respuesta en el Salvador. Nos ponemos de pie." }
+      },
+      {
+        eje: "las Bienaventuranzas y el vuelco radical de los criterios del mundo",
+        p1: { cita: "Jeremías 17, 5-8", intro: "Jeremías contrapone la aridez de quien busca la seguridad únicamente en lo humano frente a la fecundidad incansable de quien echa raíces en el Señor." },
+        salmo: { cita: "Salmo 1, 1-4. 6", resp: "Dichoso el hombre que ha puesto su confianza en el Señor." },
+        p2: { cita: "1 Corintios 15, 12-20", intro: "Pablo afirma con fuerza que la resurrección de Cristo es la certeza definitiva que transforma el sufrimiento y da sentido a nuestra existencia." },
+        ev: { cita: "Lucas 6, 17. 20-26", intro: "Jesús proclama dichosos a los pobres y perseguidos, mostrándonos que el Reino pertenece a quienes confían plenamente en Dios. De pie acojamos el Evangelio." }
+      },
+      {
+        eje: "la conversión del corazón y la misericordia inagotable del Padre",
+        p1: { cita: "Josué 5, 9a. 10-12", intro: "El pueblo de Israel, tras dejar atrás la esclavitud y el desierto, celebra la Pascua gustando los frutos de la tierra nueva que Dios les regala." },
+        salmo: { cita: "Salmo 33, 2-7", resp: "Gusten y vean qué bueno es el Señor." },
+        p2: { cita: "2 Corintios 5, 17-21", intro: "San Pablo nos suplica dejarnos reconciliar con Dios, recordando que en la Cruz hemos sido liberados para empezar una vida renovada." },
+        ev: { cita: "Lucas 15, 11-32", intro: "Mediante la parábola del Hijo Pródigo, Jesús nos revela que Dios no se cansa de esperar nuestro regreso para abrazarnos. Escuchemos de pie." }
+      },
+      {
+        eje: "la victoria definitiva de Cristo sobre la muerte y la vida nueva de la Resurrección",
+        p1: { cita: "Hechos 10, 34a. 37-43", intro: "Pedro atestigua con valentía que el mismo Jesús que pasó haciendo el bien y fue crucificado, ha resucitado para ser Señor de vivos y muertos." },
+        salmo: { cita: "Salmo 117, 1-2. 16-17", resp: "Este es el día que hizo el Señor: gocemos y alegrémonos en él." },
+        p2: { cita: "Colosenses 3, 1-4", intro: "San Pablo nos anima a mantener la mirada en los bienes del cielo, donde nuestra vida encuentra su plenitud junto a Cristo Resucitado." },
+        ev: { cita: "Juan 20, 1-9", intro: "El sepulcro vacío y los signos de la Resurrección abren los ojos de los discípulos a la fe verdadera. Aclamamos de pie cantando el Aleluya." }
+      },
+      {
+        eje: "el Mandamiento Nuevo del Amor como distintivo fundamental del creyente",
+        p1: { cita: "Hechos 14, 21b-27", intro: "Pablo y Bernabé fortalecen el espíritu de los primeros creyentes, enseñando que las dificultades del camino afianzan la fe comunitaria." },
+        salmo: { cita: "Salmo 144, 8-13", resp: "Bendeciré tu nombre por siempre jamás, Dios mío, mi Rey." },
+        p2: { cita: "Apocalipsis 21, 1-5a", intro: "Juan contempla la promesa divina de un cielo nuevo y una tierra nueva, donde la presencia de Dios enjuga toda lágrima y dolor." },
+        ev: { cita: "Juan 13, 31-35", intro: "Jesús nos entrega su sello característico: 'Ámense los unos a los otros como yo los he amado'. Nos ponemos de pie." }
+      },
+      {
+        eje: "el Pan de Vida que se multiplica y se entrega por la salvación de la humanidad",
+        p1: { cita: "Génesis 14, 18-20", intro: "El rey y sacerdote Melquisedec ofrece pan y vino bendiciendo a Abraham, anticipando el gran misterio de la Eucaristía que hoy celebramos." },
+        salmo: { cita: "Salmo 109, 1-4", resp: "Tú eres sacerdote para siempre, según el orden de Melquisedec." },
+        p2: { cita: "1 Corintios 11, 23-26", intro: "Pablo conserva la memoria más antigua de la Cena del Señor, recordándonos que al comer este pan proclamamos su entrega hasta que vuelva." },
+        ev: { cita: "Lucas 9, 11b-17", intro: "Jesús sacia el hambre de la multitud desamparada, enseñándonos que lo poco puesto en sus manos alcanza para todos. Aclamamos de pie." }
+      },
+      {
+        eje: "la elección de la 'mejor parte': la escucha atenta de la Palabra de Dios",
+        p1: { cita: "Génesis 18, 1-10a", intro: "Abraham descubre la presencia de Dios en la hospitalidad dispensada a tres forasteros, recibiendo la promesa de una vida fértil." },
+        salmo: { cita: "Salmo 14, 2-5", resp: "Señor, ¿quién puede hospedarse en tu tienda?" },
+        p2: { cita: "Colosenses 1, 24-28", intro: "San Pablo expresa la alegría de anunciar a Cristo, el misterio oculto que ahora se manifiesta como esperanza de gloria para todos." },
+        ev: { cita: "Lucas 10, 38-42", intro: "En la casa de Marta y María, Jesús nos invita a no dejar que los ajetreos diarios apaguen la escucha de su Palabra. Escuchemos de pie." }
+      },
+      {
+        eje: "la actitud del siervo fiel que mantiene encendida la lámpara de la fe y la esperanza",
+        p1: { cita: "Sabiduría 18, 6-9", intro: "La Escritura recuerda la firmeza del pueblo creyente en la noche del Éxodo, sostenido únicamente por la confianza en las promesas de Dios." },
+        salmo: { cita: "Salmo 32, 1. 12. 18-22", resp: "Dichoso el pueblo que el Señor se escogió como heredad." },
+        p2: { cita: "Hebreos 11, 1-2. 8-19", intro: "Se nos presenta el testimonio de Abraham, quien caminó guiado por una fe que es garantía de lo que se espera y prueba de lo que no se ve." },
+        ev: { cita: "Lucas 12, 32-48", intro: "Jesús nos exhorta a estar vigilantes y preparados, recordando que nuestro verdadero tesoro está en el cielo. De pie para escuchar al Señor." }
+      },
+      {
+        eje: "la verdadera humildad y la opción preferencial por los sencillos y descartados",
+        p1: { cita: "Eclesiástico 3, 17-18. 20. 28-29", intro: "Ben Sirá reflexiona sobre la grandeza del alma humilde, enseñando que quien actúa con sencillez encuentra el favor de Dios y el cariño de todos." },
+        salmo: { cita: "Salmo 67, 4-7. 10-11", resp: "Has preparado, oh Dios, una casa para los pobres." },
+        p2: { cita: "Hebreos 12, 18-19. 22-24a", intro: "El autor sagrado nos muestra la gloria de la nueva alianza en la Jerusalén celestial, donde Jesús es mediador de una gracia accesible a todos." },
+        ev: { cita: "Lucas 14, 1. 7-14", intro: "Jesús critica la prisa por ocupar los primeros puestos e invita a abrir la mesa a quienes no pueden devolver la invitación. Aclamamos de pie." }
+      },
+      {
+        eje: "la constancia, la paciencia e insistencia en la oración confiada",
+        p1: { cita: "Éxodo 17, 8-13", intro: "Moisés sostiene sus brazos elevados en oración durante el combate, mostrando a Israel que la victoria viene de la perseverancia en la fe." },
+        salmo: { cita: "Salmo 120, 1-8", resp: "El auxilio me viene del Señor, que hizo el cielo y la tierra." },
+        p2: { cita: "2 Timoteo 3, 14 — 4, 2", intro: "Pablo encarga solemnemente a Timoteo proclamar la Palabra con paciencia y doctrina, recordando que la Escritura instruye para toda obra buena." },
+        ev: { cita: "Lucas 18, 1-8", intro: "Con la parábola de la viuda y el juez injusto, Jesús nos enseña que Dios hace justicia prontamente a sus elegidos que claman día y noche. Escuchemos de pie." }
+      },
+      {
+        eje: "Jesucristo, Rey y Señor del Universo, cuya verdad nos hace verdaderamente libres",
+        p1: { cita: "Daniel 7, 13-14", intro: "El profeta Daniel contempla la figura triunfante del Hijo del Hombre, a quien Dios entrega un dominio universal y un reino que no será destruido." },
+        salmo: { cita: "Salmo 92, 1-2. 5", resp: "El Señor reina, vestido de majestad." },
+        p2: { cita: "Apocalipsis 1, 5-8", intro: "Juan proclama la realeza de Jesucristo, el Soberano de los reyes de la tierra que nos ha liberado de nuestros pecados con su propia sangre." },
+        ev: { cita: "Juan 18, 33b-37", intro: "Ante Pilato, Jesús aclara que su realeza no busca el poder mundano, sino dar testimonio de la verdad. Aclamamos de pie al Rey de Reyes." }
+      },
+      {
+        eje: "la espera confiada en el Emmanuel, Dios-con-nosotros que viene a traer la paz",
+        p1: { cita: "Miqueas 5, 1-4a", intro: "Miqueas profetiza que de la pequeña e insignificante Belén nacerá el Salvador que gobernará a Israel con la fuerza misma del Señor." },
+        salmo: { cita: "Salmo 79, 2-3. 15-16", resp: "Oh Dios, restáuranos, que brille tu rostro y nos salve." },
+        p2: { cita: "Hebreos 10, 5-10", intro: "Se nos muestra la entrega obediente de Cristo, quien entra en la historia no para cumplir ritos vacíos, sino para hacer con amor la voluntad del Padre." },
+        ev: { cita: "Lucas 1, 39-45", intro: "María acude presurosa a servir a Isabel, haciéndonos comprender que la fe verdadera salta de gozo ante la llegada del Señor. Escuchemos de pie." }
+      }
+    ];
 
-    document.addEventListener('DOMContentLoaded', function() {
+    window.onload = function() {
       setToday();
-    });
+
+      document.getElementById('btn-today').onclick = setToday;
+      document.getElementById('btn-sunday').onclick = setNextSunday;
+      document.getElementById('btn-generate').onclick = generateScript;
+      document.getElementById('btn-copy').onclick = copyToClipboard;
+      document.getElementById('btn-pdf').onclick = downloadPDF;
+      document.getElementById('btn-print').onclick = function() { window.print(); };
+    };
 
     function setToday() {
       const today = new Date().toISOString().split('T')[0];
@@ -217,28 +314,64 @@
       document.getElementById('date-picker').value = now.toISOString().split('T')[0];
     }
 
-    async function generateScriptWithAI() {
-      const apiKey = _k.join('');
+    function generateScript() {
       const dateVal = document.getElementById('date-picker').value;
-      const misaType = document.getElementById('misa-type').value;
-      const customIntention = document.getElementById('custom-intention').value.trim();
-
       if (!dateVal) {
-        alert('Por favor selecciona una fecha.');
+        alert('Por favor selecciona una fecha del calendario primero.');
         return;
       }
 
-      const statusTag = document.getElementById('status-tag');
-      const outputArea = document.getElementById('output-area');
-
-      statusTag.innerText = 'Redactando con IA...';
-      outputArea.innerHTML = '<div class="placeholder-text"><span class="placeholder-icon">⏳</span><p>La IA está consultando el Evangelio del día y redactando el guion a la medida... Espere unos segundos.</p></div>';
+      const misaType = document.getElementById('misa-type').value;
+      const customIntention = document.getElementById('custom-intention').value.trim();
 
       const dateObj = new Date(dateVal + 'T00:00:00');
+      const mesIndex = dateObj.getMonth();
+      const dataLit = catalogoLiturgico[mesIndex];
+
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
       const formattedDate = dateObj.toLocaleDateString('es-ES', options);
 
-      const promptSystem = 'Actúa como un teólogo católico experto en liturgia y redacción pastoral. Genera el guion completo para un monitor de Misa correspondiente a la fecha: ' + formattedDate + '. Tipo de celebración: ' + misaType + '. Acontecimiento especial o intención parroquial a integrar: "' + (customIntention || 'Ninguno') + '". Responde ÚNICAMENTE con código HTML válido formateado dentro de un contenedor <div class="script-output" id="printable-script"> con título, distintivos litúrgicos, monición de entrada extensa de 3 párrafos centrada en el Evangelio oficial real de esa fecha, introducciones a las lecturas con sus citas bíblicas reales, salmo, evangelio, oración universal con peticiones e intención especial, oferente y despedida.';
+      let cicloLiturgico = "Año A / Ciclo II";
+      let tiempoLiturgico = "Tiempo Ordinario";
+      let colorLiturgico = "Verde";
+      let colorClass = "color-green";
 
-      try {
-        const response = await fetch('
+      let fCitation = dataLit.p1.cita;
+      let fIntro = dataLit.p1.intro;
+      let sCitation = dataLit.salmo.cita;
+      let sResp = dataLit.salmo.resp;
+      let secCitation = dataLit.p2.cita;
+      let secIntro = dataLit.p2.intro;
+      let gCitation = dataLit.ev.cita;
+      let gIntro = dataLit.ev.intro;
+      let ejeTema = dataLit.eje;
+
+      if (misaType === "solemnidad") {
+        tiempoLiturgico = "Solemnidad / Festividad Especial";
+        colorLiturgico = "Blanco / Dorado";
+        colorClass = "color-white";
+        ejeTema = "la manifestación gloriosa de la gracia de Dios en las grandes festividades de la Iglesia";
+        fCitation = "Hechos 2, 1-11";
+        fIntro = "La Escritura nos muestra el derramamiento del Espíritu Santo sobre la Iglesia naciente, transformando el temor en valentía misionera.";
+        sCitation = "Salmo 103, 1. 24. 29-31";
+        sResp = "Envía tu Espíritu, Señor, y renueva la faz de la tierra.";
+        secCitation = "Gálatas 5, 16-25";
+        secIntro = "San Pablo nos presenta los frutos del Espíritu Santo, invitándonos a caminar guiados por el amor, la paz y la paciencia.";
+        gCitation = "Juan 20, 19-23";
+        gIntro = "Jesús se aparece a sus discípulos en el cenáculo, les comunica la paz y les regala el Espíritu Santo. De pie acojamos la Palabra.";
+      } else if (misaType === "memoria") {
+        tiempoLiturgico = "Memoria Litúrgica / Santo del Día";
+        colorLiturgico = "Rojo / Blanco";
+        colorClass = "color-red";
+        ejeTema = "el testimonio de fe de los santos que encarnaron el Evangelio en la vida diaria";
+        fCitation = "2 Corintios 4, 7-15";
+        fIntro = "La primera lectura nos recuerda que llevamos un tesoro divino en vasijas de barro, para que se vea que este poder extraordinario viene de Dios.";
+        sCitation = "Salmo 125, 1-6";
+        sResp = "Los que siembran entre lágrimas cosecharán entre cantores.";
+        secCitation = "1 Juan 3, 14-18";
+        secIntro = "La carta de Juan nos exhorta a no amar solamente de palabra ni de boca, sino con obras reales y de verdad.";
+        gCitation = "Lucas 12, 32-34";
+        gIntro = "Jesús nos anima a no temer y a hacernos tesoros inagotables en el cielo. Nos ponemos de pie para aclamar el Santo Evangelio.";
+      }
+
+      let entradaText = `«Muy buenos días (o tardes), hermanos y hermanas.
