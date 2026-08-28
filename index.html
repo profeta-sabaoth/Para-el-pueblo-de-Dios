@@ -257,7 +257,7 @@
       object-fit: cover;
     }
 
-    /* BANNER DE VERSÍCULO DIARIO (SLIM & ROJO OFICIAL) */
+    /* BANNER DE VERSÍCULO DIARIO */
     .daily-verse-banner {
       background: linear-gradient(135deg, #d32f2f 0%, #8b0000 100%);
       border-radius: 10px;
@@ -327,18 +327,18 @@
       border-radius: 2px;
     }
 
-    /* GRILLAS */
+    /* GRILLA DE TARJETAS CON IMAGEN INTEGRADA */
     .grid {
        display: grid;
-       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-       gap: 1.5rem;
+       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+       gap: 1.8rem;
        margin-bottom: 3.5rem;
     }
     .card {
        background: var(--surface);
        border: 1px solid var(--border);
        border-radius: 12px;
-       padding: 2rem 1.5rem;
+       overflow: hidden;
        box-shadow: var(--shadow-md);
        transition: all 0.3s ease;
        display: flex;
@@ -349,23 +349,46 @@
        transform: translateY(-5px);
        border-color: var(--purple-main);
     }
+    .card-img-box {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: #0f172a;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .card:hover .card-img-box img {
+      transform: scale(1.04);
+    }
+    .card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
     .card-tag {
       font-size: 0.75rem;
       font-weight: 800;
       color: var(--red-accent);
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
     .card h3 {
-       font-size: 1.25rem;
+       font-size: 1.2rem;
        font-weight: 700;
-       margin-bottom: 0.6rem;
+       margin-bottom: 0.5rem;
        color: var(--purple-main);
     }
     .card p {
        color: var(--text-muted);
-       font-size: 0.9rem;
-       margin-bottom: 1.5rem;
+       font-size: 0.88rem;
+       margin-bottom: 1.2rem;
     }
     .card-link {
       color: var(--purple-main);
@@ -570,51 +593,82 @@
       <div class="verse-citation" id="citation-box">― Cita Bíblica</div>
     </section>
 
-    <!-- ARCHIVO COMPLETO EN GRILLA -->
+    <!-- ARCHIVO COMPLETO EN GRILLA CON IMÁGENES -->
     <div class="section-header">
       <h2>Explorar el Repositorio</h2>
     </div>
     <div class="grid">
+
       <div class="card" id="talleres">
-        <div>
-          <div class="card-tag">Formación</div>
-          <h3>Talleres & PPT</h3>
-          <p>Presentaciones completas en PowerPoint y dinámicas estructuradas organizadas por año.</p>
+        <div class="card-img-box">
+          <img src="Talleres ppt.jpg" alt="Talleres y PPT">
         </div>
-        <a href="talleres.html" class="card-link">📚 Explorar Catálogo de Talleres &rarr;</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Formación</div>
+            <h3>Talleres & PPT</h3>
+            <p>Presentaciones completas en PowerPoint y dinámicas estructuradas organizadas por año.</p>
+          </div>
+          <a href="talleres.html" class="card-link">📚 Explorar Catálogo &rarr;</a>
+        </div>
       </div>
+
       <div class="card" id="guiones">
-        <div>
-          <div class="card-tag">Liturgia Generativa</div>
-          <h3>Creación de Guiones Misa</h3>
-          <p>Genera automáticamente el guion completo para cualquier fecha: saludo, municiones, lecturas y oración universal.</p>
+        <div class="card-img-box">
+          <img src="Guiones para misa.jpg" alt="Creación de Guiones para Misa">
         </div>
-        <a href="guiones.html" class="card-link">📜 Generar Guion por Fecha &rarr;</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Liturgia Generativa</div>
+            <h3>Creación de Guiones Misa</h3>
+            <p>Genera automáticamente el guion completo para cualquier fecha: saludo, lecturas y oración universal.</p>
+          </div>
+          <a href="guiones.html" class="card-link">📜 Generar Guion por Fecha &rarr;</a>
+        </div>
       </div>
+
       <div class="card" id="videoteca">
-        <div>
-          <div class="card-tag">Contenido Visual</div>
-          <h3>Videoteca Pastoral</h3>
-          <p>Explicaciones de la serie "Fe para Dummies" y noticiero del Reino.</p>
+        <div class="card-img-box">
+          <img src="Videoteca pastoral.jpg" alt="Videoteca Pastoral">
         </div>
-        <a href="videoteca.html" class="card-link">🎬 Ver Videoteca &rarr;</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Contenido Visual</div>
+            <h3>Videoteca Pastoral</h3>
+            <p>Explicaciones de la serie "Fe para Dummies" y noticiero del Reino.</p>
+          </div>
+          <a href="videoteca.html" class="card-link">🎬 Ver Videoteca &rarr;</a>
+        </div>
       </div>
+
       <div class="card" id="recursos">
-        <div>
-          <div class="card-tag">Inteligencia Artificial</div>
-          <h3>Laboratorio de Prompts</h3>
-          <p>Instrucciones y plantillas para generar tus propias imágenes bíblicas personalizadas.</p>
+        <div class="card-img-box">
+          <img src="IA.jpg" alt="Laboratorio de Prompts e Inteligencia Artificial">
         </div>
-        <a href="prompts.html" class="card-link">🎨 Ver Guía de Prompts &rarr;</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Inteligencia Artificial</div>
+            <h3>Laboratorio de Prompts</h3>
+            <p>Instrucciones y plantillas para generar tus propias imágenes bíblicas personalizadas.</p>
+          </div>
+          <a href="prompts.html" class="card-link">🎨 Ver Guía de Prompts &rarr;</a>
+        </div>
       </div>
+
       <div class="card" id="enciclicas">
-        <div>
-          <div class="card-tag">Documentos Magisterio</div>
-          <h3>Encíclicas en PDF</h3>
-          <p>Biblioteca de documentos papales clave listos para lectura y descarga directa.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Encíclicas Papales en PDF">
         </div>
-        <a href="enciclicas.html" class="card-link">📄 Ver Biblioteca de Encíclicas &rarr;</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Documentos Magisterio</div>
+            <h3>Encíclicas en PDF</h3>
+            <p>Biblioteca de documentos papales clave listos para lectura y descarga directa.</p>
+          </div>
+          <a href="enciclicas.html" class="card-link">📄 Ver Biblioteca &rarr;</a>
+        </div>
       </div>
+
     </div>
 
     <!-- SECCIÓN INTERMEDIA: VIDEO PROMOCIONAL -->
