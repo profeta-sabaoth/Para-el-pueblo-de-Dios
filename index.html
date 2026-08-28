@@ -116,34 +116,46 @@
       font-size: 1.2rem;
     }
 
-    /* HERO PRINCIPAL */
+    /* HERO PRINCIPAL COMPACTADO CON LOGO Y TÍTULO EN UNA LÍNEA */
     .hero {
        background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%);
        color: #ffffff;
        text-align: center;
-       padding: 4.5rem 1.5rem 5rem 1.5rem;
+       padding: 2.5rem 1.5rem 3.8rem 1.5rem;
+    }
+    .hero-logo-badge {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+    }
+    .hero-logo-badge img {
+      height: 55px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
     .hero h1 {
-       font-size: 2.8rem;
+       font-size: 2.1rem;
        font-weight: 800;
-       letter-spacing: -1px;
-       margin-bottom: 1rem;
-       line-height: 1.25;
-      max-width: 850px;
-      margin-left: auto;
-      margin-right: auto;
+       letter-spacing: -0.5px;
+       margin-bottom: 0.5rem;
+       line-height: 1.2;
+       max-width: 1150px;
+       margin-left: auto;
+       margin-right: auto;
+       white-space: nowrap;
     }
     .hero p {
-       font-size: 1.15rem;
+       font-size: 1.05rem;
        color: #cbd5e1;
-       max-width: 700px;
+       max-width: 800px;
        margin: 0 auto;
     }
 
     /* CONTENEDOR PRINCIPAL */
     .main-wrapper {
       max-width: 1200px;
-      margin: -2.5rem auto 4rem auto;
+      margin: -2rem auto 4rem auto;
       padding: 0 1.5rem;
       position: relative;
       z-index: 10;
@@ -496,6 +508,9 @@
        border-top: 3px solid var(--red-accent);
     }
     footer strong { color: #ffffff; }
+    @media (max-width: 1100px) {
+      .hero h1 { white-space: normal; font-size: 1.8rem; }
+    }
     @media (max-width: 850px) {
       .featured-section { grid-template-columns: 1fr; }
       .promo-banner-section { grid-template-columns: 1fr; }
@@ -536,8 +551,11 @@
     </div>
   </div>
 
-  <!-- HERO PRINCIPAL -->
+  <!-- HERO PRINCIPAL REESTRUCTURADO Y COMPACTO -->
   <section class="hero">
+    <div class="hero-logo-badge">
+      <img src="Gemini_Generated_Image_8byw2i8byw2i8byw.jpg" alt="Logo Para el pueblo de Dios">
+    </div>
     <h1>Recursos y herramientas abiertas para la evangelización</h1>
     <p>Un archivo pastoral organizado con talleres, guiones, video y herramientas IA.</p>
   </section>
@@ -570,7 +588,7 @@
       </div>
     </section>
 
-    <!-- ARCHIVO COMPLETO EN GRILLA CON IMÁGENES (6 TARJETAS CORREGIDAS) -->
+    <!-- ARCHIVO COMPLETO EN GRILLA CON IMÁGENES -->
     <div class="section-header">
       <h2>Explorar el Repositorio</h2>
     </div>
