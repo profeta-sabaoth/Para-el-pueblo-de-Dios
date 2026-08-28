@@ -185,6 +185,16 @@
       font-weight: 700;
       color: var(--purple-main);
     }
+    .liturgy-link {
+      color: var(--red-accent);
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+    .liturgy-link:hover {
+      color: var(--red-hover);
+      text-decoration: underline;
+    }
     .color-badge {
       display: inline-block;
       width: 12px;
@@ -531,8 +541,8 @@
       <div class="liturgy-item">
         <span class="liturgy-icon-box">📜</span>
         <div class="liturgy-data">
-          <h4>Lecturas Recomendadas</h4>
-          <p id="liturgy-readings">1ª Lect / Salmo / Evangelio</p>
+          <h4>Evangelio y Lecturas</h4>
+          <p><a href="https://www.iglesia.cl/evangelio.php" target="_blank" class="liturgy-link">📖 Leer lecturas de hoy &rarr;</a></p>
         </div>
       </div>
     </section>
@@ -551,7 +561,7 @@
       </div>
     </section>
 
-    <!-- BANNER DE VERSÍCULO DIARIO (AJUSTADO EN ALTURA Y PALETA ROJA) -->
+    <!-- BANNER DE VERSÍCULO DIARIO -->
     <section class="daily-verse-banner">
       <div class="verse-content-box">
         <span class="verse-header-tag">✨ Palabra de hoy</span>
@@ -708,7 +718,6 @@
     document.getElementById("liturgy-cycle").innerText = "Año B (Tiempo Ordinario)";
     document.getElementById("liturgy-color").innerText = "Verde";
     document.getElementById("color-dot").style.background = "#16a34a";
-    document.getElementById("liturgy-readings").innerText = "Consultar Lecturas de Hoy";
   </script>
 
   <!-- ESPÍA SILENCIOSO (GoatCounter) -->
