@@ -259,14 +259,18 @@
           })
         });
 
-        if (!response.ok) {
-          throw new Error('El servidor Cloudflare devolvió un error HTTP ' + response.status);
+        const rawText = await response.text();
+        let data;
+
+        try {
+          data = JSON.parse(rawText);
+        } catch (e) {
+          throw new Error('Respuesta no válida del servidor: ' + rawText);
         }
 
-        const data = await response.json();
-
-        if (data.error) {
-          throw new Error(data.error);
+        if (!response.ok || data.error) {
+          const detailMsg = data.details ? ' | Detalle: ' + data.details : '';
+          throw new Error((data.error || ('HTTP ' + response.status)) + detailMsg);
         }
 
         const scriptHTML = `
