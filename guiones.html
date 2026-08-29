@@ -202,7 +202,6 @@
   </footer>
 
   <script>
-    // URL DE TU WORKER EN CLOUDFLARE
     const WORKER_URL = "https://guiones-liturgicos.soquitroqui.workers.dev";
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -261,10 +260,14 @@
         });
 
         if (!response.ok) {
-          throw new Error('Error al conectar con el servidor.');
+          throw new Error('El servidor Cloudflare devolvió un error HTTP ' + response.status);
         }
 
         const data = await response.json();
+
+        if (data.error) {
+          throw new Error(data.error);
+        }
 
         const scriptHTML = `
           <div class="script-output" id="printable-script">
