@@ -10,14 +10,13 @@
   
   <style>
     :root {
-      --bg-dark: #12031e;
-      --bg-card: #250a3c;
-      --primary-purple: #4a1575;
+      --bg-dark: #320c52;
+      --bg-card: #4a1575;
       --accent-red: #e53935;
       --accent-red-hover: #c62828;
-      --text-light: #f3eef8;
-      --text-muted: #b3a2c7;
-      --border-color: rgba(229, 57, 53, 0.3);
+      --text-light: #ffffff;
+      --text-muted: #e0d0f0;
+      --border-color: rgba(229, 57, 53, 0.4);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -94,10 +93,21 @@
 
     .hero p { color: var(--text-muted); font-size: 1.1rem; }
 
+    .section-title {
+      max-width: 1200px;
+      margin: 2rem auto 1rem auto;
+      padding: 0 1rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--text-light);
+      border-bottom: 2px solid var(--accent-red);
+      padding-bottom: 0.5rem;
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1rem 4rem 1rem;
+      padding: 1rem 1rem 3rem 1rem;
     }
 
     .grid {
@@ -106,7 +116,7 @@
       gap: 2rem;
     }
 
-    .card {
+    .workshop-card {
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
@@ -114,44 +124,30 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-red);
+    .workshop-card:hover { transform: translateY(-5px); }
+
+    .card-num {
+      color: var(--accent-red);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
     }
 
-    .card-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .badge-taller {
-      background-color: var(--primary-purple);
-      color: var(--text-light);
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .year { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; }
-
-    .card h3 {
+    .workshop-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       margin-bottom: 0.75rem;
       color: #fff;
     }
 
-    .card p {
+    .workshop-card p {
       color: var(--text-muted);
       font-size: 0.95rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       flex-grow: 1;
     }
 
@@ -206,63 +202,82 @@
   </header>
 
   <section class="hero">
-    <h1>Catálogo de Talleres y PPT</h1>
-    <p>Presentaciones completas y material de formación pastoral listos para usar y descargar directamente.</p>
+    <h1>Talleres & Presentaciones PPT</h1>
+    <p>Material completo de formación organizados por año para encuentros comunitarios y formación de agentes.</p>
   </section>
 
+  <h2 class="section-title">Talleres Año 2025</h2>
   <main class="container">
     <div class="grid">
 
-      <!-- Taller 1 -->
-      <div class="card">
+      <div class="workshop-card">
         <div>
-          <div class="card-meta">
-            <span class="badge-taller">Formación</span>
-            <span class="year">2025</span>
-          </div>
-          <h3>Taller 1: Mecenazgo Pastoral</h3>
-          <p>Presentación orientada a la autogestión, formación de agentes y recursos para comunidades.</p>
+          <div class="card-num">Taller 01</div>
+          <h3>Mecenazgo Pastoral</h3>
+          <p>Autogestión y administración de recursos para la misión en las comunidades locales.</p>
         </div>
-        <a href="https://drive.google.com/drive/search?q=Mecenazgo" target="_blank" class="btn-download">📊 Ver / Descargar Taller</a>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
       </div>
 
-      <!-- Taller 2 -->
-      <div class="card">
+      <div class="workshop-card">
         <div>
-          <div class="card-meta">
-            <span class="badge-taller">Doctrina</span>
-            <span class="year">2025</span>
-          </div>
-          <h3>Taller 2: Hijo de Dios</h3>
-          <p>Esquema de formación teológica sobre la filiación divina y el compromiso bautismal.</p>
+          <div class="card-num">Taller 02</div>
+          <h3>Hijo de Dios</h3>
+          <p>La filiación divina y el fundamento teológico de la vida en fe.</p>
         </div>
-        <a href="https://drive.google.com/drive/search?q=Hijo%20de%20Dios" target="_blank" class="btn-download">📊 Ver / Descargar Taller</a>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
       </div>
 
-      <!-- Taller 3 -->
-      <div class="card">
+      <div class="workshop-card">
         <div>
-          <div class="card-meta">
-            <span class="badge-taller">Catequesis</span>
-            <span class="year">2025</span>
-          </div>
-          <h3>Taller 3: Introducción a las Sagradas Escrituras</h3>
-          <p>Herramientas prácticas para abordar la Biblia en grupos comunitarios y encuentros de fe.</p>
+          <div class="card-num">Taller 03</div>
+          <h3>Introducción a las Sagradas Escrituras</h3>
+          <p>Herramientas y claves hermenéuticas para la lectura comunitaria de la Biblia.</p>
         </div>
-        <a href="https://drive.google.com/drive/search?q=Sagradas%20Escrituras" target="_blank" class="btn-download">📊 Ver / Descargar Taller</a>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
       </div>
 
-      <!-- Taller 4 -->
-      <div class="card">
+      <div class="workshop-card">
         <div>
-          <div class="card-meta">
-            <span class="badge-taller">Liturgia</span>
-            <span class="year">2025</span>
-          </div>
-          <h3>Taller 4: El Misterio Celebrado</h3>
-          <p>Guía pedagógica sobre la Eucaristía, sus partes y el sentido litúrgico para monitores.</p>
+          <div class="card-num">Taller 04</div>
+          <h3>El Misterio Celebrado</h3>
+          <p>Estructura litúrgica, teología eucarística y sentido de la Misa.</p>
         </div>
-        <a href="https://drive.google.com/drive/search?q=Misterio%20Celebrado" target="_blank" class="btn-download">📊 Ver / Descargar Taller</a>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 05</div>
+          <h3>Jeremías (Parte 1)</h3>
+          <p>El llamado profético y la respuesta en tiempos de crisis comunitaria.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 06</div>
+          <h3>Isaías (Parte 1)</h3>
+          <p>La santidad de Dios, la vocación del profeta y los cánticos del Siervo.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2025 &rarr;</a>
+      </div>
+
+    </div>
+  </main>
+
+  <h2 class="section-title">Talleres Año 2026</h2>
+  <main class="container">
+    <div class="grid">
+
+      <div class="workshop-card">
+        <div>
+          <div class="card-num">Taller 01 - 2026</div>
+          <h3>Formación de Monitores Litúrgicos</h3>
+          <p>Módulo de preparación práctica para guías y lectores de la celebración.</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WO97K2GJNcBMArh7Lmw3nracvlrKM5zN?usp=drive_link" target="_blank" class="btn-download">Ver en carpeta 2026 &rarr;</a>
       </div>
 
     </div>
