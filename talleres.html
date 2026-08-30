@@ -11,13 +11,13 @@
   <style>
     :root {
       --bg-dark: #12031e;
-      --bg-card: #1c082e;
+      --bg-card: #250a3c;
       --primary-purple: #4a1575;
       --accent-red: #e53935;
       --accent-red-hover: #c62828;
       --text-light: #f3eef8;
       --text-muted: #b3a2c7;
-      --border-color: rgba(229, 57, 53, 0.2);
+      --border-color: rgba(229, 57, 53, 0.3);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,7 +33,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: rgba(18, 3, 30, 0.95);
+      background-color: rgba(50, 12, 82, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-color);
       padding: 1rem 2rem;
@@ -89,6 +89,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 2.8rem;
       margin-bottom: 1rem;
+      color: #fff;
     }
 
     .hero p { color: var(--text-muted); font-size: 1.1rem; }
@@ -135,6 +136,7 @@
       border-radius: 20px;
       font-size: 0.85rem;
       font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
     .year { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; }
@@ -143,6 +145,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.6rem;
       margin-bottom: 0.75rem;
+      color: #fff;
     }
 
     .card p {
@@ -220,7 +223,7 @@
           <h3>Taller 1: Mecenazgo Pastoral</h3>
           <p>Presentación orientada a la autogestión, formación de agentes y recursos para comunidades.</p>
         </div>
-        <a href="#" data-file="Taller 1 Mecenazgo" class="btn-download drive-link" target="_blank">📊 Ver / Descargar Taller</a>
+        <a href="https://drive.google.com/drive/search?q=Mecenazgo" target="_blank" class="btn-download">📊 Ver / Descargar Taller</a>
       </div>
 
       <!-- Taller 2 -->
@@ -233,7 +236,7 @@
           <h3>Taller 2: Hijo de Dios</h3>
           <p>Esquema de formación teológica sobre la filiación divina y el compromiso bautismal.</p>
         </div>
-        <a href="#" data-file="Taller 2 Hijo de Dios" class="btn-download drive-link" target="_blank">📊 Ver / Descargar Taller</a>
+        <a href="https://drive.google.com/drive/search?q=Hijo%20de%20Dios" target="_blank" class="btn-download">📊 Ver / Descargar Taller</a>
       </div>
 
       <!-- Taller 3 -->
@@ -246,7 +249,7 @@
           <h3>Taller 3: Introducción a las Sagradas Escrituras</h3>
           <p>Herramientas prácticas para abordar la Biblia en grupos comunitarios y encuentros de fe.</p>
         </div>
-        <a href="#" data-file="Taller 3 Sagradas Escrituras" class="btn-download drive-link" target="_blank">📊 Ver / Descargar Taller</a>
+        <a href="https://drive.google.com/drive/search?q=Sagradas%20Escrituras" target="_blank" class="btn-download">📊 Ver / Descargar Taller</a>
       </div>
 
       <!-- Taller 4 -->
@@ -259,7 +262,7 @@
           <h3>Taller 4: El Misterio Celebrado</h3>
           <p>Guía pedagógica sobre la Eucaristía, sus partes y el sentido litúrgico para monitores.</p>
         </div>
-        <a href="#" data-file="Taller 4 El Misterio Celebrado" class="btn-download drive-link" target="_blank">📊 Ver / Descargar Taller</a>
+        <a href="https://drive.google.com/drive/search?q=Misterio%20Celebrado" target="_blank" class="btn-download">📊 Ver / Descargar Taller</a>
       </div>
 
     </div>
@@ -268,23 +271,6 @@
   <footer>
     <p><strong>Para el pueblo de Dios</strong> — Proyecto desarrollado para facilitar la labor de catequistas y formadores.</p>
   </footer>
-
-  <script>
-    // Enrutador directo para carpetas de talleres en Google Drive
-    const FOLDER_ID = '12A6i2i18iQ24S1w_mJv14f9uK6P7z7Xw'; 
-    
-    document.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('.drive-link');
-      links.forEach(link => {
-        const fileName = link.getAttribute('data-file');
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const searchUrl = `https://drive.google.com/drive/folders/${FOLDER_ID}?q=${encodeURIComponent(fileName)}`;
-          window.open(searchUrl, '_blank');
-        });
-      });
-    });
-  </script>
 
 </body>
 </html>
