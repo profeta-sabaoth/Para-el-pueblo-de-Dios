@@ -10,21 +10,22 @@
   
   <style>
     :root {
-      --bg-dark: #320c52;
-      --bg-card: #4a1575;
+      --bg-light: #f8f9fa;
+      --bg-card: #ffffff;
+      --primary-dark: #1a1a1a;
       --accent-red: #e53935;
       --accent-red-hover: #c62828;
-      --text-light: #ffffff;
-      --text-muted: #e0d0f0;
-      --border-color: rgba(229, 57, 53, 0.4);
+      --text-dark: #212529;
+      --text-muted: #6c757d;
+      --border-color: #e0e0e0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-light);
+      background-color: var(--bg-light);
+      color: var(--text-dark);
       line-height: 1.6;
     }
 
@@ -32,7 +33,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: rgba(50, 12, 82, 0.95);
+      background-color: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-color);
       padding: 1rem 2rem;
@@ -51,7 +52,7 @@
       align-items: center;
       gap: 0.75rem;
       text-decoration: none;
-      color: var(--text-light);
+      color: var(--primary-dark);
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       font-size: 1.25rem;
@@ -75,7 +76,7 @@
       transition: color 0.3s ease;
     }
 
-    nav a:hover, nav a.active { color: var(--text-light); }
+    nav a:hover, nav a.active { color: var(--accent-red); }
 
     .hero {
       text-align: center;
@@ -88,7 +89,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 2.8rem;
       margin-bottom: 1rem;
-      color: #fff;
+      color: var(--primary-dark);
     }
 
     .hero p { color: var(--text-muted); font-size: 1.1rem; }
@@ -99,7 +100,7 @@
       padding: 0 1rem;
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
-      color: var(--text-light);
+      color: var(--primary-dark);
       border-bottom: 2px solid var(--accent-red);
       padding-bottom: 0.5rem;
     }
@@ -124,10 +125,14 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .workshop-card:hover { transform: translateY(-5px); }
+    .workshop-card:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
 
     .card-num {
       color: var(--accent-red);
@@ -141,7 +146,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
       margin-bottom: 0.75rem;
-      color: #fff;
+      color: var(--primary-dark);
     }
 
     .workshop-card p {
@@ -172,6 +177,7 @@
       border-top: 1px solid var(--border-color);
       color: var(--text-muted);
       font-size: 0.9rem;
+      background-color: #ffffff;
     }
 
     @media (max-width: 768px) {
@@ -250,8 +256,8 @@
       <div class="workshop-card">
         <div>
           <div class="card-num">Taller 05</div>
-          <h3>Taller 05</h3>
-          <p>Presentación y recursos de formación pastoral 2025.</p>
+          <h3>Jeremías (Parte 1)</h3>
+          <p>El llamado profético y la respuesta en tiempos de crisis comunitaria.</p>
         </div>
         <a href="https://docs.google.com/presentation/d/1MgN-2m0Aa9XuC0j319wXrqZwDHgDOP_x/edit?usp=drive_link&ouid=116036079759949260693&rtpof=true&sd=true" target="_blank" class="btn-download">Ver / Descargar PPT &rarr;</a>
       </div>
@@ -259,8 +265,8 @@
       <div class="workshop-card">
         <div>
           <div class="card-num">Taller 06</div>
-          <h3>Taller 06</h3>
-          <p>Presentación y recursos de formación pastoral 2025.</p>
+          <h3>Isaías (Parte 1)</h3>
+          <p>La santidad de Dios, la vocación del profeta y los cánticos del Siervo.</p>
         </div>
         <a href="https://docs.google.com/presentation/d/1J__1SWx0DA1D_FJYSWMbTh5AkmT2Hphm/edit?usp=drive_link&ouid=116036079759949260693&rtpof=true&sd=true" target="_blank" class="btn-download">Ver / Descargar PPT &rarr;</a>
       </div>
@@ -348,8 +354,8 @@
       <div class="workshop-card">
         <div>
           <div class="card-num">Taller 01</div>
-          <h3>Jeremías (Parte 1)</h3>
-          <p>El llamado profético y la respuesta en tiempos de crisis comunitaria.</p>
+          <h3>Formación de Monitores Litúrgicos</h3>
+          <p>Módulo de preparación práctica para guías y lectores de la celebración.</p>
         </div>
         <a href="https://docs.google.com/presentation/d/1_Zu4jVTtXes7vXo39cWQA1FctK8TCtLl/edit?usp=drive_link&ouid=116036079759949260693&rtpof=true&sd=true" target="_blank" class="btn-download">Ver / Descargar PPT &rarr;</a>
       </div>
@@ -357,8 +363,8 @@
       <div class="workshop-card">
         <div>
           <div class="card-num">Taller 02</div>
-          <h3>Isaías (Parte 1)</h3>
-          <p>La santidad de Dios, la vocación del profeta y los cánticos del Siervo.</p>
+          <h3>Taller 02</h3>
+          <p>Presentación y recursos de formación pastoral 2026.</p>
         </div>
         <a href="https://docs.google.com/presentation/d/1OcSx82XEd786ck04i6LPrxQtnw8MXqaA/edit?usp=drive_link&ouid=116036079759949260693&rtpof=true&sd=true" target="_blank" class="btn-download">Ver / Descargar PPT &rarr;</a>
       </div>
