@@ -10,14 +10,13 @@
   
   <style>
     :root {
-      --bg-dark: #12031e;
-      --bg-card: #250a3c;
-      --primary-purple: #4a1575;
+      --bg-dark: #320c52;
+      --bg-card: #4a1575;
       --accent-red: #e53935;
       --accent-red-hover: #c62828;
-      --text-light: #f3eef8;
-      --text-muted: #b3a2c7;
-      --border-color: rgba(229, 57, 53, 0.3);
+      --text-light: #ffffff;
+      --text-muted: #e0d0f0;
+      --border-color: rgba(229, 57, 53, 0.4);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -92,7 +91,20 @@
       color: #fff;
     }
 
-    .hero p { color: var(--text-muted); font-size: 1.1rem; }
+    .hero p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+    .btn-top-drive {
+      display: inline-block;
+      background-color: var(--accent-red);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-top-drive:hover { background-color: var(--accent-red-hover); }
 
     .container {
       max-width: 1200px;
@@ -114,13 +126,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-red);
-    }
+    .card:hover { transform: translateY(-5px); }
 
     .card-meta {
       display: flex;
@@ -136,14 +145,14 @@
       border-radius: 20px;
       font-size: 0.85rem;
       font-weight: 600;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
     }
 
     .year { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; }
 
     .card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       margin-bottom: 0.75rem;
       color: #fff;
     }
@@ -151,24 +160,9 @@
     .card p {
       color: var(--text-muted);
       font-size: 0.95rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       flex-grow: 1;
     }
-
-    .btn-download {
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-      background-color: var(--accent-red);
-      color: #fff;
-      text-decoration: none;
-      padding: 0.8rem 1rem;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-download:hover { background-color: var(--accent-red-hover); }
 
     footer {
       text-align: center;
@@ -207,101 +201,235 @@
 
   <section class="hero">
     <h1>Biblioteca del Magisterio</h1>
-    <p>Selecciona la encíclica que deseas consultar o descargar directamente en formato PDF.</p>
+    <p>Documentos papales clave para la formación teológica y pastoral. Puedes acceder a la biblioteca completa en PDF.</p>
+    <a href="https://drive.google.com/drive/folders/12A6i2i18iQ24S1w_mJv14f9uK6P7z7Xw?usp=drive_link" target="_blank" class="btn-top-drive">📂 Abrir Carpeta de Encíclicas en PDF &rarr;</a>
   </section>
 
   <main class="container">
     <div class="grid">
 
-      <!-- 1. Evangelii Gaudium -->
       <div class="card">
         <div>
-          <div class="card-meta">
-            <span class="badge-papa">Papa Francisco</span>
-            <span class="year">2013</span>
-          </div>
+          <div class="card-meta"><span class="badge-papa">Papa Francisco</span><span class="year">2013</span></div>
+          <h3>Lumen Fidei</h3>
+          <p>La luz de la fe. Sobre la fe cristiana como luz que ilumina la existencia humana.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">Papa Francisco</span><span class="year">2013</span></div>
           <h3>Evangelii Gaudium</h3>
-          <p>La alegría del Evangelio. Exhortación apostólica sobre el anuncio del Evangelio en el mundo actual y la transformación misionera de la Iglesia.</p>
+          <p>La alegría del Evangelio. Exhortación apostólica sobre el anuncio del Evangelio en el mundo actual.</p>
         </div>
-        <a href="https://drive.google.com/drive/search?q=Evangelii%20Gaudium" target="_blank" class="btn-download">📄 Leer / Descargar PDF</a>
       </div>
 
-      <!-- 2. Laudato Si' -->
       <div class="card">
         <div>
-          <div class="card-meta">
-            <span class="badge-papa">Papa Francisco</span>
-            <span class="year">2015</span>
-          </div>
+          <div class="card-meta"><span class="badge-papa">Papa Francisco</span><span class="year">2015</span></div>
           <h3>Laudato Si'</h3>
-          <p>Sobre el cuidado de la casa común. Carta encíclica dedicada a la ecología integral, el cambio climático y la responsabilidad cristiana.</p>
+          <p>Sobre el cuidado de la casa común. Carta encíclica dedicada a la ecología integral.</p>
         </div>
-        <a href="https://drive.google.com/drive/search?q=Laudato%20Si" target="_blank" class="btn-download">📄 Leer / Descargar PDF</a>
       </div>
 
-      <!-- 3. Fratelli Tutti -->
       <div class="card">
         <div>
-          <div class="card-meta">
-            <span class="badge-papa">Papa Francisco</span>
-            <span class="year">2020</span>
-          </div>
+          <div class="card-meta"><span class="badge-papa">Papa Francisco</span><span class="year">2018</span></div>
+          <h3>Gaudete et Exsultate</h3>
+          <p>Sobre el llamado a la santidad en el mundo contemporáneo.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">Papa Francisco</span><span class="year">2020</span></div>
           <h3>Fratelli Tutti</h3>
-          <p>Sobre la fraternidad y la amistad social. Reflexión profunda para sanar un mundo herido por divisiones e injusticias.</p>
+          <p>Sobre la fraternidad y la amistad social en un mundo dividido.</p>
         </div>
-        <a href="https://drive.google.com/drive/search?q=Fratelli%20Tutti" target="_blank" class="btn-download">📄 Leer / Descargar PDF</a>
       </div>
 
-      <!-- 4. Deus Caritas Est -->
       <div class="card">
         <div>
-          <div class="card-meta">
-            <span class="badge-papa">Benedicto XVI</span>
-            <span class="year">2005</span>
-          </div>
+          <div class="card-meta"><span class="badge-papa">Papa Francisco</span><span class="year">2024</span></div>
+          <h3>Dilexit Nos</h3>
+          <p>Sobre el amor humano y divino del Corazón de Jesucristo.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">Benedicto XVI</span><span class="year">2005</span></div>
           <h3>Deus Caritas Est</h3>
-          <p>Dios es amor. Primera encíclica de Benedicto XVI sobre el amor cristiano, el eros, el ágape y la misión caritativa de la Iglesia.</p>
+          <p>Dios es amor. Sobre el amor cristiano y el servicio de la caridad.</p>
         </div>
-        <a href="https://drive.google.com/drive/search?q=Deus%20Caritas%20Est" target="_blank" class="btn-download">📄 Leer / Descargar PDF</a>
       </div>
 
-      <!-- 5. Spe Salvi -->
       <div class="card">
         <div>
-          <div class="card-meta">
-            <span class="badge-papa">Benedicto XVI</span>
-            <span class="year">2007</span>
-          </div>
+          <div class="card-meta"><span class="badge-papa">Benedicto XVI</span><span class="year">2007</span></div>
           <h3>Spe Salvi</h3>
-          <p>En esperanza fuimos salvados. Profunda reflexión sobre la esperanza cristiana frente a las desesperanzas del mundo contemporáneo.</p>
+          <p>En esperanza fuimos salvados. Reflexión sobre la esperanza cristiana.</p>
         </div>
-        <a href="https://drive.google.com/drive/search?q=Spe%20Salvi" target="_blank" class="btn-download">📄 Leer / Descargar PDF</a>
       </div>
 
-      <!-- 6. Fides et Ratio -->
       <div class="card">
         <div>
-          <div class="card-meta">
-            <span class="badge-papa">San Juan Pablo II</span>
-            <span class="year">1998</span>
-          </div>
-          <h3>Fides et Ratio</h3>
-          <p>Sobre las relaciones entre fe y razón. Monumental escrito que demuestra cómo ambas son las dos alas con las que el espíritu humano se eleva hacia la verdad.</p>
+          <div class="card-meta"><span class="badge-papa">Benedicto XVI</span><span class="year">2009</span></div>
+          <h3>Caritas in Veritate</h3>
+          <p>La caridad en la verdad. Sobre el desarrollo humano integral en la caridad y la verdad.</p>
         </div>
-        <a href="https://drive.google.com/drive/search?q=Fides%20et%20Ratio" target="_blank" class="btn-download">📄 Leer / Descargar PDF</a>
       </div>
 
-      <!-- 7. Dives in Misericordia -->
       <div class="card">
         <div>
-          <div class="card-meta">
-            <span class="badge-papa">San Juan Pablo II</span>
-            <span class="year">1980</span>
-          </div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1979</span></div>
+          <h3>Redemptor Hominis</h3>
+          <p>El Redentor del hombre. Primera encíclica sobre Jesucristo como centro de la historia.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1980</span></div>
           <h3>Dives in Misericordia</h3>
-          <p>Rico en misericordia. Carta encíclica sobre la misericordia divina como respuesta fundamental a las tensiones de la humanidad.</p>
+          <p>Rico en misericordia. Sobre la misericordia divina como respuesta a los sufrimientos humanos.</p>
         </div>
-        <a href="https://drive.google.com/drive/search?q=Dives%20in%20Misericordia" target="_blank" class="btn-download">📄 Leer / Descargar PDF</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1981</span></div>
+          <h3>Laborem Exercens</h3>
+          <p>Sobre el trabajo humano en el noventa aniversario de la Rerum Novarum.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1985</span></div>
+          <h3>Slavorum Apostoli</h3>
+          <p>En memoria de los Santos Cirilo y Metodio, evangelizadores de los pueblos eslavos.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1986</span></div>
+          <h3>Dominum et Vivificantem</h3>
+          <p>El Señor y Dador de vida. Sobre el Espíritu Santo en la vida de la Iglesia y del mundo.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1987</span></div>
+          <h3>Redemptoris Mater</h3>
+          <p>La Madre del Redentor. Sobre la Santísima Virgen María en la vida de la Iglesia.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1987</span></div>
+          <h3>Sollicitudo Rei Socialis</h3>
+          <p>La preocupación social de la Iglesia al cumplirse el vigésimo aniversario de la Populorum Progressio.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1990</span></div>
+          <h3>Redemptoris Missio</h3>
+          <p>La misión del Redentor. Sobre la permanente validez del mandato misionero.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1991</span></div>
+          <h3>Centesimus Annus</h3>
+          <p>En el centenario de la Rerum Novarum. Sobre la doctrina social de la Iglesia.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1993</span></div>
+          <h3>Veritatis Splendor</h3>
+          <p>El esplendor de la verdad. Sobre algunas cuestiones fundamentales de la enseñanza moral de la Iglesia.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1995</span></div>
+          <h3>Evangelium Vitae</h3>
+          <p>El Evangelio de la vida. Sobre el valor e inviolabilidad de la vida humana.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1995</span></div>
+          <h3>Ut Unum Sint</h3>
+          <p>Que todos sean uno. Sobre el compromiso ecuménico de la Iglesia.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">1998</span></div>
+          <h3>Fides et Ratio</h3>
+          <p>Sobre las relaciones entre la fe y la razón.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan Pablo II</span><span class="year">2003</span></div>
+          <h3>Ecclesia de Eucharistia</h3>
+          <p>La Iglesia vive de la Eucaristía y su relación con el misterio pascual.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Pablo VI</span><span class="year">1968</span></div>
+          <h3>Humanae Vitae</h3>
+          <p>Sobre la regulación de la natalidad y el valor de la vida familiar.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">San Juan XXIII</span><span class="year">1963</span></div>
+          <h3>Pacem in Terris</h3>
+          <p>Sobre la paz entre todos los pueblos fundamentada en la verdad, la justicia y la libertad.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">Venerable Pío XII</span><span class="year">1943</span></div>
+          <h3>Mystici Corporis Christi</h3>
+          <p>Sobre el Cuerpo Místico de Jesucristo y la unión de los fieles con Cristo.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">Pío XI</span><span class="year">1931</span></div>
+          <h3>Quadragesimo Anno</h3>
+          <p>Sobre la restauración del orden social y su perfeccionamiento según el Evangelio.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-meta"><span class="badge-papa">León XIII</span><span class="year">1891</span></div>
+          <h3>Rerum Novarum</h3>
+          <p>Sobre la condición de los obreros. Documento fundador de la Doctrina Social de la Iglesia.</p>
+        </div>
       </div>
 
     </div>
