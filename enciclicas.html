@@ -160,7 +160,7 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 1.5rem;
+      overflow: hidden;
       box-shadow: var(--shadow-md);
       transition: all 0.3s ease;
       display: flex;
@@ -170,6 +170,29 @@
     .card:hover {
       transform: translateY(-5px);
       border-color: var(--purple-main);
+    }
+    .card-img-box {
+      width: 100%;
+      height: 160px;
+      overflow: hidden;
+      background: #0f172a;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .card:hover .card-img-box img {
+      transform: scale(1.04);
+    }
+    .card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
     }
     .card-tag {
       font-size: 0.75rem;
@@ -189,6 +212,7 @@
       color: var(--text-muted);
       font-size: 0.88rem;
       margin-bottom: 1.5rem;
+      line-height: 1.5;
       flex-grow: 1;
     }
 
@@ -264,237 +288,367 @@
     <div class="grid">
 
       <div class="card">
-        <div>
-          <div class="card-tag">Pablo VI • 1964</div>
-          <h3>Ecclesiam Suam</h3>
-          <p>Carta encíclica del Papa Pablo VI publicada en el año 1964.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Ecclesiam Suam">
         </div>
-        <a href="enciclicas/1964 CARTA ENCÍCLICA.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Pablo VI • 1964</div>
+            <h3>Ecclesiam Suam</h3>
+            <p>Reflexiona sobre los caminos de la Iglesia en el mundo moderno, destacando la importancia del diálogo ecuménico, la renovación interior y la misión evangelizadora.</p>
+          </div>
+          <a href="enciclicas/1964 CARTA ENCÍCLICA.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Pablo VI • 1965</div>
-          <h3>Mysterium Fidei</h3>
-          <p>Carta encíclica del Papa Pablo VI publicada en el año 1965.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Mysterium Fidei">
         </div>
-        <a href="enciclicas/1965 CARTA ENCÍCLICA.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Pablo VI • 1965</div>
+            <h3>Mysterium Fidei</h3>
+            <p>Reafirma la doctrina y el culto de la Sagrada Eucaristía, subrayando la presencia real de Cristo en el santísimo sacramento frente a errores de interpretación.</p>
+          </div>
+          <a href="enciclicas/1965 CARTA ENCÍCLICA.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Pablo VI • 1966</div>
-          <h3>Christi Matri</h3>
-          <p>Carta encíclica del Papa Pablo VI publicada en el año 1966.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Christi Matri">
         </div>
-        <a href="enciclicas/1966 CARTA ENCÍCLICA.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Pablo VI • 1966</div>
+            <h3>Christi Matri</h3>
+            <p>Exhortación a la oración e intercesión a María, Madre de Dios, para implorar la paz entre las naciones y el fin de los conflictos bélicos en el mundo.</p>
+          </div>
+          <a href="enciclicas/1966 CARTA ENCÍCLICA.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Pablo VI • 1967</div>
-          <h3>Populorum Progressio</h3>
-          <p>Carta encíclica del Papa Pablo VI publicada en el año 1967.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Populorum Progressio">
         </div>
-        <a href="enciclicas/1967 CARTA ENCÍCLICA.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Pablo VI • 1967</div>
+            <h3>Populorum Progressio</h3>
+            <p>Aborda el desarrollo integral de los pueblos, la justicia social global y la solidaridad internacional como el nuevo nombre de la paz mundial.</p>
+          </div>
+          <a href="enciclicas/1967 CARTA ENCÍCLICA.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Pablo VI • 1967</div>
-          <h3>Sacerdotalis Caelibatus</h3>
-          <p>Carta encíclica del Papa Pablo VI publicada en el año 1967.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Sacerdotalis Caelibatus">
         </div>
-        <a href="enciclicas/1967 ENCÍCLICA SACERDOTALIS CAELIBATUS.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Pablo VI • 1967</div>
+            <h3>Sacerdotalis Caelibatus</h3>
+            <p>Defiende y profundiza el sentido teológico, espiritual y pastoral del celibato sacerdotal en la Iglesia Católica latina.</p>
+          </div>
+          <a href="enciclicas/1967 ENCÍCLICA SACERDOTALIS CAELIBATUS.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Pablo VI • 1968</div>
-          <h3>Humanae Vitae</h3>
-          <p>Carta encíclica del Papa Pablo VI publicada en el año 1968.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Humanae Vitae">
         </div>
-        <a href="enciclicas/1968 CARTA ENCÍCLICA humanun vitae.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Pablo VI • 1968</div>
+            <h3>Humanae Vitae</h3>
+            <p>Trata sobre la regulación de la natalidad, la defensa de la vida humana y la dignidad del amor conyugal según el plan divino.</p>
+          </div>
+          <a href="enciclicas/1968 CARTA ENCÍCLICA humanun vitae.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 1979</div>
-          <h3>Redemptor Hominis</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 1979.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Redemptor Hominis">
         </div>
-        <a href="enciclicas/1969 CARTA ENCÍCLICA REDEMPTOR HOMINIS.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 1979</div>
+            <h3>Redemptor Hominis</h3>
+            <p>Primera encíclica de su pontificado; coloca a Jesucristo Redentor como centro de la historia, de la dignidad humana y de la misión de la Iglesia.</p>
+          </div>
+          <a href="enciclicas/1969 CARTA ENCÍCLICA REDEMPTOR HOMINIS.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 1980</div>
-          <h3>Dives in Misericordia</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 1980.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Dives in Misericordia">
         </div>
-        <a href="enciclicas/1980 dives-in-misericordia.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 1980</div>
+            <h3>Dives in Misericordia</h3>
+            <p>Profundiza en la misericordia de Dios Padre revelada en Cristo como respuesta al sufrimiento, las tensiones sociales y el pecado del ser humano.</p>
+          </div>
+          <a href="enciclicas/1980 dives-in-misericordia.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 1981</div>
-          <h3>Laborem Exercens</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 1981.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Laborem Exercens">
         </div>
-        <a href="enciclicas/1981 laborem-exercens.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 1981</div>
+            <h3>Laborem Exercens</h3>
+            <p>Analiza la naturaleza del trabajo humano, la prioridad del trabajo sobre el capital y la dignidad de los trabajadores en la sociedad actual.</p>
+          </div>
+          <a href="enciclicas/1981 laborem-exercens.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 1986</div>
-          <h3>Dominum et Vivificantem</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 1986.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Dominum et Vivificantem">
         </div>
-        <a href="enciclicas/1986 dominum-et-vivificantem.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 1986</div>
+            <h3>Dominum et Vivificantem</h3>
+            <p>Dedicada al Espíritu Santo en la vida de la Iglesia y del mundo, profundizando en su acción santificadora y renovadora de las mentes y corazones.</p>
+          </div>
+          <a href="enciclicas/1986 dominum-et-vivificantem.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 1987</div>
-          <h3>Redemptoris Mater</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 1987.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Redemptoris Mater">
         </div>
-        <a href="enciclicas/1987 redemptoris-mater.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 1987</div>
+            <h3>Redemptoris Mater</h3>
+            <p>Explora la presencia de la Santísima Virgen María en el misterio de Cristo y su papel peregrino en la fe de la Iglesia militante.</p>
+          </div>
+          <a href="enciclicas/1987 redemptoris-mater.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 1987</div>
-          <h3>Sollicitudo Rei Socialis</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 1987.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Sollicitudo Rei Socialis">
         </div>
-        <a href="enciclicas/1987 sollicitudo-rei-socialis.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 1987</div>
+            <h3>Sollicitudo Rei Socialis</h3>
+            <p>Actualiza la doctrina social sobre el desarrollo integral, denunciando las estructuras de pecado, los bloques de poder y la falta de solidaridad.</p>
+          </div>
+          <a href="enciclicas/1987 sollicitudo-rei-socialis.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 1990</div>
-          <h3>Redemptoris Missio</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 1990.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Redemptoris Missio">
         </div>
-        <a href="enciclicas/1990 redemptoris-missio.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 1990</div>
+            <h3>Redemptoris Missio</h3>
+            <p>Renueva el mandato de la misión evangelizadora universal ('ad gentes'), urgiendo a anunciar el Evangelio con entusiasmo a todos los pueblos.</p>
+          </div>
+          <a href="enciclicas/1990 redemptoris-missio.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 1991</div>
-          <h3>Centesimus Annus</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 1991.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Centesimus Annus">
         </div>
-        <a href="enciclicas/1991 centesimus-annus.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 1991</div>
+            <h3>Centesimus Annus</h3>
+            <p>A cien años de Rerum Novarum, examina los acontecimientos sociales y políticos recientes, proponiendo una visión ética de la economía y la sociedad.</p>
+          </div>
+          <a href="enciclicas/1991 centesimus-annus.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 1995</div>
-          <h3>Evangelium Vitae</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 1995.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Evangelium Vitae">
         </div>
-        <a href="enciclicas/1995 evangelium-vitae.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 1995</div>
+            <h3>Evangelium Vitae</h3>
+            <p>Defensa firme del valor inviolable de la vida humana desde la concepción hasta la muerte natural ante las amenazas de la cultura de la muerte.</p>
+          </div>
+          <a href="enciclicas/1995 evangelium-vitae.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 1995</div>
-          <h3>Ut Unum Sint</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 1995.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Ut Unum Sint">
         </div>
-        <a href="enciclicas/1995 ut-unum-sint.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 1995</div>
+            <h3>Ut Unum Sint</h3>
+            <p>Reafirma el compromiso irrevocable de la Iglesia Católica con el ecumenismo y la búsqueda de la unidad visible de todos los cristianos.</p>
+          </div>
+          <a href="enciclicas/1995 ut-unum-sint.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 1998</div>
-          <h3>Fides et Ratio</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 1998.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Fides et Ratio">
         </div>
-        <a href="enciclicas/1998 fides-et-ratio.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 1998</div>
+            <h3>Fides et Ratio</h3>
+            <p>Examina la relación armoniosa entre la fe y la razón humana en la búsqueda de la verdad última y el sentido profundo de la existencia.</p>
+          </div>
+          <a href="enciclicas/1998 fides-et-ratio.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Juan Pablo II • 2003</div>
-          <h3>Ecclesia de Eucharistia</h3>
-          <p>Carta encíclica del Papa Juan Pablo II publicada en el año 2003.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Ecclesia de Eucharistia">
         </div>
-        <a href="enciclicas/2003 ECCLESIA DE EUCHARISTIA.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Juan Pablo II • 2003</div>
+            <h3>Ecclesia de Eucharistia</h3>
+            <p>Resalta el vínculo indisoluble entre la Eucaristía y la Iglesia, llamando a avivar el asombro eucarístico en la celebración del misterio pascual.</p>
+          </div>
+          <a href="enciclicas/2003 ECCLESIA DE EUCHARISTIA.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Benedicto XVI • 2005</div>
-          <h3>Deus Caritas Est</h3>
-          <p>Carta encíclica del Papa Benedicto XVI publicada en el año 2005.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Deus Caritas Est">
         </div>
-        <a href="enciclicas/2005 deus-caritas-est.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Benedicto XVI • 2005</div>
+            <h3>Deus Caritas Est</h3>
+            <p>Trata sobre el amor cristiano en sus dimensiones de eros y ágape, y el servicio de la caridad como manifestación esencial de la fe.</p>
+          </div>
+          <a href="enciclicas/2005 deus-caritas-est.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Benedicto XVI • 2007</div>
-          <h3>Spe Salvi</h3>
-          <p>Carta encíclica del Papa Benedicto XVI publicada en el año 2007.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Spe Salvi">
         </div>
-        <a href="enciclicas/2007 spe-salvi.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Benedicto XVI • 2007</div>
+            <h3>Spe Salvi</h3>
+            <p>Reflexiona sobre la esperanza cristiana, demostrando cómo la fe en Cristo transforma el sufrimiento y ofrece una salvación auténtica.</p>
+          </div>
+          <a href="enciclicas/2007 spe-salvi.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Benedicto XVI • 2009</div>
-          <h3>Caritas in Veritate</h3>
-          <p>Carta encíclica del Papa Benedicto XVI publicada en el año 2009.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Caritas in Veritate">
         </div>
-        <a href="enciclicas/2009 caritas-in-veritate.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Benedicto XVI • 2009</div>
+            <h3>Caritas in Veritate</h3>
+            <p>Aborda el desarrollo humano integral en la caridad y la verdad, proponiendo una ética de la fraternidad en medio de las crisis económicas globales.</p>
+          </div>
+          <a href="enciclicas/2009 caritas-in-veritate.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Francisco • 2013</div>
-          <h3>Lumen Fidei</h3>
-          <p>Carta encíclica del Papa Francisco publicada en el año 2013.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Lumen Fidei">
         </div>
-        <a href="enciclicas/2013 enciclica-lumen-fidei_sp.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Francisco • 2013</div>
+            <h3>Lumen Fidei</h3>
+            <p>Redactada a cuatro manos con Benedicto XVI; presenta la fe como una luz que ilumina la vida humana, la familia y el bien común en la sociedad.</p>
+          </div>
+          <a href="enciclicas/2013 enciclica-lumen-fidei_sp.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Francisco • 2013</div>
-          <h3>Evangelii Gaudium</h3>
-          <p>Exhortación apostólica del Papa Francisco publicada en el año 2013.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Evangelii Gaudium">
         </div>
-        <a href="enciclicas/2013 evangelii-gaudium_sp.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Francisco • 2013</div>
+            <h3>Evangelii Gaudium</h3>
+            <p>Exhortación sobre la alegría del Evangelio y la transformación misionera de la Iglesia, llamando a salir a las periferias con renovado ardor.</p>
+          </div>
+          <a href="enciclicas/2013 evangelii-gaudium_sp.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Francisco • 2015</div>
-          <h3>Laudato Si'</h3>
-          <p>Carta encíclica del Papa Francisco publicada en el año 2015.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Laudato Si'">
         </div>
-        <a href="enciclicas/2015 enciclica-laudato-si.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Francisco • 2015</div>
+            <h3>Laudato Si'</h3>
+            <p>Dedicada al cuidado de la casa común; plantea una ecología integral que une la protección del medio ambiente con la justicia hacia los pobres.</p>
+          </div>
+          <a href="enciclicas/2015 enciclica-laudato-si.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Francisco • 2020</div>
-          <h3>Fratelli Tutti</h3>
-          <p>Carta encíclica del Papa Francisco publicada en el año 2020.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Fratelli Tutti">
         </div>
-        <a href="enciclicas/2020 enciclica-fratelli-tutti.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Francisco • 2020</div>
+            <h3>Fratelli Tutti</h3>
+            <p>Propone la fraternidad universal y la amistad social como caminos para reconstruir un mundo herido por divisiones, guerras y desamor.</p>
+          </div>
+          <a href="enciclicas/2020 enciclica-fratelli-tutti.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
       <div class="card">
-        <div>
-          <div class="card-tag">Francisco • 2024</div>
-          <h3>Dilexit Nos</h3>
-          <p>Carta encíclica del Papa Francisco publicada en el año 2024.</p>
+        <div class="card-img-box">
+          <img src="Enciclicas.jpg" alt="Dilexit Nos">
         </div>
-        <a href="enciclicas/2024 enciclica-dilexit-nos.pdf" download class="btn-download">Descargar PDF</a>
+        <div class="card-body">
+          <div>
+            <div class="card-tag">Francisco • 2024</div>
+            <h3>Dilexit Nos</h3>
+            <p>Reflexiona sobre el amor humano y divino del Corazón de Jesucristo, invitando a recuperar la profundidad del corazón en un mundo superficial.</p>
+          </div>
+          <a href="enciclicas/2024 enciclica-dilexit-nos.pdf" download class="btn-download">Descargar PDF</a>
+        </div>
       </div>
 
     </div>
