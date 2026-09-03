@@ -95,6 +95,43 @@
       letter-spacing: 1px;
       margin-bottom: 1.5rem;
     }
+    .infographics-title {
+      color: var(--purple-main);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .infographics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .infographic-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .infographic-card a {
+      display: block;
+    }
+    .infographic-card img {
+      display: block;
+      height: 360px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .infographic-card h3 {
+      color: var(--purple-main);
+      font-size: 1.1rem;
+      padding: 1rem;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      .infographics-grid { grid-template-columns: 1fr; }
+    }
     .back-btn {
       display: inline-block;
       background: var(--purple-main);
@@ -143,13 +180,48 @@
   </section>
 
   <main class="main-wrapper">
-    <div class="construction-box">
-      <span class="badge-status">🛠️ Sección en Elaboración</span>
-      <h2>Estamos Diseñando el Material Visual</h2>
-      <p>Estamos preparando una colección completa de infografías descargables con resúmenes, personajes clave, contextos históricos y esquemas de cada libro sagrado.</p>
-      <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 2rem;">Próximamente comenzaremos con el libro del <strong>Génesis</strong>.</p>
+    <section class="construction-box">
+      <h2 class="infographics-title">Infografías de los libros de la Biblia</h2>
+      <div class="infographics-grid">
+        <article class="infographic-card">
+          <a href="imagenes/01 Génesis.png" target="_blank" rel="noopener">
+            <img src="imagenes/01 Génesis.png" alt="Infografía del libro del Génesis">
+          </a>
+          <h3>Génesis</h3>
+        </article>
+        <article class="infographic-card">
+          <a href="imagenes/02 Exodo.png" target="_blank" rel="noopener">
+            <img src="imagenes/02 Exodo.png" alt="Infografía del libro del Éxodo">
+          </a>
+          <h3>Éxodo</h3>
+        </article>
+        <article class="infographic-card">
+          <a href="imagenes/03 Levíticos.png" target="_blank" rel="noopener">
+            <img src="imagenes/03 Levíticos.png" alt="Infografía del libro de Levíticos">
+          </a>
+          <h3>Levíticos</h3>
+        </article>
+        <article class="infographic-card">
+          <a href="imagenes/04 Números.png" target="_blank" rel="noopener">
+            <img src="imagenes/04 Números.png" alt="Infografía del libro de Números">
+          </a>
+          <h3>Números</h3>
+        </article>
+        <article class="infographic-card">
+          <a href="imagenes/05 Deuteronomio.png" target="_blank" rel="noopener">
+            <img src="imagenes/05 Deuteronomio.png" alt="Infografía del libro de Deuteronomio">
+          </a>
+          <h3>Deuteronomio</h3>
+        </article>
+        <article class="infographic-card">
+          <a href="imagenes/06 Josué.png" target="_blank" rel="noopener">
+            <img src="imagenes/06 Josué.png" alt="Infografía del libro de Josué">
+          </a>
+          <h3>Josué</h3>
+        </article>
+      </div>
       <a href="index.html" class="back-btn">&larr; Volver al Menú Principal</a>
-    </div>
+    </section>
   </main>
 
   <footer>
