@@ -467,6 +467,46 @@
       color: var(--text-muted);
       line-height: 1.35;
     }
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.2rem;
+      max-width: 760px;
+    }
+    .contact-form label {
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text-main);
+      text-transform: uppercase;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font: inherit;
+      color: var(--text-main);
+      background: var(--bg-light);
+    }
+    .contact-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+    .contact-form button {
+      justify-self: start;
+      background: var(--red-accent);
+      border: 0;
+      border-radius: 6px;
+      color: #ffffff;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 800;
+      padding: 0.8rem 1.4rem;
+    }
+    .contact-form button:hover { background: var(--red-hover); }
     footer {
        background: var(--purple-dark);
       color: #94a3b8;
@@ -687,29 +727,26 @@
       <div class="section-header">
         <h2>Comunidad & Contacto</h2>
       </div>
-      <div class="links-grid">
-        <a href="https://www.youtube.com/@F%C3%A9paraDummies" target="_blank" class="link-item">
-          <span class="link-icon">📺</span>
-          <div class="link-info">
-            <h4>Canal de YouTube</h4>
-            <p>Serie "Fe para Dummies" con explicaciones sencillas, directas y al grano sobre temas bíblicos y doctrinales.</p>
-          </div>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61592411879862" target="_blank" class="link-item">
-          <span class="link-icon">📘</span>
-          <div class="link-info">
-            <h4>Página de Facebook</h4>
-            <p>Página de "Fe para Dummies" con publicaciones, reflexiones y novedades del contenido.</p>
-          </div>
-        </a>
-        <a href="https://chat.whatsapp.com/CX8JwGqscOHKXDyaVbR4bO" target="_blank" class="link-item">
-          <span class="link-icon">💬</span>
-          <div class="link-info">
-            <h4>Grupo de WhatsApp</h4>
-            <p>Espacio abierto para la comunidad. Comparte material, resuelve dudas y mantente al día.</p>
-          </div>
-        </a>
-      </div>
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="REEMPLAZAR_CON_LA_CLAVE_DE_WEB3FORMS">
+        <input type="hidden" name="subject" value="Nuevo mensaje desde Para el pueblo de Dios">
+        <input type="hidden" name="from_name" value="Para el pueblo de Dios">
+        <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+        <label for="contact-name">
+          Nombre
+          <input type="text" id="contact-name" name="name" required>
+        </label>
+        <label for="contact-email">
+          Correo electrónico
+          <input type="email" id="contact-email" name="email" required>
+        </label>
+        <label for="contact-message">
+          Mensaje
+          <textarea id="contact-message" name="message" required></textarea>
+        </label>
+        <button type="submit">Enviar mensaje</button>
+      </form>
     </section>
   </main>
 
